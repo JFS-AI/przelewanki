@@ -28,9 +28,13 @@ int main() {
 
 	for(int i = 0; i < n; i++) {
 		std::cin >> pojemnosc[i] >> koniec[i];
-		if(pojemnosc[i] == 0) { i--; n--; } // kasujemy szklanki bez pojemności
+		if(pojemnosc[i] == 0) { i--; n--; } // kasujemy szklanki bez pojemności (im dying)
 	}
 
+	if(n == 0) {
+		std::cout << 0;
+		return 0;
+	}
 
 	if(!czyWarunkiKonieczneSpelnione()) {
 		std::cout << -1;

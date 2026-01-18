@@ -2,6 +2,7 @@
 *.e
 *.in
 *.zip
+*.tar
 nohup.out
 a.out
 */

@@ -5,8 +5,10 @@
 #include <span>
 #include <cstdint>
 #include <map>
+#include <queue>
 
-constexpr maxN = 20;
+
+constexpr int maxN = 20;
 
 struct Stan {
     // 1. Rezerwujemy pamięć na max (na stosie, nie na stercie)
@@ -41,10 +43,19 @@ struct Stan {
         return std::equal(data().begin(), data().end(), 
                           other.data().begin(), other.data().end());
     }
+
+	int& operator[](size_t index) {
+        return buffer[index];
+    }
+
+    // Wersja tylko do odczytu (const)
+    const int& operator[](size_t index) const {
+        return buffer[index];
+    }
 };
 
-Stan pojemnosc, koniec;
-// bool czyPustoPelne[maxN];
+int n;
+Stan pojemnosc, koniec, czyPustoPelne;
 
 bool czyJestJedenPelnyLubPusty() {
 	for(int i = 0; i < n; i++) {
@@ -74,11 +85,11 @@ class kolejka012 {
 
 public:
 	bool isEmpty(int& krok) {
-		if(q0.empty()) {
+		if(q[0].empty()) {
 			krok++;
 			tryUpdating();
 		}
-		return q0.empty();
+		return q[0].empty();
 	}
 	void push(Stan s, int krok) {
 		q[krok].push(s);
@@ -88,7 +99,7 @@ public:
 		q[0].pop();
 		return wynik;
 	}
-}
+};
 
 // bool czyStanWygrywajacy
 
@@ -108,7 +119,7 @@ void pushJesliNowy(Stan s, int nrRuchu, int silaRuchu) {
 }
 int solve() {
 	{
-		Stan s();
+		Stan s;
 		for(int& x : s.buffer)
 			x = 0;
 		kol.push(s, 0);
@@ -120,24 +131,24 @@ int solve() {
 			return nrRuchu;
 
 		for(int i = 0; i < n; i++) {
-			if(pocz.buffer[i] < pojemnosc) {
+			if(pocz[i] < pojemnosc[i]) {
 				Stan s = pocz;
-				s.buffer[i] = pojemnosc[i];
+				s[i] = pojemnosc[i];
 				pushJesliNowy(s, nrRuchu, 1);
 			}
-			if(pocz.buffer[i] > 0) {
+			if(pocz[i] > 0) {
 				{
 					Stan s = pocz;
-					s.buffer[i] = 0;
+					s[i] = 0;
 					pushJesliNowy(s, nrRuchu, 1);
 				}
 				for(int j = 0; j < n; j++) {
 					if(j == i) continue;
 					Stan s = pocz;
-					s.buffer[j] += s.buffer[i];
-					int overflow = s.buffer[j] - pojemnosc[j];
+					s[j] += s[i];
+					int overflow = s[j] - pojemnosc[j];
 					if(overflow < 0) overflow = 0;
-					s.buffer[i] = overflow;
+					s[i] = overflow;
 					pushJesliNowy(s, nrRuchu, 1);
 				}
 			}
@@ -170,5 +181,5 @@ int main() {
 		return 0;
 	}
 
-	cout << solve();
+	std::cout << solve();
 }

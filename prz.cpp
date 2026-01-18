@@ -9,6 +9,7 @@
 
 
 constexpr int maxN = 20;
+int n;
 
 struct Stan {
     // 1. Rezerwujemy pamięć na max (na stosie, nie na stercie)
@@ -22,7 +23,7 @@ struct Stan {
     }
     
     // Konstruktor domyślny
-    Stan() : size(0) {}
+    Stan() : size(n) {}
 
     // 2. Pomocniczy widok na aktywne dane
     std::span<const int> data() const {
@@ -54,7 +55,7 @@ struct Stan {
     }
 };
 
-int n;
+
 Stan pojemnosc, koniec, czyPustoPelne;
 
 bool czyJestJedenPelnyLubPusty() {
@@ -172,14 +173,15 @@ int main() {
 	}
 
 	if(n == 0) {
-		std::cout << 0;
+		std::cout << 0 << "\n";
 		return 0;
 	}
 
 	if(!czyWarunkiKonieczneSpelnione()) {
-		std::cout << -1;
+		std::cout << -1 << "\n";
 		return 0;
 	}
 
-	std::cout << solve();
+	std::cout << solve() << "\n";
+	return 0;
 }

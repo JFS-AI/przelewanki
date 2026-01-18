@@ -9,7 +9,7 @@
 
 
 constexpr int maxN = 10;
-int n;
+uint8_t n;
 
 struct Stan {
     // 1. Rezerwujemy pamięć na max (na stosie, nie na stercie)
@@ -145,14 +145,9 @@ int solve() {
 				for(int j = 0; j < n; j++) {
 					if(j == i) continue;
 					Stan s = pocz;
-					s[j] += s[i];
-					int overflow = s[j] - pojemnosc[j];
-					if(overflow > 0) {
-						s[i] = overflow;
-						s[j] = pojemnosc[j];
-					}
-					else
-						s[i] = 0;
+					int przelew = std::min(s[i], pojemnosc[j] - s[j]);
+					s[j] += przelew;
+					s[i] -= przelew;
 					
 					pushJesliNowy(s, nrRuchu, 1);
 				}

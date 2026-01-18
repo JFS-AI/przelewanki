@@ -124,6 +124,7 @@ void pushJesliNowy(const Stan& s, int nrRuchu, int silaRuchu) {
 
 }
 int solve() {
+    mapa.reserve(1000000);
 	int nrRuchu = 0;
 	{
 		Stan s;

@@ -9,6 +9,7 @@
 #include <functional>
 
 constexpr int maxN = 11;
+constexpr std::size_t rozmiarPamieci = 2'000'000;
 unsigned int n;
 
 struct Stan {
@@ -85,47 +86,49 @@ bool czyWarunkiKonieczneSpelnione() {
 std::unordered_map<Stan, int, StanHash> mapa; // wrzucic do funkcji + dodac static
 std::queue<std::pair<Stan, int>> kol;
 void pushJesliNowy(const Stan& s, int nrRuchu) {
-	auto search = mapa.find(s);
-	if(search == mapa.end()) {
-		kol.emplace(s, nrRuchu);
-		mapa.emplace(s, nrRuchu);
+	auto [it, inserted] = mapa.try_emplace(s, nrRuchu);
+    if(inserted) {
+        kol.emplace(s, nrRuchu);
     }
 }
 int solve() {
+    mapa.reserve(rozmiarPamieci);
 	{
 		Stan s;
 		s.buffer.fill(0);
 		pushJesliNowy(s, 0);
 	}
 	while(!kol.empty()) {
-		Stan pocz = kol.front().first;
+		Stan s = kol.front().first;
         int nrRuchu = kol.front().second;
         kol.pop();
-		if(pocz == koniec)
+		if(s == koniec)
 			return nrRuchu;
 
         nrRuchu++;
 		for(int i = 0; i < n; i++) {
-			if(pocz[i] < pojemnosc[i]) {
-				Stan s = pocz;
+            int temp = s[i];
+			if(s[i] < pojemnosc[i]) {
 				s[i] = pojemnosc[i];
 				pushJesliNowy(s, nrRuchu);
+                s[i] = temp;
 			}
-			if(pocz[i] > 0) {
+			if(s[i] > 0) {
 				{
-					Stan s = pocz;
 					s[i] = 0;
 					pushJesliNowy(s, nrRuchu);
+                    s[i] = temp;
 				}
 				for(int j = 0; j < n; j++) {
-					if(j == i || pocz[j] == pojemnosc[j]) continue;
-                    
-					Stan s = pocz;
+					if(j == i || s[j] == pojemnosc[j]) continue;
+
 					int przelew = std::min(s[i], pojemnosc[j] - s[j]);
 					s[j] += przelew;
 					s[i] -= przelew;
 					
 					pushJesliNowy(s, nrRuchu);
+                    s[j] -= przelew;
+                    s[i] = temp;
 				}
 			}
 		}

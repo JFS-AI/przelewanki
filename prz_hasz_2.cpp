@@ -84,7 +84,7 @@ bool czyWarunkiKonieczneSpelnione() {
 }
 
 std::unordered_map<Stan, int, StanHash> mapa; // wrzucic do funkcji + dodac static
-std::deque<std::pair<Stan, int>> kol;
+std::vector<std::pair<Stan, int>> kol;
 void pushJesliNowy(const Stan& s, int nrRuchu) {
 	auto [it, inserted] = mapa.try_emplace(s, nrRuchu);
     if(inserted) {
@@ -93,14 +93,16 @@ void pushJesliNowy(const Stan& s, int nrRuchu) {
 }
 int solve() {
     mapa.reserve(rozmiarPamieci);
+    kol.reserve(rozmiarPamieci);
+    int head = 0;
 	{
 		Stan s;
 		s.buffer.fill(0);
 		pushJesliNowy(s, 0);
 	}
 	while(!kol.empty()) {
-		Stan s = kol[0].first;
-        int nrRuchu = kol[0].second;
+		Stan s = kol[head].first;
+        int nrRuchu = kol[head].second;
         
 		if(s == koniec)
 			return nrRuchu;
@@ -133,7 +135,8 @@ int solve() {
 			}
 		}
         
-        kol.pop_front();
+        //kol.pop_front();
+        head++;
 	}
 
 	return -1;

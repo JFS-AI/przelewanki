@@ -1,6 +1,6 @@
 <?xml version="1.0" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1" width="1200" height="614" onload="init(evt)" viewBox="0 0 1200 614" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg version="1.1" width="1200" height="518" onload="init(evt)" viewBox="0 0 1200 518" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <!-- Flame graph stack visualization. See https://github.com/brendangregg/FlameGraph for latest version, and http://www.brendangregg.com/flamegraphs.html for examples. -->
 <!-- NOTES:  -->
 <defs>
@@ -422,2045 +422,1061 @@
 	}
 ]]>
 </script>
-<rect x="0.0" y="0" width="1200.0" height="614.0" fill="url(#background)"  />
+<rect x="0.0" y="0" width="1200.0" height="518.0" fill="url(#background)"  />
 <text id="title" x="600.00" y="24" >Flame Graph</text>
-<text id="details" x="10.00" y="597" > </text>
+<text id="details" x="10.00" y="501" > </text>
 <text id="unzoom" x="10.00" y="24" class="hide">Reset Zoom</text>
 <text id="search" x="1090.00" y="24" >Search</text>
 <text id="ignorecase" x="1174.00" y="24" >ic</text>
-<text id="matched" x="1090.00" y="597" > </text>
+<text id="matched" x="1090.00" y="501" > </text>
 <g id="frames">
 <g >
-<title>std::__detail::_Node_iterator_base&lt;std::pair&lt;Stan const, int&gt;, true&gt;::_Node_iterator_base (16,425,195 samples, 0.03%)</title><rect x="1185.0" y="405" width="0.3" height="15.0" fill="rgb(245,184,44)" rx="2" ry="2" />
-<text  x="1187.95" y="415.5" ></text>
+<title>handle_pte_fault (121,232,464 samples, 0.25%)</title><rect x="1186.8" y="213" width="3.0" height="15.0" fill="rgb(217,57,13)" rx="2" ry="2" />
+<text  x="1189.81" y="223.5" ></text>
 </g>
 <g >
-<title>__x64_sys_munmap (9,456,914 samples, 0.02%)</title><rect x="114.5" y="213" width="0.2" height="15.0" fill="rgb(206,7,1)" rx="2" ry="2" />
-<text  x="117.54" y="223.5" ></text>
+<title>iommu_completion_wait.isra.0 (4,151,731 samples, 0.01%)</title><rect x="1172.8" y="85" width="0.1" height="15.0" fill="rgb(225,94,22)" rx="2" ry="2" />
+<text  x="1175.81" y="95.5" ></text>
 </g>
 <g >
-<title>__hrtimer_run_queues (6,393,206 samples, 0.01%)</title><rect x="615.3" y="197" width="0.1" height="15.0" fill="rgb(237,150,35)" rx="2" ry="2" />
-<text  x="618.30" y="207.5" ></text>
+<title>vms_complete_munmap_vmas (8,611,348 samples, 0.02%)</title><rect x="725.2" y="229" width="0.2" height="15.0" fill="rgb(216,52,12)" rx="2" ry="2" />
+<text  x="728.19" y="239.5" ></text>
 </g>
 <g >
-<title>asm_sysvec_apic_timer_interrupt (6,724,306 samples, 0.01%)</title><rect x="1093.9" y="341" width="0.1" height="15.0" fill="rgb(232,127,30)" rx="2" ry="2" />
-<text  x="1096.88" y="351.5" ></text>
+<title>unmap_single_vma (6,431,262 samples, 0.01%)</title><rect x="725.2" y="181" width="0.2" height="15.0" fill="rgb(225,93,22)" rx="2" ry="2" />
+<text  x="728.25" y="191.5" ></text>
 </g>
 <g >
-<title>__alloc_frozen_pages_noprof (42,527,897 samples, 0.07%)</title><rect x="125.4" y="117" width="0.9" height="15.0" fill="rgb(228,109,26)" rx="2" ry="2" />
-<text  x="128.42" y="127.5" ></text>
+<title>rcu_sched_clock_irq (7,472,816 samples, 0.02%)</title><rect x="1170.0" y="229" width="0.2" height="15.0" fill="rgb(208,15,3)" rx="2" ry="2" />
+<text  x="1172.97" y="239.5" ></text>
 </g>
 <g >
-<title>operator new (42,778,413 samples, 0.07%)</title><rect x="90.2" y="341" width="0.9" height="15.0" fill="rgb(216,51,12)" rx="2" ry="2" />
-<text  x="93.22" y="351.5" ></text>
+<title>consume_stock (4,948,731 samples, 0.01%)</title><rect x="1178.9" y="101" width="0.1" height="15.0" fill="rgb(237,149,35)" rx="2" ry="2" />
+<text  x="1181.92" y="111.5" ></text>
 </g>
 <g >
-<title>__gnu_cxx::__aligned_buffer&lt;std::pair&lt;Stan const, int&gt; &gt;::_M_addr (120,023,439 samples, 0.21%)</title><rect x="534.5" y="325" width="2.5" height="15.0" fill="rgb(205,1,0)" rx="2" ry="2" />
-<text  x="537.52" y="335.5" ></text>
+<title>std::_Rb_tree_iterator&lt;std::pair&lt;Stan const, int&gt; &gt; std::_Rb_tree&lt;Stan, std::pair&lt;Stan const, int&gt;, std::_Select1st&lt;std::pair&lt;Stan const, int&gt; &gt;, std::less&lt;Stan&gt;, std::allocator&lt;std::pair&lt;Stan const, int&gt; &gt; &gt;::_M_emplace_hint_unique&lt;Stan const&amp;, int&amp;&gt; (207,603,308 samples, 0.43%)</title><rect x="1176.3" y="341" width="5.1" height="15.0" fill="rgb(205,1,0)" rx="2" ry="2" />
+<text  x="1179.32" y="351.5" ></text>
 </g>
 <g >
-<title>int std::__memcmp&lt;int, int&gt; (29,267,092 samples, 0.05%)</title><rect x="722.0" y="229" width="0.6" height="15.0" fill="rgb(220,70,16)" rx="2" ry="2" />
-<text  x="725.05" y="239.5" ></text>
+<title>__irqentry_text_end (12,651,623 samples, 0.03%)</title><rect x="724.8" y="357" width="0.3" height="15.0" fill="rgb(248,199,47)" rx="2" ry="2" />
+<text  x="727.83" y="367.5" ></text>
 </g>
 <g >
-<title>folio_add_lru_vma (15,674,600 samples, 0.03%)</title><rect x="126.4" y="181" width="0.3" height="15.0" fill="rgb(252,216,51)" rx="2" ry="2" />
-<text  x="129.37" y="191.5" ></text>
+<title>pushJesliNowy (18,345,780,563 samples, 37.91%)</title><rect x="734.1" y="357" width="447.3" height="15.0" fill="rgb(248,201,48)" rx="2" ry="2" />
+<text  x="737.08" y="367.5" >pushJesliNowy</text>
 </g>
 <g >
-<title>sysvec_apic_timer_interrupt (6,604,076 samples, 0.01%)</title><rect x="683.0" y="261" width="0.2" height="15.0" fill="rgb(220,69,16)" rx="2" ry="2" />
-<text  x="686.03" y="271.5" ></text>
+<title>cpuacct_account_field (4,314,552 samples, 0.01%)</title><rect x="729.0" y="213" width="0.1" height="15.0" fill="rgb(240,163,39)" rx="2" ry="2" />
+<text  x="731.97" y="223.5" ></text>
 </g>
 <g >
-<title>update_process_times (11,694,150 samples, 0.02%)</title><rect x="1056.3" y="277" width="0.2" height="15.0" fill="rgb(250,209,50)" rx="2" ry="2" />
-<text  x="1059.28" y="287.5" ></text>
+<title>__mem_cgroup_charge (30,581,812 samples, 0.06%)</title><rect x="1187.5" y="165" width="0.8" height="15.0" fill="rgb(218,60,14)" rx="2" ry="2" />
+<text  x="1190.51" y="175.5" ></text>
 </g>
 <g >
-<title>__gnu_cxx::__normal_iterator&lt;int const*, std::span&lt;int const, 18446744073709551615ul&gt; &gt;::base (12,468,469 samples, 0.02%)</title><rect x="130.6" y="341" width="0.3" height="15.0" fill="rgb(214,44,10)" rx="2" ry="2" />
-<text  x="133.61" y="351.5" ></text>
+<title>pte_offset_map_rw_nolock (11,683,677 samples, 0.02%)</title><rect x="1189.4" y="197" width="0.3" height="15.0" fill="rgb(221,75,18)" rx="2" ry="2" />
+<text  x="1192.42" y="207.5" ></text>
 </g>
 <g >
-<title>int const* std::__to_address&lt;int const&gt; (128,921,730 samples, 0.22%)</title><rect x="604.7" y="277" width="2.7" height="15.0" fill="rgb(250,209,50)" rx="2" ry="2" />
-<text  x="607.74" y="287.5" ></text>
+<title>exc_page_fault (143,188,702 samples, 0.30%)</title><rect x="1177.6" y="261" width="3.5" height="15.0" fill="rgb(212,35,8)" rx="2" ry="2" />
+<text  x="1180.63" y="271.5" ></text>
 </g>
 <g >
-<title>rmqueue.isra.0 (8,732,265 samples, 0.02%)</title><rect x="114.2" y="101" width="0.2" height="15.0" fill="rgb(237,151,36)" rx="2" ry="2" />
-<text  x="117.20" y="111.5" ></text>
+<title>__sysvec_apic_timer_interrupt (261,016,413 samples, 0.54%)</title><rect x="727.4" y="325" width="6.3" height="15.0" fill="rgb(242,173,41)" rx="2" ry="2" />
+<text  x="730.36" y="335.5" ></text>
 </g>
 <g >
-<title>vma_alloc_folio_noprof (46,908,889 samples, 0.08%)</title><rect x="125.4" y="165" width="1.0" height="15.0" fill="rgb(218,61,14)" rx="2" ry="2" />
-<text  x="128.42" y="175.5" ></text>
+<title>do_anonymous_page (41,529,859 samples, 0.09%)</title><rect x="726.1" y="261" width="1.0" height="15.0" fill="rgb(238,155,37)" rx="2" ry="2" />
+<text  x="729.08" y="271.5" ></text>
 </g>
 <g >
-<title>Stan::operator[] (897,137,611 samples, 1.54%)</title><rect x="54.0" y="453" width="18.1" height="15.0" fill="rgb(244,179,42)" rx="2" ry="2" />
-<text  x="56.96" y="463.5" ></text>
+<title>account_process_tick (14,841,945 samples, 0.03%)</title><rect x="728.7" y="245" width="0.4" height="15.0" fill="rgb(234,136,32)" rx="2" ry="2" />
+<text  x="731.71" y="255.5" ></text>
 </g>
 <g >
-<title>int const* std::to_address&lt;int const&gt; (129,704,805 samples, 0.22%)</title><rect x="577.2" y="293" width="2.6" height="15.0" fill="rgb(227,105,25)" rx="2" ry="2" />
-<text  x="580.20" y="303.5" ></text>
+<title>do_anonymous_page (18,647,273 samples, 0.04%)</title><rect x="1168.6" y="245" width="0.4" height="15.0" fill="rgb(238,155,37)" rx="2" ry="2" />
+<text  x="1171.57" y="255.5" ></text>
 </g>
 <g >
-<title>__gnu_cxx::__normal_iterator&lt;int const*, std::span&lt;int const, 18446744073709551615ul&gt; &gt;::base (52,804,953 samples, 0.09%)</title><rect x="665.5" y="277" width="1.1" height="15.0" fill="rgb(214,44,10)" rx="2" ry="2" />
-<text  x="668.53" y="287.5" ></text>
+<title>rmqueue.isra.0 (12,412,335 samples, 0.03%)</title><rect x="1179.6" y="69" width="0.3" height="15.0" fill="rgb(237,151,36)" rx="2" ry="2" />
+<text  x="1182.61" y="79.5" ></text>
 </g>
 <g >
-<title>std::span&lt;int const, 18446744073709551615ul&gt;::span&lt;int const*&gt; (15,801,800 samples, 0.03%)</title><rect x="129.2" y="341" width="0.3" height="15.0" fill="rgb(205,1,0)" rx="2" ry="2" />
-<text  x="132.17" y="351.5" ></text>
+<title>do_vmi_align_munmap (10,896,974 samples, 0.02%)</title><rect x="725.1" y="245" width="0.3" height="15.0" fill="rgb(211,29,7)" rx="2" ry="2" />
+<text  x="728.14" y="255.5" ></text>
 </g>
 <g >
-<title>update_cfs_group (5,129,070 samples, 0.01%)</title><rect x="933.7" y="213" width="0.1" height="15.0" fill="rgb(242,174,41)" rx="2" ry="2" />
-<text  x="936.66" y="223.5" ></text>
+<title>__mem_cgroup_charge (20,652,897 samples, 0.04%)</title><rect x="1178.6" y="149" width="0.5" height="15.0" fill="rgb(218,60,14)" rx="2" ry="2" />
+<text  x="1181.59" y="159.5" ></text>
 </g>
 <g >
-<title>std::__detail::__extent_storage&lt;18446744073709551615ul&gt;::_M_extent (436,520,230 samples, 0.75%)</title><rect x="805.8" y="277" width="8.8" height="15.0" fill="rgb(209,21,5)" rx="2" ry="2" />
-<text  x="808.75" y="287.5" ></text>
+<title>zap_pmd_range.isra.0 (5,680,473 samples, 0.01%)</title><rect x="10.1" y="117" width="0.1" height="15.0" fill="rgb(244,180,43)" rx="2" ry="2" />
+<text  x="13.08" y="127.5" ></text>
 </g>
 <g >
-<title>std::__detail::_Hashtable_ebo_helper&lt;1, StanHash, true&gt;::_M_cget (198,321,188 samples, 0.34%)</title><rect x="1170.2" y="373" width="4.0" height="15.0" fill="rgb(214,45,10)" rx="2" ry="2" />
-<text  x="1173.18" y="383.5" ></text>
+<title>alloc_pages_mpol (9,678,963 samples, 0.02%)</title><rect x="1168.7" y="181" width="0.2" height="15.0" fill="rgb(254,227,54)" rx="2" ry="2" />
+<text  x="1171.69" y="191.5" ></text>
 </g>
 <g >
-<title>do_anonymous_page (121,446,961 samples, 0.21%)</title><rect x="124.5" y="197" width="2.4" height="15.0" fill="rgb(238,155,37)" rx="2" ry="2" />
-<text  x="127.46" y="207.5" ></text>
+<title>asm_exc_page_fault (141,012,102 samples, 0.29%)</title><rect x="1186.5" y="293" width="3.4" height="15.0" fill="rgb(225,93,22)" rx="2" ry="2" />
+<text  x="1189.47" y="303.5" ></text>
 </g>
 <g >
-<title>__irqentry_text_end (9,448,863 samples, 0.02%)</title><rect x="479.5" y="373" width="0.2" height="15.0" fill="rgb(248,199,47)" rx="2" ry="2" />
-<text  x="482.48" y="383.5" ></text>
+<title>update_rq_clock (6,296,253 samples, 0.01%)</title><rect x="732.7" y="229" width="0.1" height="15.0" fill="rgb(231,119,28)" rx="2" ry="2" />
+<text  x="735.69" y="239.5" ></text>
 </g>
 <g >
-<title>std::_Hashtable&lt;Stan, std::pair&lt;Stan const, int&gt;, std::allocator&lt;std::pair&lt;Stan const, int&gt; &gt;, std::__detail::_Select1st, std::equal_to&lt;Stan&gt;, StanHash, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits&lt;true, false, true&gt; &gt;::_M_insert_bucket_begin (36,164,092 samples, 0.06%)</title><rect x="109.0" y="373" width="0.7" height="15.0" fill="rgb(213,40,9)" rx="2" ry="2" />
-<text  x="112.00" y="383.5" ></text>
+<title>__hrtimer_run_queues (220,714,947 samples, 0.46%)</title><rect x="727.6" y="293" width="5.4" height="15.0" fill="rgb(237,150,35)" rx="2" ry="2" />
+<text  x="730.59" y="303.5" ></text>
 </g>
 <g >
-<title>__sysvec_apic_timer_interrupt (58,730,298 samples, 0.10%)</title><rect x="479.8" y="341" width="1.2" height="15.0" fill="rgb(242,173,41)" rx="2" ry="2" />
-<text  x="482.77" y="351.5" ></text>
+<title>timer_expire_remote (4,151,731 samples, 0.01%)</title><rect x="1172.8" y="197" width="0.1" height="15.0" fill="rgb(235,139,33)" rx="2" ry="2" />
+<text  x="1175.81" y="207.5" ></text>
 </g>
 <g >
-<title>__gnu_cxx::__normal_iterator&lt;int const*, std::span&lt;int const, 18446744073709551615ul&gt; &gt;::__normal_iterator (14,806,363 samples, 0.03%)</title><rect x="131.6" y="341" width="0.3" height="15.0" fill="rgb(240,162,38)" rx="2" ry="2" />
-<text  x="134.61" y="351.5" ></text>
+<title>_int_free (24,039,742 samples, 0.05%)</title><rect x="12.5" y="309" width="0.6" height="15.0" fill="rgb(247,196,46)" rx="2" ry="2" />
+<text  x="15.51" y="319.5" ></text>
 </g>
 <g >
-<title>__mem_cgroup_charge (11,585,276 samples, 0.02%)</title><rect x="125.2" y="165" width="0.2" height="15.0" fill="rgb(218,60,14)" rx="2" ry="2" />
-<text  x="128.18" y="175.5" ></text>
+<title>asm_sysvec_apic_timer_interrupt (165,627,364 samples, 0.34%)</title><rect x="1169.2" y="341" width="4.1" height="15.0" fill="rgb(232,127,30)" rx="2" ry="2" />
+<text  x="1172.21" y="351.5" ></text>
 </g>
 <g >
-<title>std::_Deque_base&lt;Stan, std::allocator&lt;Stan&gt; &gt;::~_Deque_base (8,979,233 samples, 0.02%)</title><rect x="10.5" y="405" width="0.2" height="15.0" fill="rgb(223,83,20)" rx="2" ry="2" />
-<text  x="13.48" y="415.5" ></text>
+<title>perf_adjust_freq_unthr_events (5,425,593 samples, 0.01%)</title><rect x="1170.3" y="181" width="0.2" height="15.0" fill="rgb(210,24,5)" rx="2" ry="2" />
+<text  x="1173.32" y="191.5" ></text>
 </g>
 <g >
-<title>exc_page_fault (33,706,856 samples, 0.06%)</title><rect x="90.4" y="277" width="0.7" height="15.0" fill="rgb(212,35,8)" rx="2" ry="2" />
-<text  x="93.41" y="287.5" ></text>
+<title>free (32,498,867 samples, 0.07%)</title><rect x="12.3" y="325" width="0.8" height="15.0" fill="rgb(213,38,9)" rx="2" ry="2" />
+<text  x="15.30" y="335.5" ></text>
 </g>
 <g >
-<title>folio_alloc_mpol_noprof (46,908,889 samples, 0.08%)</title><rect x="125.4" y="149" width="1.0" height="15.0" fill="rgb(219,64,15)" rx="2" ry="2" />
-<text  x="128.42" y="159.5" ></text>
+<title>get_page_from_freelist (25,977,272 samples, 0.05%)</title><rect x="1179.3" y="85" width="0.6" height="15.0" fill="rgb(252,218,52)" rx="2" ry="2" />
+<text  x="1182.28" y="95.5" ></text>
 </g>
 <g >
-<title>std::_Hashtable&lt;Stan, std::pair&lt;Stan const, int&gt;, std::allocator&lt;std::pair&lt;Stan const, int&gt; &gt;, std::__detail::_Select1st, std::equal_to&lt;Stan&gt;, StanHash, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits&lt;true, false, true&gt; &gt;::__small_size_threshold (27,487,642 samples, 0.05%)</title><rect x="153.8" y="421" width="0.6" height="15.0" fill="rgb(226,97,23)" rx="2" ry="2" />
-<text  x="156.80" y="431.5" ></text>
+<title>rmqueue.isra.0 (7,403,210 samples, 0.02%)</title><rect x="726.6" y="149" width="0.2" height="15.0" fill="rgb(237,151,36)" rx="2" ry="2" />
+<text  x="729.64" y="159.5" ></text>
 </g>
 <g >
-<title>std::_Deque_base&lt;Stan, std::allocator&lt;Stan&gt; &gt;::_M_destroy_nodes (8,979,233 samples, 0.02%)</title><rect x="10.5" y="389" width="0.2" height="15.0" fill="rgb(216,51,12)" rx="2" ry="2" />
-<text  x="13.48" y="399.5" ></text>
+<title>nohz_balancer_kick (27,120,506 samples, 0.06%)</title><rect x="1170.6" y="197" width="0.7" height="15.0" fill="rgb(225,93,22)" rx="2" ry="2" />
+<text  x="1173.60" y="207.5" ></text>
 </g>
 <g >
-<title>operator new (17,706,507 samples, 0.03%)</title><rect x="121.0" y="357" width="0.3" height="15.0" fill="rgb(216,51,12)" rx="2" ry="2" />
-<text  x="123.95" y="367.5" ></text>
+<title>[prz.e] (273,185,078 samples, 0.56%)</title><rect x="10.0" y="389" width="6.7" height="15.0" fill="rgb(227,102,24)" rx="2" ry="2" />
+<text  x="13.00" y="399.5" ></text>
 </g>
 <g >
-<title>sysvec_apic_timer_interrupt (10,666,572 samples, 0.02%)</title><rect x="1128.7" y="341" width="0.2" height="15.0" fill="rgb(220,69,16)" rx="2" ry="2" />
-<text  x="1131.68" y="351.5" ></text>
+<title>solve (48,077,027,435 samples, 99.35%)</title><rect x="17.6" y="373" width="1172.3" height="15.0" fill="rgb(241,166,39)" rx="2" ry="2" />
+<text  x="20.59" y="383.5" >solve</text>
 </g>
 <g >
-<title>__rmqueue_pcplist (11,485,520 samples, 0.02%)</title><rect x="126.0" y="69" width="0.3" height="15.0" fill="rgb(230,118,28)" rx="2" ry="2" />
-<text  x="129.05" y="79.5" ></text>
+<title>sched_use_asym_prio (6,657,368 samples, 0.01%)</title><rect x="731.0" y="197" width="0.2" height="15.0" fill="rgb(208,14,3)" rx="2" ry="2" />
+<text  x="734.00" y="207.5" ></text>
 </g>
 <g >
-<title>folio_alloc_mpol_noprof (21,403,786 samples, 0.04%)</title><rect x="113.9" y="165" width="0.5" height="15.0" fill="rgb(219,64,15)" rx="2" ry="2" />
-<text  x="116.94" y="175.5" ></text>
+<title>perf_adjust_freq_unthr_events (17,884,836 samples, 0.04%)</title><rect x="729.7" y="197" width="0.4" height="15.0" fill="rgb(210,24,5)" rx="2" ry="2" />
+<text  x="732.70" y="207.5" ></text>
 </g>
 <g >
-<title>int&amp; std::forward&lt;int&amp;&gt; (10,213,483 samples, 0.02%)</title><rect x="120.7" y="357" width="0.3" height="15.0" fill="rgb(223,85,20)" rx="2" ry="2" />
-<text  x="123.75" y="367.5" ></text>
+<title>folio_add_lru_vma (14,323,629 samples, 0.03%)</title><rect x="1180.0" y="165" width="0.4" height="15.0" fill="rgb(252,216,51)" rx="2" ry="2" />
+<text  x="1183.04" y="175.5" ></text>
 </g>
 <g >
-<title>std::__detail::_Hash_code_base&lt;Stan, std::pair&lt;Stan const, int&gt;, std::__detail::_Select1st, StanHash, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, true&gt;::_M_hash_code (11,615,855 samples, 0.02%)</title><rect x="1185.6" y="421" width="0.2" height="15.0" fill="rgb(221,74,17)" rx="2" ry="2" />
-<text  x="1188.60" y="431.5" ></text>
+<title>timekeeping_update_from_shadow.constprop.0 (4,349,711 samples, 0.01%)</title><rect x="1169.6" y="197" width="0.1" height="15.0" fill="rgb(206,8,2)" rx="2" ry="2" />
+<text  x="1172.64" y="207.5" ></text>
 </g>
 <g >
-<title>__memset_avx2_unaligned_erms (46,471,383 samples, 0.08%)</title><rect x="113.6" y="325" width="0.9" height="15.0" fill="rgb(223,84,20)" rx="2" ry="2" />
-<text  x="116.55" y="335.5" ></text>
+<title>lru_gen_add_folio (4,342,530 samples, 0.01%)</title><rect x="1180.3" y="85" width="0.1" height="15.0" fill="rgb(216,53,12)" rx="2" ry="2" />
+<text  x="1183.29" y="95.5" ></text>
 </g>
 <g >
-<title>sysvec_apic_timer_interrupt (7,954,345 samples, 0.01%)</title><rect x="509.2" y="325" width="0.2" height="15.0" fill="rgb(220,69,16)" rx="2" ry="2" />
-<text  x="512.19" y="335.5" ></text>
+<title>__memcmp_avx2_movbe (30,416,015 samples, 0.06%)</title><rect x="16.7" y="373" width="0.8" height="15.0" fill="rgb(224,91,21)" rx="2" ry="2" />
+<text  x="19.71" y="383.5" ></text>
 </g>
 <g >
-<title>lru_gen_add_folio (13,167,200 samples, 0.02%)</title><rect x="126.4" y="101" width="0.3" height="15.0" fill="rgb(216,53,12)" rx="2" ry="2" />
-<text  x="129.42" y="111.5" ></text>
+<title>all (48,390,448,152 samples, 100%)</title><rect x="10.0" y="469" width="1180.0" height="15.0" fill="rgb(213,39,9)" rx="2" ry="2" />
+<text  x="13.00" y="479.5" ></text>
 </g>
 <g >
-<title>std::_Hashtable&lt;Stan, std::pair&lt;Stan const, int&gt;, std::allocator&lt;std::pair&lt;Stan const, int&gt; &gt;, std::__detail::_Select1st, std::equal_to&lt;Stan&gt;, StanHash, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits&lt;true, false, true&gt; &gt;::_M_rehash_aux (379,232,705 samples, 0.65%)</title><rect x="109.7" y="357" width="7.7" height="15.0" fill="rgb(249,202,48)" rx="2" ry="2" />
-<text  x="112.73" y="367.5" ></text>
+<title>__alloc_frozen_pages_noprof (27,286,623 samples, 0.06%)</title><rect x="1179.2" y="101" width="0.7" height="15.0" fill="rgb(228,109,26)" rx="2" ry="2" />
+<text  x="1182.24" y="111.5" ></text>
 </g>
 <g >
-<title>std::_Hashtable&lt;Stan, std::pair&lt;Stan const, int&gt;, std::allocator&lt;std::pair&lt;Stan const, int&gt; &gt;, std::__detail::_Select1st, std::equal_to&lt;Stan&gt;, StanHash, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits&lt;true, false, true&gt; &gt;::__small_size_threshold (8,360,811 samples, 0.01%)</title><rect x="939.5" y="405" width="0.2" height="15.0" fill="rgb(226,97,23)" rx="2" ry="2" />
-<text  x="942.54" y="415.5" ></text>
+<title>irqentry_exit_to_user_mode (10,838,526 samples, 0.02%)</title><rect x="1173.0" y="293" width="0.3" height="15.0" fill="rgb(254,229,54)" rx="2" ry="2" />
+<text  x="1175.99" y="303.5" ></text>
 </g>
 <g >
-<title>std::__detail::_Hashtable_alloc&lt;std::allocator&lt;std::__detail::_Hash_node&lt;std::pair&lt;Stan const, int&gt;, true&gt; &gt; &gt;::_M_node_allocator (9,434,470 samples, 0.02%)</title><rect x="18.6" y="373" width="0.2" height="15.0" fill="rgb(214,42,10)" rx="2" ry="2" />
-<text  x="21.57" y="383.5" ></text>
+<title>timekeeping_update_from_shadow.constprop.0 (19,915,742 samples, 0.04%)</title><rect x="728.2" y="213" width="0.5" height="15.0" fill="rgb(206,8,2)" rx="2" ry="2" />
+<text  x="731.18" y="223.5" ></text>
 </g>
 <g >
-<title>bool __gnu_cxx::operator==&lt;int const*, std::span&lt;int const, 18446744073709551615ul&gt; &gt; (263,311,173 samples, 0.45%)</title><rect x="1162.0" y="389" width="5.3" height="15.0" fill="rgb(230,115,27)" rx="2" ry="2" />
-<text  x="1165.01" y="399.5" ></text>
+<title>do_user_addr_fault (134,485,028 samples, 0.28%)</title><rect x="1177.8" y="245" width="3.3" height="15.0" fill="rgb(228,108,25)" rx="2" ry="2" />
+<text  x="1180.79" y="255.5" ></text>
 </g>
 <g >
-<title>std::array&lt;int, 11ul&gt;::data (97,073,463 samples, 0.17%)</title><rect x="1024.4" y="357" width="1.9" height="15.0" fill="rgb(216,53,12)" rx="2" ry="2" />
-<text  x="1027.37" y="367.5" ></text>
+<title>__irqentry_text_end (16,918,448 samples, 0.03%)</title><rect x="1186.1" y="293" width="0.4" height="15.0" fill="rgb(248,199,47)" rx="2" ry="2" />
+<text  x="1189.05" y="303.5" ></text>
 </g>
 <g >
-<title>std::pair&lt;Stan const, int&gt; const&amp; std::forward&lt;std::pair&lt;Stan const, int&gt; const&amp;&gt; (111,590,729 samples, 0.19%)</title><rect x="539.8" y="325" width="2.2" height="15.0" fill="rgb(250,210,50)" rx="2" ry="2" />
-<text  x="542.75" y="335.5" ></text>
+<title>irq_exit_rcu (7,201,583 samples, 0.01%)</title><rect x="1172.8" y="309" width="0.2" height="15.0" fill="rgb(254,227,54)" rx="2" ry="2" />
+<text  x="1175.81" y="319.5" ></text>
 </g>
 <g >
-<title>sysvec_apic_timer_interrupt (85,297,743 samples, 0.15%)</title><rect x="479.7" y="357" width="1.8" height="15.0" fill="rgb(220,69,16)" rx="2" ry="2" />
-<text  x="482.72" y="367.5" ></text>
+<title>folio_alloc_mpol_noprof (16,329,180 samples, 0.03%)</title><rect x="726.5" y="213" width="0.4" height="15.0" fill="rgb(219,64,15)" rx="2" ry="2" />
+<text  x="729.46" y="223.5" ></text>
 </g>
 <g >
-<title>__hrtimer_run_queues (6,604,076 samples, 0.01%)</title><rect x="683.0" y="213" width="0.2" height="15.0" fill="rgb(237,150,35)" rx="2" ry="2" />
-<text  x="686.03" y="223.5" ></text>
+<title>__alloc_frozen_pages_noprof (14,656,836 samples, 0.03%)</title><rect x="726.5" y="181" width="0.3" height="15.0" fill="rgb(228,109,26)" rx="2" ry="2" />
+<text  x="729.46" y="191.5" ></text>
 </g>
 <g >
-<title>bool std::__equal&lt;true&gt;::equal&lt;int&gt; (9,572,488 samples, 0.02%)</title><rect x="688.2" y="245" width="0.2" height="15.0" fill="rgb(244,180,43)" rx="2" ry="2" />
-<text  x="691.25" y="255.5" ></text>
+<title>x64_sys_call (10,896,974 samples, 0.02%)</title><rect x="725.1" y="309" width="0.3" height="15.0" fill="rgb(247,194,46)" rx="2" ry="2" />
+<text  x="728.14" y="319.5" ></text>
 </g>
 <g >
-<title>nohz_balancer_kick (12,038,476 samples, 0.02%)</title><rect x="933.3" y="197" width="0.3" height="15.0" fill="rgb(225,93,22)" rx="2" ry="2" />
-<text  x="936.32" y="207.5" ></text>
+<title>_start (48,390,350,767 samples, 100.00%)</title><rect x="10.0" y="437" width="1180.0" height="15.0" fill="rgb(245,185,44)" rx="2" ry="2" />
+<text  x="13.00" y="447.5" >_start</text>
 </g>
 <g >
-<title>std::unordered_map&lt;Stan, int, StanHash, std::equal_to&lt;Stan&gt;, std::allocator&lt;std::pair&lt;Stan const, int&gt; &gt; &gt;::find (50,957,459,784 samples, 87.53%)</title><rect x="153.1" y="437" width="1032.9" height="15.0" fill="rgb(223,83,20)" rx="2" ry="2" />
-<text  x="156.06" y="447.5" >std::unordered_map&lt;Stan, int, StanHash, std::equal_to&lt;Stan&gt;, std::allocator&lt;std::pair&lt;Stan const, int&gt; &gt; &gt;::find</text>
+<title>perf_adjust_freq_unthr_context (19,370,425 samples, 0.04%)</title><rect x="729.7" y="213" width="0.4" height="15.0" fill="rgb(236,146,35)" rx="2" ry="2" />
+<text  x="732.66" y="223.5" ></text>
 </g>
 <g >
-<title>__gnu_cxx::__aligned_buffer&lt;std::pair&lt;Stan const, int&gt; &gt;::_M_ptr (21,358,525 samples, 0.04%)</title><rect x="522.9" y="357" width="0.4" height="15.0" fill="rgb(251,212,50)" rx="2" ry="2" />
-<text  x="525.86" y="367.5" ></text>
+<title>account_process_tick (6,662,911 samples, 0.01%)</title><rect x="1169.7" y="229" width="0.2" height="15.0" fill="rgb(234,136,32)" rx="2" ry="2" />
+<text  x="1172.75" y="239.5" ></text>
 </g>
 <g >
-<title>__folio_mod_stat (6,976,441 samples, 0.01%)</title><rect x="126.7" y="165" width="0.1" height="15.0" fill="rgb(254,227,54)" rx="2" ry="2" />
-<text  x="129.69" y="175.5" ></text>
+<title>handle_pte_fault (43,339,216 samples, 0.09%)</title><rect x="726.1" y="277" width="1.0" height="15.0" fill="rgb(217,57,13)" rx="2" ry="2" />
+<text  x="729.08" y="287.5" ></text>
 </g>
 <g >
-<title>sysvec_apic_timer_interrupt (6,724,306 samples, 0.01%)</title><rect x="1093.9" y="325" width="0.1" height="15.0" fill="rgb(220,69,16)" rx="2" ry="2" />
-<text  x="1096.88" y="335.5" ></text>
+<title>read_tsc (4,390,385 samples, 0.01%)</title><rect x="1172.7" y="245" width="0.1" height="15.0" fill="rgb(206,7,1)" rx="2" ry="2" />
+<text  x="1175.66" y="255.5" ></text>
 </g>
 <g >
-<title>__rmqueue_pcplist (6,371,346 samples, 0.01%)</title><rect x="114.2" y="85" width="0.2" height="15.0" fill="rgb(230,118,28)" rx="2" ry="2" />
-<text  x="117.25" y="95.5" ></text>
+<title>perf_event_task_tick (7,684,054 samples, 0.02%)</title><rect x="1170.3" y="213" width="0.2" height="15.0" fill="rgb(205,3,0)" rx="2" ry="2" />
+<text  x="1173.32" y="223.5" ></text>
 </g>
 <g >
-<title>__sysvec_apic_timer_interrupt (6,604,076 samples, 0.01%)</title><rect x="683.0" y="245" width="0.2" height="15.0" fill="rgb(242,173,41)" rx="2" ry="2" />
-<text  x="686.03" y="255.5" ></text>
+<title>std::_Rb_tree_insert_and_rebalance (83,850,340 samples, 0.17%)</title><rect x="1182.3" y="357" width="2.0" height="15.0" fill="rgb(225,94,22)" rx="2" ry="2" />
+<text  x="1185.26" y="367.5" ></text>
 </g>
 <g >
-<title>std::_Hashtable&lt;Stan, std::pair&lt;Stan const, int&gt;, std::allocator&lt;std::pair&lt;Stan const, int&gt; &gt;, std::__detail::_Select1st, std::equal_to&lt;Stan&gt;, StanHash, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits&lt;true, false, true&gt; &gt;::_M_deallocate_buckets (9,456,914 samples, 0.02%)</title><rect x="114.5" y="325" width="0.2" height="15.0" fill="rgb(239,156,37)" rx="2" ry="2" />
-<text  x="117.54" y="335.5" ></text>
+<title>zap_pte_range (5,680,473 samples, 0.01%)</title><rect x="10.1" y="101" width="0.1" height="15.0" fill="rgb(231,120,28)" rx="2" ry="2" />
+<text  x="13.08" y="111.5" ></text>
 </g>
 <g >
-<title>get_page_from_freelist (37,774,814 samples, 0.06%)</title><rect x="125.5" y="101" width="0.8" height="15.0" fill="rgb(252,218,52)" rx="2" ry="2" />
-<text  x="128.51" y="111.5" ></text>
+<title>exc_page_fault (141,012,102 samples, 0.29%)</title><rect x="1186.5" y="277" width="3.4" height="15.0" fill="rgb(212,35,8)" rx="2" ry="2" />
+<text  x="1189.47" y="287.5" ></text>
 </g>
 <g >
-<title>std::__detail::_Mod_range_hashing::operator (11,014,022 samples, 0.02%)</title><rect x="108.6" y="325" width="0.2" height="15.0" fill="rgb(230,116,27)" rx="2" ry="2" />
-<text  x="111.61" y="335.5" ></text>
+<title>__x64_sys_munmap (10,896,974 samples, 0.02%)</title><rect x="725.1" y="293" width="0.3" height="15.0" fill="rgb(206,7,1)" rx="2" ry="2" />
+<text  x="728.14" y="303.5" ></text>
 </g>
 <g >
-<title>asm_sysvec_apic_timer_interrupt (87,660,931 samples, 0.15%)</title><rect x="479.7" y="373" width="1.8" height="15.0" fill="rgb(232,127,30)" rx="2" ry="2" />
-<text  x="482.67" y="383.5" ></text>
+<title>unmap_page_range (6,431,262 samples, 0.01%)</title><rect x="725.2" y="165" width="0.2" height="15.0" fill="rgb(206,5,1)" rx="2" ry="2" />
+<text  x="728.25" y="175.5" ></text>
 </g>
 <g >
-<title>handle_mm_fault (161,791,887 samples, 0.28%)</title><rect x="123.9" y="245" width="3.2" height="15.0" fill="rgb(234,135,32)" rx="2" ry="2" />
-<text  x="126.86" y="255.5" ></text>
+<title>rmqueue.isra.0 (5,157,340 samples, 0.01%)</title><rect x="1188.8" y="85" width="0.2" height="15.0" fill="rgb(237,151,36)" rx="2" ry="2" />
+<text  x="1191.84" y="95.5" ></text>
 </g>
 <g >
-<title>std::_Hashtable&lt;Stan, std::pair&lt;Stan const, int&gt;, std::allocator&lt;std::pair&lt;Stan const, int&gt; &gt;, std::__detail::_Select1st, std::equal_to&lt;Stan&gt;, StanHash, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits&lt;true, false, true&gt; &gt;::_M_allocate_buckets (48,731,132 samples, 0.08%)</title><rect x="113.6" y="341" width="0.9" height="15.0" fill="rgb(237,149,35)" rx="2" ry="2" />
-<text  x="116.55" y="351.5" ></text>
+<title>fq_flush_iotlb (4,151,731 samples, 0.01%)</title><rect x="1172.8" y="133" width="0.1" height="15.0" fill="rgb(244,182,43)" rx="2" ry="2" />
+<text  x="1175.81" y="143.5" ></text>
 </g>
 <g >
-<title>tick_nohz_handler (18,679,999 samples, 0.03%)</title><rect x="1056.1" y="293" width="0.4" height="15.0" fill="rgb(248,200,48)" rx="2" ry="2" />
-<text  x="1059.14" y="303.5" ></text>
+<title>__update_load_avg_cfs_rq (5,241,732 samples, 0.01%)</title><rect x="732.3" y="197" width="0.1" height="15.0" fill="rgb(228,107,25)" rx="2" ry="2" />
+<text  x="735.27" y="207.5" ></text>
 </g>
 <g >
-<title>int const* std::__niter_base&lt;int const*, std::span&lt;int const, 18446744073709551615ul&gt; &gt; (93,716,717 samples, 0.16%)</title><rect x="729.6" y="261" width="1.9" height="15.0" fill="rgb(217,57,13)" rx="2" ry="2" />
-<text  x="732.57" y="271.5" ></text>
+<title>__rmqueue_pcplist (5,157,340 samples, 0.01%)</title><rect x="1188.8" y="69" width="0.2" height="15.0" fill="rgb(230,118,28)" rx="2" ry="2" />
+<text  x="1191.84" y="79.5" ></text>
 </g>
 <g >
-<title>__vm_munmap (9,456,914 samples, 0.02%)</title><rect x="114.5" y="197" width="0.2" height="15.0" fill="rgb(231,121,28)" rx="2" ry="2" />
-<text  x="117.54" y="207.5" ></text>
+<title>unmap_single_vma (5,680,473 samples, 0.01%)</title><rect x="10.1" y="165" width="0.1" height="15.0" fill="rgb(225,93,22)" rx="2" ry="2" />
+<text  x="13.08" y="175.5" ></text>
 </g>
 <g >
-<title>irq_exit_rcu (21,872,037 samples, 0.04%)</title><rect x="481.0" y="341" width="0.4" height="15.0" fill="rgb(254,227,54)" rx="2" ry="2" />
-<text  x="483.96" y="351.5" ></text>
+<title>__handle_mm_fault (114,996,069 samples, 0.24%)</title><rect x="1178.0" y="213" width="2.9" height="15.0" fill="rgb(207,9,2)" rx="2" ry="2" />
+<text  x="1181.05" y="223.5" ></text>
 </g>
 <g >
-<title>std::pair&lt;std::__detail::_Node_iterator&lt;std::pair&lt;Stan const, int&gt;, false, true&gt;, bool&gt; std::unordered_map&lt;Stan, int, StanHash, std::equal_to&lt;Stan&gt;, std::allocator&lt;std::pair&lt;Stan const, int&gt; &gt; &gt;::emplace&lt;Stan const&amp;, int&amp;&gt; (1,396,413,350 samples, 2.40%)</title><rect x="104.8" y="437" width="28.3" height="15.0" fill="rgb(212,33,7)" rx="2" ry="2" />
-<text  x="107.82" y="447.5" >s..</text>
+<title>amd_iommu_domain_flush_pages (4,151,731 samples, 0.01%)</title><rect x="1172.8" y="101" width="0.1" height="15.0" fill="rgb(252,216,51)" rx="2" ry="2" />
+<text  x="1175.81" y="111.5" ></text>
 </g>
 <g >
-<title>irq_exit_rcu (6,345,534 samples, 0.01%)</title><rect x="72.6" y="421" width="0.1" height="15.0" fill="rgb(254,227,54)" rx="2" ry="2" />
-<text  x="75.59" y="431.5" ></text>
+<title>perf_adjust_freq_unthr_context (5,425,593 samples, 0.01%)</title><rect x="1170.3" y="197" width="0.2" height="15.0" fill="rgb(236,146,35)" rx="2" ry="2" />
+<text  x="1173.32" y="207.5" ></text>
 </g>
 <g >
-<title>std::__detail::_Hash_code_base&lt;Stan, std::pair&lt;Stan const, int&gt;, std::__detail::_Select1st, StanHash, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, true&gt;::_M_hash_code (11,421,903,273 samples, 19.62%)</title><rect x="943.8" y="405" width="231.6" height="15.0" fill="rgb(221,74,17)" rx="2" ry="2" />
-<text  x="946.84" y="415.5" >std::__detail::_Hash_code_base..</text>
+<title>handle_mm_fault (130,302,191 samples, 0.27%)</title><rect x="1177.9" y="229" width="3.2" height="15.0" fill="rgb(234,135,32)" rx="2" ry="2" />
+<text  x="1180.89" y="239.5" ></text>
 </g>
 <g >
-<title>update_process_times (5,982,079 samples, 0.01%)</title><rect x="1128.7" y="261" width="0.1" height="15.0" fill="rgb(250,209,50)" rx="2" ry="2" />
-<text  x="1131.68" y="271.5" ></text>
+<title>do_anonymous_page (103,598,378 samples, 0.21%)</title><rect x="1186.8" y="197" width="2.5" height="15.0" fill="rgb(238,155,37)" rx="2" ry="2" />
+<text  x="1189.81" y="207.5" ></text>
 </g>
 <g >
-<title>hrtimer_interrupt (8,361,625 samples, 0.01%)</title><rect x="1128.7" y="309" width="0.1" height="15.0" fill="rgb(228,109,26)" rx="2" ry="2" />
-<text  x="1131.68" y="319.5" ></text>
+<title>get_page_from_freelist (21,770,268 samples, 0.04%)</title><rect x="1188.4" y="101" width="0.6" height="15.0" fill="rgb(252,218,52)" rx="2" ry="2" />
+<text  x="1191.44" y="111.5" ></text>
 </g>
 <g >
-<title>alloc_pages_mpol (46,908,889 samples, 0.08%)</title><rect x="125.4" y="133" width="1.0" height="15.0" fill="rgb(254,227,54)" rx="2" ry="2" />
-<text  x="128.42" y="143.5" ></text>
+<title>malloc (190,237,777 samples, 0.39%)</title><rect x="1176.7" y="309" width="4.7" height="15.0" fill="rgb(230,119,28)" rx="2" ry="2" />
+<text  x="1179.74" y="319.5" ></text>
 </g>
 <g >
-<title>std::_Hashtable&lt;Stan, std::pair&lt;Stan const, int&gt;, std::allocator&lt;std::pair&lt;Stan const, int&gt; &gt;, std::__detail::_Select1st, std::equal_to&lt;Stan&gt;, StanHash, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits&lt;true, false, true&gt; &gt;::_M_deallocate_buckets (9,456,914 samples, 0.02%)</title><rect x="114.5" y="341" width="0.2" height="15.0" fill="rgb(239,156,37)" rx="2" ry="2" />
-<text  x="117.54" y="351.5" ></text>
+<title>native_read_msr (4,253,555 samples, 0.01%)</title><rect x="730.0" y="165" width="0.1" height="15.0" fill="rgb(211,30,7)" rx="2" ry="2" />
+<text  x="733.03" y="175.5" ></text>
 </g>
 <g >
-<title>zap_pud_range.isra.0 (6,261,246 samples, 0.01%)</title><rect x="114.6" y="69" width="0.1" height="15.0" fill="rgb(242,172,41)" rx="2" ry="2" />
-<text  x="117.60" y="79.5" ></text>
+<title>std::_Rb_tree_iterator&lt;std::pair&lt;Stan const, int&gt; &gt; std::_Rb_tree&lt;Stan, std::pair&lt;Stan const, int&gt;, std::_Select1st&lt;std::pair&lt;Stan const, int&gt; &gt;, std::less&lt;Stan&gt;, std::allocator&lt;std::pair&lt;Stan const, int&gt; &gt; &gt;::_M_emplace_hint_unique&lt;Stan const&amp;, int&amp;&gt; (231,148,535 samples, 0.48%)</title><rect x="1184.3" y="357" width="5.6" height="15.0" fill="rgb(205,1,0)" rx="2" ry="2" />
+<text  x="1187.31" y="367.5" ></text>
 </g>
 <g >
-<title>std::__detail::__extent_storage&lt;18446744073709551615ul&gt;::_M_extent (48,865,238 samples, 0.08%)</title><rect x="801.5" y="293" width="0.9" height="15.0" fill="rgb(209,21,5)" rx="2" ry="2" />
-<text  x="804.46" y="303.5" ></text>
+<title>__count_memcg_events (13,920,356 samples, 0.03%)</title><rect x="1178.6" y="101" width="0.3" height="15.0" fill="rgb(250,211,50)" rx="2" ry="2" />
+<text  x="1181.59" y="111.5" ></text>
 </g>
 <g >
-<title>nohz_balancer_kick (5,904,478 samples, 0.01%)</title><rect x="1056.4" y="229" width="0.1" height="15.0" fill="rgb(225,93,22)" rx="2" ry="2" />
-<text  x="1059.35" y="239.5" ></text>
+<title>irqentry_exit (7,473,983 samples, 0.02%)</title><rect x="733.8" y="325" width="0.2" height="15.0" fill="rgb(219,66,15)" rx="2" ry="2" />
+<text  x="736.77" y="335.5" ></text>
 </g>
 <g >
-<title>timer_expire_remote (6,988,068 samples, 0.01%)</title><rect x="481.3" y="229" width="0.1" height="15.0" fill="rgb(235,139,33)" rx="2" ry="2" />
-<text  x="484.26" y="239.5" ></text>
+<title>irqentry_exit (10,838,526 samples, 0.02%)</title><rect x="1173.0" y="309" width="0.3" height="15.0" fill="rgb(219,66,15)" rx="2" ry="2" />
+<text  x="1175.99" y="319.5" ></text>
 </g>
 <g >
-<title>std::unordered_map&lt;Stan, int, StanHash, std::equal_to&lt;Stan&gt;, std::allocator&lt;std::pair&lt;Stan const, int&gt; &gt; &gt;::find (39,181,112 samples, 0.07%)</title><rect x="1189.2" y="453" width="0.8" height="15.0" fill="rgb(223,83,20)" rx="2" ry="2" />
-<text  x="1192.20" y="463.5" ></text>
+<title>do_syscall_64 (11,308,842 samples, 0.02%)</title><rect x="1185.7" y="261" width="0.3" height="15.0" fill="rgb(209,20,4)" rx="2" ry="2" />
+<text  x="1188.73" y="271.5" ></text>
 </g>
 <g >
-<title>sched_balance_trigger (6,393,206 samples, 0.01%)</title><rect x="615.3" y="133" width="0.1" height="15.0" fill="rgb(213,38,9)" rx="2" ry="2" />
-<text  x="618.30" y="143.5" ></text>
+<title>zap_pte_range (6,431,262 samples, 0.01%)</title><rect x="725.2" y="117" width="0.2" height="15.0" fill="rgb(231,120,28)" rx="2" ry="2" />
+<text  x="728.25" y="127.5" ></text>
 </g>
 <g >
-<title>malloc (234,308,436 samples, 0.40%)</title><rect x="122.6" y="325" width="4.7" height="15.0" fill="rgb(230,119,28)" rx="2" ry="2" />
-<text  x="125.59" y="335.5" ></text>
+<title>_find_next_and_bit (10,187,833 samples, 0.02%)</title><rect x="730.3" y="213" width="0.2" height="15.0" fill="rgb(233,131,31)" rx="2" ry="2" />
+<text  x="733.27" y="223.5" ></text>
 </g>
 <g >
-<title>__sysvec_apic_timer_interrupt (9,691,733 samples, 0.02%)</title><rect x="151.0" y="341" width="0.2" height="15.0" fill="rgb(242,173,41)" rx="2" ry="2" />
-<text  x="153.99" y="351.5" ></text>
+<title>folio_alloc_mpol_noprof (30,740,924 samples, 0.06%)</title><rect x="1188.3" y="149" width="0.7" height="15.0" fill="rgb(219,64,15)" rx="2" ry="2" />
+<text  x="1191.26" y="159.5" ></text>
 </g>
 <g >
-<title>std::span&lt;int const, 18446744073709551615ul&gt;::span&lt;int const*&gt; (59,417,236 samples, 0.10%)</title><rect x="48.6" y="421" width="1.2" height="15.0" fill="rgb(205,1,0)" rx="2" ry="2" />
-<text  x="51.64" y="431.5" ></text>
+<title>do_anonymous_page (101,761,605 samples, 0.21%)</title><rect x="1178.2" y="181" width="2.5" height="15.0" fill="rgb(238,155,37)" rx="2" ry="2" />
+<text  x="1181.23" y="191.5" ></text>
 </g>
 <g >
-<title>bool std::equal&lt;__gnu_cxx::__normal_iterator&lt;int const*, std::span&lt;int const, 18446744073709551615ul&gt; &gt;, __gnu_cxx::__normal_iterator&lt;int const*, std::span&lt;int const, 18446744073709551615ul&gt; &gt; &gt; (29,487,976 samples, 0.05%)</title><rect x="732.2" y="293" width="0.6" height="15.0" fill="rgb(217,55,13)" rx="2" ry="2" />
-<text  x="735.24" y="303.5" ></text>
+<title>update_process_times (174,810,803 samples, 0.36%)</title><rect x="728.7" y="261" width="4.2" height="15.0" fill="rgb(250,209,50)" rx="2" ry="2" />
+<text  x="731.66" y="271.5" ></text>
 </g>
 <g >
-<title>std::__detail::_Mod_range_hashing::operator (13,499,338 samples, 0.02%)</title><rect x="109.4" y="325" width="0.3" height="15.0" fill="rgb(230,116,27)" rx="2" ry="2" />
-<text  x="112.42" y="335.5" ></text>
+<title>exc_page_fault (65,124,640 samples, 0.13%)</title><rect x="725.6" y="341" width="1.6" height="15.0" fill="rgb(212,35,8)" rx="2" ry="2" />
+<text  x="728.63" y="351.5" ></text>
 </g>
 <g >
-<title>_int_free (42,843,597 samples, 0.07%)</title><rect x="17.6" y="325" width="0.9" height="15.0" fill="rgb(247,196,46)" rx="2" ry="2" />
-<text  x="20.60" y="335.5" ></text>
+<title>rmqueue_bulk (5,629,939 samples, 0.01%)</title><rect x="1179.7" y="37" width="0.2" height="15.0" fill="rgb(235,138,33)" rx="2" ry="2" />
+<text  x="1182.72" y="47.5" ></text>
 </g>
 <g >
-<title>std::__detail::_Hash_node&lt;std::pair&lt;Stan const, int&gt;, true&gt;* std::__detail::_Hashtable_alloc&lt;std::allocator&lt;std::__detail::_Hash_node&lt;std::pair&lt;Stan const, int&gt;, true&gt; &gt; &gt;::_M_allocate_node&lt;Stan const&amp;, int&amp;&gt; (390,133,378 samples, 0.67%)</title><rect x="119.5" y="373" width="7.9" height="15.0" fill="rgb(234,133,32)" rx="2" ry="2" />
-<text  x="122.53" y="383.5" ></text>
+<title>__vm_munmap (10,896,974 samples, 0.02%)</title><rect x="725.1" y="277" width="0.3" height="15.0" fill="rgb(231,121,28)" rx="2" ry="2" />
+<text  x="728.14" y="287.5" ></text>
 </g>
 <g >
-<title>__run_exit_handlers (408,268,593 samples, 0.70%)</title><rect x="10.5" y="469" width="8.3" height="15.0" fill="rgb(216,51,12)" rx="2" ry="2" />
-<text  x="13.48" y="479.5" ></text>
+<title>try_charge_memcg (4,948,731 samples, 0.01%)</title><rect x="1178.9" y="117" width="0.1" height="15.0" fill="rgb(210,27,6)" rx="2" ry="2" />
+<text  x="1181.92" y="127.5" ></text>
 </g>
 <g >
-<title>std::__detail::_Hash_code_base&lt;Stan, std::pair&lt;Stan const, int&gt;, std::__detail::_Select1st, StanHash, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, true&gt;::_M_hash_code (247,668,879 samples, 0.43%)</title><rect x="127.5" y="389" width="5.0" height="15.0" fill="rgb(221,74,17)" rx="2" ry="2" />
-<text  x="130.53" y="399.5" ></text>
+<title>__rmqueue_pcplist (7,403,210 samples, 0.02%)</title><rect x="726.6" y="133" width="0.2" height="15.0" fill="rgb(230,118,28)" rx="2" ry="2" />
+<text  x="729.64" y="143.5" ></text>
 </g>
 <g >
-<title>asm_sysvec_apic_timer_interrupt (11,391,746 samples, 0.02%)</title><rect x="192.5" y="389" width="0.2" height="15.0" fill="rgb(232,127,30)" rx="2" ry="2" />
-<text  x="195.49" y="399.5" ></text>
+<title>__cgroup_account_cputime_field (10,527,393 samples, 0.02%)</title><rect x="728.7" y="213" width="0.3" height="15.0" fill="rgb(232,126,30)" rx="2" ry="2" />
+<text  x="731.71" y="223.5" ></text>
 </g>
 <g >
-<title>sched_balance_trigger (6,779,238 samples, 0.01%)</title><rect x="1144.6" y="213" width="0.1" height="15.0" fill="rgb(213,38,9)" rx="2" ry="2" />
-<text  x="1147.57" y="223.5" ></text>
+<title>__irq_exit_rcu (7,201,583 samples, 0.01%)</title><rect x="1172.8" y="293" width="0.2" height="15.0" fill="rgb(227,101,24)" rx="2" ry="2" />
+<text  x="1175.81" y="303.5" ></text>
 </g>
 <g >
-<title>std::_Hashtable&lt;Stan, std::pair&lt;Stan const, int&gt;, std::allocator&lt;std::pair&lt;Stan const, int&gt; &gt;, std::__detail::_Select1st, std::equal_to&lt;Stan&gt;, StanHash, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits&lt;true, false, true&gt; &gt;::_M_bucket_index (21,291,954 samples, 0.04%)</title><rect x="107.3" y="389" width="0.4" height="15.0" fill="rgb(224,91,21)" rx="2" ry="2" />
-<text  x="110.31" y="399.5" ></text>
+<title>alloc_anon_folio (65,866,758 samples, 0.14%)</title><rect x="1178.4" y="165" width="1.6" height="15.0" fill="rgb(223,86,20)" rx="2" ry="2" />
+<text  x="1181.44" y="175.5" ></text>
 </g>
 <g >
-<title>int const* std::__to_address&lt;int const&gt; (15,856,556 samples, 0.03%)</title><rect x="49.3" y="389" width="0.3" height="15.0" fill="rgb(250,209,50)" rx="2" ry="2" />
-<text  x="52.27" y="399.5" ></text>
+<title>__irqentry_text_end (10,507,296 samples, 0.02%)</title><rect x="1167.8" y="341" width="0.3" height="15.0" fill="rgb(248,199,47)" rx="2" ry="2" />
+<text  x="1170.85" y="351.5" ></text>
 </g>
 <g >
-<title>std::unordered_map&lt;Stan, int, StanHash, std::equal_to&lt;Stan&gt;, std::allocator&lt;std::pair&lt;Stan const, int&gt; &gt; &gt;::end (983,645,864 samples, 1.69%)</title><rect x="133.1" y="437" width="20.0" height="15.0" fill="rgb(207,13,3)" rx="2" ry="2" />
-<text  x="136.13" y="447.5" ></text>
+<title>clear_page_erms (16,612,928 samples, 0.03%)</title><rect x="1188.4" y="85" width="0.4" height="15.0" fill="rgb(229,113,27)" rx="2" ry="2" />
+<text  x="1191.44" y="95.5" ></text>
 </g>
 <g >
-<title>__sysvec_apic_timer_interrupt (9,146,383 samples, 0.02%)</title><rect x="1144.5" y="309" width="0.2" height="15.0" fill="rgb(242,173,41)" rx="2" ry="2" />
-<text  x="1147.52" y="319.5" ></text>
+<title>__libc_start_main_impl (48,390,350,767 samples, 100.00%)</title><rect x="10.0" y="421" width="1180.0" height="15.0" fill="rgb(218,63,15)" rx="2" ry="2" />
+<text  x="13.00" y="431.5" >__libc_start_main_impl</text>
 </g>
 <g >
-<title>std::__detail::_Hash_node&lt;std::pair&lt;Stan const, int&gt;, true&gt;::_M_next (86,920,283 samples, 0.15%)</title><rect x="514.6" y="373" width="1.7" height="15.0" fill="rgb(245,187,44)" rx="2" ry="2" />
-<text  x="517.57" y="383.5" ></text>
+<title>memcg1_commit_charge (13,920,356 samples, 0.03%)</title><rect x="1178.6" y="117" width="0.3" height="15.0" fill="rgb(219,66,15)" rx="2" ry="2" />
+<text  x="1181.59" y="127.5" ></text>
 </g>
 <g >
-<title>main (57,781,484,120 samples, 99.26%)</title><rect x="18.8" y="485" width="1171.2" height="15.0" fill="rgb(243,179,42)" rx="2" ry="2" />
-<text  x="21.76" y="495.5" >main</text>
+<title>__rmqueue_pcplist (10,298,683 samples, 0.02%)</title><rect x="1179.6" y="53" width="0.3" height="15.0" fill="rgb(230,118,28)" rx="2" ry="2" />
+<text  x="1182.61" y="63.5" ></text>
 </g>
 <g >
-<title>alloc_anon_folio (23,593,930 samples, 0.04%)</title><rect x="113.9" y="197" width="0.5" height="15.0" fill="rgb(223,86,20)" rx="2" ry="2" />
-<text  x="116.90" y="207.5" ></text>
+<title>timekeeping_advance (21,804,539 samples, 0.05%)</title><rect x="728.1" y="229" width="0.6" height="15.0" fill="rgb(227,104,25)" rx="2" ry="2" />
+<text  x="731.13" y="239.5" ></text>
 </g>
 <g >
-<title>std::__detail::_Hashtable_base&lt;Stan, std::pair&lt;Stan const, int&gt;, std::__detail::_Select1st, std::equal_to&lt;Stan&gt;, StanHash, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Hashtable_traits&lt;true, false, true&gt; &gt;::_S_equals (41,840,705 samples, 0.07%)</title><rect x="935.3" y="373" width="0.8" height="15.0" fill="rgb(246,191,45)" rx="2" ry="2" />
-<text  x="938.29" y="383.5" ></text>
+<title>_int_malloc (181,574,273 samples, 0.38%)</title><rect x="1185.5" y="309" width="4.4" height="15.0" fill="rgb(215,47,11)" rx="2" ry="2" />
+<text  x="1188.52" y="319.5" ></text>
 </g>
 <g >
-<title>sched_use_asym_prio (6,779,238 samples, 0.01%)</title><rect x="1144.6" y="181" width="0.1" height="15.0" fill="rgb(208,14,3)" rx="2" ry="2" />
-<text  x="1147.57" y="191.5" ></text>
+<title>get_page_from_freelist (9,678,963 samples, 0.02%)</title><rect x="1168.7" y="149" width="0.2" height="15.0" fill="rgb(252,218,52)" rx="2" ry="2" />
+<text  x="1171.69" y="159.5" ></text>
 </g>
 <g >
-<title>sched_tick (14,673,222 samples, 0.03%)</title><rect x="1144.7" y="245" width="0.3" height="15.0" fill="rgb(238,155,37)" rx="2" ry="2" />
-<text  x="1147.71" y="255.5" ></text>
+<title>task_tick_mm_cid (4,711,278 samples, 0.01%)</title><rect x="1172.3" y="229" width="0.1" height="15.0" fill="rgb(231,124,29)" rx="2" ry="2" />
+<text  x="1175.33" y="239.5" ></text>
 </g>
 <g >
-<title>std::__detail::__extent_storage&lt;18446744073709551615ul&gt;::_M_extent (130,994,313 samples, 0.23%)</title><rect x="1156.0" y="341" width="2.7" height="15.0" fill="rgb(209,21,5)" rx="2" ry="2" />
-<text  x="1159.03" y="351.5" ></text>
+<title>pushJesliNowy (5,536,224 samples, 0.01%)</title><rect x="17.5" y="373" width="0.1" height="15.0" fill="rgb(248,201,48)" rx="2" ry="2" />
+<text  x="20.45" y="383.5" ></text>
 </g>
 <g >
-<title>std::_Deque_base&lt;Stan, std::allocator&lt;Stan&gt; &gt;::_M_allocate_node (52,124,335 samples, 0.09%)</title><rect x="90.0" y="373" width="1.1" height="15.0" fill="rgb(227,105,25)" rx="2" ry="2" />
-<text  x="93.03" y="383.5" ></text>
+<title>do_user_addr_fault (28,117,318 samples, 0.06%)</title><rect x="1168.4" y="309" width="0.7" height="15.0" fill="rgb(228,108,25)" rx="2" ry="2" />
+<text  x="1171.43" y="319.5" ></text>
 </g>
 <g >
-<title>std::operator== (22,387,623 samples, 0.04%)</title><rect x="78.7" y="405" width="0.5" height="15.0" fill="rgb(229,110,26)" rx="2" ry="2" />
-<text  x="81.70" y="415.5" ></text>
+<title>perf_event_task_tick (28,277,734 samples, 0.06%)</title><rect x="729.6" y="229" width="0.7" height="15.0" fill="rgb(205,3,0)" rx="2" ry="2" />
+<text  x="732.58" y="239.5" ></text>
 </g>
 <g >
-<title>std::_Hashtable&lt;Stan, std::pair&lt;Stan const, int&gt;, std::allocator&lt;std::pair&lt;Stan const, int&gt; &gt;, std::__detail::_Select1st, std::equal_to&lt;Stan&gt;, StanHash, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits&lt;true, false, true&gt; &gt;::find (50,859,704,260 samples, 87.37%)</title><rect x="154.4" y="421" width="1030.9" height="15.0" fill="rgb(253,222,53)" rx="2" ry="2" />
-<text  x="157.36" y="431.5" >std::_Hashtable&lt;Stan, std::pair&lt;Stan const, int&gt;, std::allocator&lt;std::pair&lt;Stan const, int&gt; &gt;, std::__detail::_Select1st, std::equal_to&lt;Stan&gt;, ..</text>
+<title>do_vmi_munmap (8,903,468 samples, 0.02%)</title><rect x="10.0" y="245" width="0.2" height="15.0" fill="rgb(253,223,53)" rx="2" ry="2" />
+<text  x="13.00" y="255.5" ></text>
 </g>
 <g >
-<title>__alloc_frozen_pages_noprof (21,403,786 samples, 0.04%)</title><rect x="113.9" y="133" width="0.5" height="15.0" fill="rgb(228,109,26)" rx="2" ry="2" />
-<text  x="116.94" y="143.5" ></text>
+<title>do_syscall_64 (8,903,468 samples, 0.02%)</title><rect x="10.0" y="309" width="0.2" height="15.0" fill="rgb(209,20,4)" rx="2" ry="2" />
+<text  x="13.00" y="319.5" ></text>
 </g>
 <g >
-<title>entry_SYSCALL_64_after_hwframe (6,638,140 samples, 0.01%)</title><rect x="123.2" y="277" width="0.2" height="15.0" fill="rgb(218,63,15)" rx="2" ry="2" />
-<text  x="126.24" y="287.5" ></text>
+<title>__hrtimer_run_queues (4,501,474 samples, 0.01%)</title><rect x="727.4" y="309" width="0.1" height="15.0" fill="rgb(237,150,35)" rx="2" ry="2" />
+<text  x="730.36" y="319.5" ></text>
 </g>
 <g >
-<title>asm_sysvec_apic_timer_interrupt (46,006,181 samples, 0.08%)</title><rect x="933.0" y="341" width="0.9" height="15.0" fill="rgb(232,127,30)" rx="2" ry="2" />
-<text  x="935.97" y="351.5" ></text>
+<title>alloc_pages_mpol (16,329,180 samples, 0.03%)</title><rect x="726.5" y="197" width="0.4" height="15.0" fill="rgb(254,227,54)" rx="2" ry="2" />
+<text  x="729.46" y="207.5" ></text>
 </g>
 <g >
-<title>hrtimer_interrupt (6,724,306 samples, 0.01%)</title><rect x="1093.9" y="293" width="0.1" height="15.0" fill="rgb(228,109,26)" rx="2" ry="2" />
-<text  x="1096.88" y="303.5" ></text>
+<title>call_timer_fn (4,151,731 samples, 0.01%)</title><rect x="1172.8" y="165" width="0.1" height="15.0" fill="rgb(234,135,32)" rx="2" ry="2" />
+<text  x="1175.81" y="175.5" ></text>
 </g>
 <g >
-<title>__alloc_frozen_pages_noprof (11,456,895 samples, 0.02%)</title><rect x="90.7" y="117" width="0.2" height="15.0" fill="rgb(228,109,26)" rx="2" ry="2" />
-<text  x="93.67" y="127.5" ></text>
+<title>asm_exc_page_fault (74,606,086 samples, 0.15%)</title><rect x="725.4" y="357" width="1.8" height="15.0" fill="rgb(225,93,22)" rx="2" ry="2" />
+<text  x="728.40" y="367.5" ></text>
 </g>
 <g >
-<title>handle_softirqs (6,345,534 samples, 0.01%)</title><rect x="72.6" y="389" width="0.1" height="15.0" fill="rgb(238,156,37)" rx="2" ry="2" />
-<text  x="75.59" y="399.5" ></text>
+<title>prz.e (48,390,443,346 samples, 100.00%)</title><rect x="10.0" y="453" width="1180.0" height="15.0" fill="rgb(215,50,11)" rx="2" ry="2" />
+<text  x="13.00" y="463.5" >prz.e</text>
 </g>
 <g >
-<title>__run_timers (6,988,068 samples, 0.01%)</title><rect x="481.3" y="213" width="0.1" height="15.0" fill="rgb(206,5,1)" rx="2" ry="2" />
-<text  x="484.26" y="223.5" ></text>
+<title>alloc_anon_folio (28,641,213 samples, 0.06%)</title><rect x="726.2" y="245" width="0.7" height="15.0" fill="rgb(223,86,20)" rx="2" ry="2" />
+<text  x="729.21" y="255.5" ></text>
 </g>
 <g >
-<title>std::span&lt;int const, 18446744073709551615ul&gt;::size (6,754,009 samples, 0.01%)</title><rect x="132.0" y="341" width="0.1" height="15.0" fill="rgb(210,27,6)" rx="2" ry="2" />
-<text  x="135.00" y="351.5" ></text>
+<title>rmqueue_bulk (5,139,144 samples, 0.01%)</title><rect x="726.7" y="117" width="0.1" height="15.0" fill="rgb(235,138,33)" rx="2" ry="2" />
+<text  x="729.70" y="127.5" ></text>
 </g>
 <g >
-<title>std::__detail::_Node_iterator&lt;std::pair&lt;Stan const, int&gt;, false, true&gt;::_Node_iterator (41,689,468 samples, 0.07%)</title><rect x="152.2" y="421" width="0.9" height="15.0" fill="rgb(213,37,8)" rx="2" ry="2" />
-<text  x="155.22" y="431.5" ></text>
+<title>zap_pud_range.isra.0 (5,680,473 samples, 0.01%)</title><rect x="10.1" y="133" width="0.1" height="15.0" fill="rgb(242,172,41)" rx="2" ry="2" />
+<text  x="13.08" y="143.5" ></text>
 </g>
 <g >
-<title>__munmap (9,456,914 samples, 0.02%)</title><rect x="114.5" y="277" width="0.2" height="15.0" fill="rgb(211,29,7)" rx="2" ry="2" />
-<text  x="117.54" y="287.5" ></text>
+<title>__handle_mm_fault (20,750,511 samples, 0.04%)</title><rect x="1168.5" y="277" width="0.5" height="15.0" fill="rgb(207,9,2)" rx="2" ry="2" />
+<text  x="1171.52" y="287.5" ></text>
 </g>
 <g >
-<title>bool std::equal&lt;__gnu_cxx::__normal_iterator&lt;int const*, std::span&lt;int const, 18446744073709551615ul&gt; &gt;, __gnu_cxx::__normal_iterator&lt;int const*, std::span&lt;int const, 18446744073709551615ul&gt; &gt; &gt; (2,333,712,831 samples, 4.01%)</title><rect x="684.2" y="277" width="47.3" height="15.0" fill="rgb(217,55,13)" rx="2" ry="2" />
-<text  x="687.16" y="287.5" >bool..</text>
+<title>main (48,117,165,689 samples, 99.44%)</title><rect x="16.7" y="389" width="1173.3" height="15.0" fill="rgb(243,179,42)" rx="2" ry="2" />
+<text  x="19.66" y="399.5" >main</text>
 </g>
 <g >
-<title>__gnu_cxx::__normal_iterator&lt;int const*, std::span&lt;int const, 18446744073709551615ul&gt; &gt;::__normal_iterator (832,298,256 samples, 1.43%)</title><rect x="747.8" y="293" width="16.9" height="15.0" fill="rgb(240,162,38)" rx="2" ry="2" />
-<text  x="750.79" y="303.5" ></text>
+<title>fq_flush_timeout (4,151,731 samples, 0.01%)</title><rect x="1172.8" y="149" width="0.1" height="15.0" fill="rgb(213,40,9)" rx="2" ry="2" />
+<text  x="1175.81" y="159.5" ></text>
 </g>
 <g >
-<title>__count_memcg_events (11,585,276 samples, 0.02%)</title><rect x="125.2" y="117" width="0.2" height="15.0" fill="rgb(250,211,50)" rx="2" ry="2" />
-<text  x="128.18" y="127.5" ></text>
+<title>update_rq_clock (6,257,621 samples, 0.01%)</title><rect x="1172.1" y="213" width="0.1" height="15.0" fill="rgb(231,119,28)" rx="2" ry="2" />
+<text  x="1175.08" y="223.5" ></text>
 </g>
 <g >
-<title>update_process_times (9,146,383 samples, 0.02%)</title><rect x="1144.5" y="245" width="0.2" height="15.0" fill="rgb(250,209,50)" rx="2" ry="2" />
-<text  x="1147.52" y="255.5" ></text>
+<title>__count_memcg_events (22,081,817 samples, 0.05%)</title><rect x="1187.6" y="117" width="0.5" height="15.0" fill="rgb(250,211,50)" rx="2" ry="2" />
+<text  x="1190.56" y="127.5" ></text>
 </g>
 <g >
-<title>bool std::__equal_aux&lt;__gnu_cxx::__normal_iterator&lt;int const*, std::span&lt;int const, 18446744073709551615ul&gt; &gt;, __gnu_cxx::__normal_iterator&lt;int const*, std::span&lt;int const, 18446744073709551615ul&gt; &gt; &gt; (2,174,697,911 samples, 3.74%)</title><rect x="685.5" y="261" width="44.1" height="15.0" fill="rgb(218,62,14)" rx="2" ry="2" />
-<text  x="688.49" y="271.5" >bool..</text>
+<title>tmigr_handle_remote_cpu (4,151,731 samples, 0.01%)</title><rect x="1172.8" y="213" width="0.1" height="15.0" fill="rgb(253,221,52)" rx="2" ry="2" />
+<text  x="1175.81" y="223.5" ></text>
 </g>
 <g >
-<title>int&amp; std::forward&lt;int&amp;&gt; (6,750,494 samples, 0.01%)</title><rect x="120.3" y="341" width="0.2" height="15.0" fill="rgb(223,85,20)" rx="2" ry="2" />
-<text  x="123.34" y="351.5" ></text>
+<title>folio_add_new_anon_rmap (6,360,695 samples, 0.01%)</title><rect x="1180.4" y="165" width="0.1" height="15.0" fill="rgb(233,133,31)" rx="2" ry="2" />
+<text  x="1183.39" y="175.5" ></text>
 </g>
 <g >
-<title>std::span&lt;int const, 18446744073709551615ul&gt;::begin (37,298,179 samples, 0.06%)</title><rect x="52.7" y="437" width="0.7" height="15.0" fill="rgb(232,128,30)" rx="2" ry="2" />
-<text  x="55.66" y="447.5" ></text>
+<title>handle_softirqs (4,151,731 samples, 0.01%)</title><rect x="1172.8" y="277" width="0.1" height="15.0" fill="rgb(238,156,37)" rx="2" ry="2" />
+<text  x="1175.81" y="287.5" ></text>
 </g>
 <g >
-<title>std::__detail::_Hashtable_hash_traits&lt;StanHash&gt;::__small_size_threshold (35,163,925 samples, 0.06%)</title><rect x="1175.4" y="405" width="0.7" height="15.0" fill="rgb(208,16,4)" rx="2" ry="2" />
-<text  x="1178.36" y="415.5" ></text>
+<title>__handle_mm_fault (126,148,968 samples, 0.26%)</title><rect x="1186.7" y="229" width="3.1" height="15.0" fill="rgb(207,9,2)" rx="2" ry="2" />
+<text  x="1189.69" y="239.5" ></text>
 </g>
 <g >
-<title>tmigr_handle_remote_cpu (6,988,068 samples, 0.01%)</title><rect x="481.3" y="245" width="0.1" height="15.0" fill="rgb(253,221,52)" rx="2" ry="2" />
-<text  x="484.26" y="255.5" ></text>
+<title>entry_SYSCALL_64_after_hwframe (10,896,974 samples, 0.02%)</title><rect x="725.1" y="341" width="0.3" height="15.0" fill="rgb(218,63,15)" rx="2" ry="2" />
+<text  x="728.14" y="351.5" ></text>
 </g>
 <g >
-<title>std::__detail::__extent_storage&lt;18446744073709551615ul&gt;::__extent_storage (97,939,502 samples, 0.17%)</title><rect x="1037.6" y="341" width="2.0" height="15.0" fill="rgb(253,222,53)" rx="2" ry="2" />
-<text  x="1040.63" y="351.5" ></text>
+<title>arch_scale_freq_tick (8,763,661 samples, 0.02%)</title><rect x="729.4" y="229" width="0.2" height="15.0" fill="rgb(252,219,52)" rx="2" ry="2" />
+<text  x="732.36" y="239.5" ></text>
 </g>
 <g >
-<title>do_user_addr_fault (31,340,662 samples, 0.05%)</title><rect x="90.5" y="261" width="0.6" height="15.0" fill="rgb(228,108,25)" rx="2" ry="2" />
-<text  x="93.45" y="271.5" ></text>
+<title>account_user_time (6,662,911 samples, 0.01%)</title><rect x="1169.7" y="213" width="0.2" height="15.0" fill="rgb(225,96,23)" rx="2" ry="2" />
+<text  x="1172.75" y="223.5" ></text>
 </g>
 <g >
-<title>[unknown] (7,748,528 samples, 0.01%)</title><rect x="10.0" y="501" width="0.2" height="15.0" fill="rgb(210,24,5)" rx="2" ry="2" />
-<text  x="13.00" y="511.5" ></text>
+<title>update_curr (12,041,000 samples, 0.02%)</title><rect x="1171.4" y="197" width="0.3" height="15.0" fill="rgb(227,105,25)" rx="2" ry="2" />
+<text  x="1174.43" y="207.5" ></text>
 </g>
 <g >
-<title>sched_tick (5,982,079 samples, 0.01%)</title><rect x="1128.7" y="245" width="0.1" height="15.0" fill="rgb(238,155,37)" rx="2" ry="2" />
-<text  x="1131.68" y="255.5" ></text>
+<title>vma_alloc_folio_noprof (36,796,528 samples, 0.08%)</title><rect x="1179.1" y="149" width="0.9" height="15.0" fill="rgb(218,61,14)" rx="2" ry="2" />
+<text  x="1182.15" y="159.5" ></text>
 </g>
 <g >
-<title>int&amp; std::forward&lt;int&amp;&gt; (6,492,163 samples, 0.01%)</title><rect x="104.9" y="421" width="0.2" height="15.0" fill="rgb(223,85,20)" rx="2" ry="2" />
-<text  x="107.95" y="431.5" ></text>
+<title>read_tsc (7,893,677 samples, 0.02%)</title><rect x="733.5" y="261" width="0.2" height="15.0" fill="rgb(206,7,1)" rx="2" ry="2" />
+<text  x="736.53" y="271.5" ></text>
 </g>
 <g >
-<title>std::__detail::_Hash_code_base&lt;Stan, std::pair&lt;Stan const, int&gt;, std::__detail::_Select1st, StanHash, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, true&gt;::_M_hash (20,661,888 samples, 0.04%)</title><rect x="943.4" y="405" width="0.4" height="15.0" fill="rgb(239,160,38)" rx="2" ry="2" />
-<text  x="946.42" y="415.5" ></text>
+<title>zap_present_ptes.constprop.0 (6,431,262 samples, 0.01%)</title><rect x="725.2" y="101" width="0.2" height="15.0" fill="rgb(247,197,47)" rx="2" ry="2" />
+<text  x="728.25" y="111.5" ></text>
 </g>
 <g >
-<title>__gnu_cxx::__normal_iterator&lt;int const*, std::span&lt;int const, 18446744073709551615ul&gt; &gt;::__normal_iterator (485,035,692 samples, 0.83%)</title><rect x="1134.9" y="357" width="9.8" height="15.0" fill="rgb(240,162,38)" rx="2" ry="2" />
-<text  x="1137.88" y="367.5" ></text>
+<title>zap_present_ptes.constprop.0 (5,680,473 samples, 0.01%)</title><rect x="10.1" y="85" width="0.1" height="15.0" fill="rgb(247,197,47)" rx="2" ry="2" />
+<text  x="13.08" y="95.5" ></text>
 </g>
 <g >
-<title>handle_mm_fault (31,340,662 samples, 0.05%)</title><rect x="90.5" y="245" width="0.6" height="15.0" fill="rgb(234,135,32)" rx="2" ry="2" />
-<text  x="93.45" y="255.5" ></text>
+<title>task_tick_fair (57,404,847 samples, 0.12%)</title><rect x="731.2" y="229" width="1.4" height="15.0" fill="rgb(217,57,13)" rx="2" ry="2" />
+<text  x="734.16" y="239.5" ></text>
 </g>
 <g >
-<title>__gnu_cxx::__normal_iterator&lt;int const*, std::span&lt;int const, 18446744073709551615ul&gt; &gt;::__normal_iterator (31,900,670 samples, 0.05%)</title><rect x="1039.6" y="373" width="0.7" height="15.0" fill="rgb(240,162,38)" rx="2" ry="2" />
-<text  x="1042.61" y="383.5" ></text>
+<title>sysvec_apic_timer_interrupt (163,847,922 samples, 0.34%)</title><rect x="1169.3" y="325" width="4.0" height="15.0" fill="rgb(220,69,16)" rx="2" ry="2" />
+<text  x="1172.26" y="335.5" ></text>
 </g>
 <g >
-<title>__folio_throttle_swaprate (6,676,954 samples, 0.01%)</title><rect x="125.0" y="165" width="0.2" height="15.0" fill="rgb(239,160,38)" rx="2" ry="2" />
-<text  x="128.05" y="175.5" ></text>
+<title>unmap_vmas (6,431,262 samples, 0.01%)</title><rect x="725.2" y="197" width="0.2" height="15.0" fill="rgb(243,176,42)" rx="2" ry="2" />
+<text  x="728.25" y="207.5" ></text>
 </g>
 <g >
-<title>task_tick_fair (11,401,229 samples, 0.02%)</title><rect x="480.4" y="245" width="0.2" height="15.0" fill="rgb(217,57,13)" rx="2" ry="2" />
-<text  x="483.37" y="255.5" ></text>
+<title>update_wall_time (4,349,711 samples, 0.01%)</title><rect x="1169.6" y="229" width="0.1" height="15.0" fill="rgb(207,11,2)" rx="2" ry="2" />
+<text  x="1172.64" y="239.5" ></text>
 </g>
 <g >
-<title>do_vmi_munmap (9,456,914 samples, 0.02%)</title><rect x="114.5" y="181" width="0.2" height="15.0" fill="rgb(253,223,53)" rx="2" ry="2" />
-<text  x="117.54" y="191.5" ></text>
+<title>native_read_msr (5,421,785 samples, 0.01%)</title><rect x="729.4" y="213" width="0.2" height="15.0" fill="rgb(211,30,7)" rx="2" ry="2" />
+<text  x="732.45" y="223.5" ></text>
 </g>
 <g >
-<title>asm_sysvec_apic_timer_interrupt (10,666,572 samples, 0.02%)</title><rect x="1128.7" y="357" width="0.2" height="15.0" fill="rgb(232,127,30)" rx="2" ry="2" />
-<text  x="1131.68" y="367.5" ></text>
+<title>asm_exc_page_fault (149,879,859 samples, 0.31%)</title><rect x="1177.5" y="277" width="3.6" height="15.0" fill="rgb(225,93,22)" rx="2" ry="2" />
+<text  x="1180.46" y="287.5" ></text>
 </g>
 <g >
-<title>std::__detail::_Mod_range_hashing::operator (231,712,774 samples, 0.40%)</title><rect x="509.4" y="341" width="4.7" height="15.0" fill="rgb(230,116,27)" rx="2" ry="2" />
-<text  x="512.35" y="351.5" ></text>
+<title>exc_page_fault (35,751,331 samples, 0.07%)</title><rect x="1168.3" y="325" width="0.9" height="15.0" fill="rgb(212,35,8)" rx="2" ry="2" />
+<text  x="1171.34" y="335.5" ></text>
 </g>
 <g >
-<title>std::__detail::_Node_iterator_base&lt;std::pair&lt;Stan const, int&gt;, true&gt;::_Node_iterator_base (297,169,012 samples, 0.51%)</title><rect x="1178.9" y="389" width="6.1" height="15.0" fill="rgb(245,184,44)" rx="2" ry="2" />
-<text  x="1181.93" y="399.5" ></text>
+<title>__do_sys_brk (11,308,842 samples, 0.02%)</title><rect x="1185.7" y="213" width="0.3" height="15.0" fill="rgb(217,58,13)" rx="2" ry="2" />
+<text  x="1188.73" y="223.5" ></text>
 </g>
 <g >
-<title>std::span&lt;int const, 18446744073709551615ul&gt;::span&lt;int const*&gt; (654,814,523 samples, 1.12%)</title><rect x="1026.3" y="357" width="13.3" height="15.0" fill="rgb(205,1,0)" rx="2" ry="2" />
-<text  x="1029.34" y="367.5" ></text>
+<title>operator new (192,673,518 samples, 0.40%)</title><rect x="1185.2" y="341" width="4.7" height="15.0" fill="rgb(216,51,12)" rx="2" ry="2" />
+<text  x="1188.25" y="351.5" ></text>
 </g>
 <g >
-<title>asm_sysvec_apic_timer_interrupt (6,917,733 samples, 0.01%)</title><rect x="589.2" y="277" width="0.1" height="15.0" fill="rgb(232,127,30)" rx="2" ry="2" />
-<text  x="592.18" y="287.5" ></text>
+<title>__hrtimer_next_event_base (4,503,546 samples, 0.01%)</title><rect x="733.0" y="277" width="0.1" height="15.0" fill="rgb(246,191,45)" rx="2" ry="2" />
+<text  x="736.03" y="287.5" ></text>
 </g>
 <g >
-<title>pushJesliNowy (42,645,314 samples, 0.07%)</title><rect x="20.7" y="469" width="0.9" height="15.0" fill="rgb(248,201,48)" rx="2" ry="2" />
-<text  x="23.71" y="479.5" ></text>
+<title>asm_exc_page_fault (43,471,241 samples, 0.09%)</title><rect x="1168.2" y="341" width="1.0" height="15.0" fill="rgb(225,93,22)" rx="2" ry="2" />
+<text  x="1171.15" y="351.5" ></text>
 </g>
 <g >
-<title>[prz.e] (408,268,593 samples, 0.70%)</title><rect x="10.5" y="485" width="8.3" height="15.0" fill="rgb(227,102,24)" rx="2" ry="2" />
-<text  x="13.48" y="495.5" ></text>
+<title>std::map&lt;Stan, int, std::less&lt;Stan&gt;, std::allocator&lt;std::pair&lt;Stan const, int&gt; &gt; &gt;::~map (264,281,610 samples, 0.55%)</title><rect x="10.2" y="357" width="6.5" height="15.0" fill="rgb(242,172,41)" rx="2" ry="2" />
+<text  x="13.22" y="367.5" ></text>
 </g>
 <g >
-<title>std::array&lt;int, 11ul&gt;::data (355,787,478 samples, 0.61%)</title><rect x="582.1" y="293" width="7.2" height="15.0" fill="rgb(216,53,12)" rx="2" ry="2" />
-<text  x="585.11" y="303.5" ></text>
+<title>sysvec_apic_timer_interrupt (272,317,036 samples, 0.56%)</title><rect x="727.4" y="341" width="6.6" height="15.0" fill="rgb(220,69,16)" rx="2" ry="2" />
+<text  x="730.36" y="351.5" ></text>
 </g>
 <g >
-<title>__irq_exit_rcu (21,872,037 samples, 0.04%)</title><rect x="481.0" y="325" width="0.4" height="15.0" fill="rgb(227,101,24)" rx="2" ry="2" />
-<text  x="483.96" y="335.5" ></text>
+<title>alloc_pages_mpol (29,559,861 samples, 0.06%)</title><rect x="1179.2" y="117" width="0.8" height="15.0" fill="rgb(254,227,54)" rx="2" ry="2" />
+<text  x="1182.24" y="127.5" ></text>
 </g>
 <g >
-<title>bool std::equal&lt;__gnu_cxx::__normal_iterator&lt;int const*, std::span&lt;int const, 18446744073709551615ul&gt; &gt;, __gnu_cxx::__normal_iterator&lt;int const*, std::span&lt;int const, 18446744073709551615ul&gt; &gt; &gt; (63,303,938 samples, 0.11%)</title><rect x="51.1" y="405" width="1.3" height="15.0" fill="rgb(217,55,13)" rx="2" ry="2" />
-<text  x="54.10" y="415.5" ></text>
+<title>std::_Rb_tree_decrement (33,831,627 samples, 0.07%)</title><rect x="1181.4" y="357" width="0.9" height="15.0" fill="rgb(238,152,36)" rx="2" ry="2" />
+<text  x="1184.44" y="367.5" ></text>
 </g>
 <g >
-<title>sysvec_apic_timer_interrupt (11,391,746 samples, 0.02%)</title><rect x="192.5" y="373" width="0.2" height="15.0" fill="rgb(220,69,16)" rx="2" ry="2" />
-<text  x="195.49" y="383.5" ></text>
+<title>get_mem_cgroup_from_mm (5,112,199 samples, 0.01%)</title><rect x="1188.1" y="149" width="0.2" height="15.0" fill="rgb(218,61,14)" rx="2" ry="2" />
+<text  x="1191.14" y="159.5" ></text>
 </g>
 <g >
-<title>std::__detail::__extent_storage&lt;18446744073709551615ul&gt;::_M_extent (18,223,070 samples, 0.03%)</title><rect x="1154.6" y="357" width="0.3" height="15.0" fill="rgb(209,21,5)" rx="2" ry="2" />
-<text  x="1157.56" y="367.5" ></text>
+<title>std::_Rb_tree&lt;Stan, std::pair&lt;Stan const, int&gt;, std::_Select1st&lt;std::pair&lt;Stan const, int&gt; &gt;, std::less&lt;Stan&gt;, std::allocator&lt;std::pair&lt;Stan const, int&gt; &gt; &gt;::_M_erase (264,281,610 samples, 0.55%)</title><rect x="10.2" y="341" width="6.5" height="15.0" fill="rgb(246,189,45)" rx="2" ry="2" />
+<text  x="13.22" y="351.5" ></text>
 </g>
 <g >
-<title>std::_Deque_base&lt;Stan, std::allocator&lt;Stan&gt; &gt;::_M_deallocate_node (7,069,664 samples, 0.01%)</title><rect x="81.7" y="389" width="0.2" height="15.0" fill="rgb(229,112,27)" rx="2" ry="2" />
-<text  x="84.72" y="399.5" ></text>
+<title>kolejka012::~kolejka012 (8,903,468 samples, 0.02%)</title><rect x="10.0" y="357" width="0.2" height="15.0" fill="rgb(229,111,26)" rx="2" ry="2" />
+<text  x="13.00" y="367.5" ></text>
 </g>
 <g >
-<title>sched_tick (25,837,146 samples, 0.04%)</title><rect x="933.2" y="229" width="0.6" height="15.0" fill="rgb(238,155,37)" rx="2" ry="2" />
-<text  x="936.24" y="239.5" ></text>
+<title>vma_alloc_folio_noprof (18,248,963 samples, 0.04%)</title><rect x="726.5" y="229" width="0.4" height="15.0" fill="rgb(218,61,14)" rx="2" ry="2" />
+<text  x="729.46" y="239.5" ></text>
 </g>
 <g >
-<title>__gnu_cxx::__normal_iterator&lt;int const*, std::span&lt;int const, 18446744073709551615ul&gt; &gt;::__normal_iterator (750,424,658 samples, 1.29%)</title><rect x="786.1" y="293" width="15.2" height="15.0" fill="rgb(240,162,38)" rx="2" ry="2" />
-<text  x="789.10" y="303.5" ></text>
+<title>tick_program_event (14,663,673 samples, 0.03%)</title><rect x="733.4" y="293" width="0.3" height="15.0" fill="rgb(241,166,39)" rx="2" ry="2" />
+<text  x="736.37" y="303.5" ></text>
 </g>
 <g >
-<title>__hrtimer_run_queues (9,146,383 samples, 0.02%)</title><rect x="1144.5" y="277" width="0.2" height="15.0" fill="rgb(237,150,35)" rx="2" ry="2" />
-<text  x="1147.52" y="287.5" ></text>
+<title>handle_mm_fault (24,342,664 samples, 0.05%)</title><rect x="1168.5" y="293" width="0.6" height="15.0" fill="rgb(234,135,32)" rx="2" ry="2" />
+<text  x="1171.48" y="303.5" ></text>
 </g>
 <g >
-<title>int const&amp; std::min&lt;int&gt; (6,208,321 samples, 0.01%)</title><rect x="20.6" y="469" width="0.1" height="15.0" fill="rgb(250,207,49)" rx="2" ry="2" />
-<text  x="23.58" y="479.5" ></text>
+<title>zap_pmd_range.isra.0 (6,431,262 samples, 0.01%)</title><rect x="725.2" y="133" width="0.2" height="15.0" fill="rgb(244,180,43)" rx="2" ry="2" />
+<text  x="728.25" y="143.5" ></text>
 </g>
 <g >
-<title>tick_nohz_handler (6,393,206 samples, 0.01%)</title><rect x="615.3" y="181" width="0.1" height="15.0" fill="rgb(248,200,48)" rx="2" ry="2" />
-<text  x="618.30" y="191.5" ></text>
+<title>_int_free (15,319,578 samples, 0.03%)</title><rect x="16.3" y="293" width="0.4" height="15.0" fill="rgb(247,196,46)" rx="2" ry="2" />
+<text  x="19.29" y="303.5" ></text>
 </g>
 <g >
-<title>Stan const&amp; std::forward&lt;Stan const&amp;&gt; (22,509,121 samples, 0.04%)</title><rect x="106.6" y="389" width="0.4" height="15.0" fill="rgb(222,80,19)" rx="2" ry="2" />
-<text  x="109.58" y="399.5" ></text>
+<title>perf_ibs_stop (4,253,555 samples, 0.01%)</title><rect x="730.0" y="181" width="0.1" height="15.0" fill="rgb(227,105,25)" rx="2" ry="2" />
+<text  x="733.03" y="191.5" ></text>
 </g>
 <g >
-<title>std::array&lt;int, 11ul&gt;::data (33,432,947 samples, 0.06%)</title><rect x="1094.1" y="373" width="0.7" height="15.0" fill="rgb(216,53,12)" rx="2" ry="2" />
-<text  x="1097.11" y="383.5" ></text>
+<title>hrtimer_interrupt (256,514,939 samples, 0.53%)</title><rect x="727.5" y="309" width="6.2" height="15.0" fill="rgb(228,109,26)" rx="2" ry="2" />
+<text  x="730.47" y="319.5" ></text>
 </g>
 <g >
-<title>__sysvec_apic_timer_interrupt (6,393,206 samples, 0.01%)</title><rect x="615.3" y="229" width="0.1" height="15.0" fill="rgb(242,173,41)" rx="2" ry="2" />
-<text  x="618.30" y="239.5" ></text>
+<title>do_brk_flags (8,257,354 samples, 0.02%)</title><rect x="1185.8" y="197" width="0.2" height="15.0" fill="rgb(220,73,17)" rx="2" ry="2" />
+<text  x="1188.80" y="207.5" ></text>
 </g>
 <g >
-<title>int&amp; std::forward&lt;int&amp;&gt; (13,411,126 samples, 0.02%)</title><rect x="105.2" y="405" width="0.2" height="15.0" fill="rgb(223,85,20)" rx="2" ry="2" />
-<text  x="108.17" y="415.5" ></text>
+<title>__irqentry_text_end (8,028,150 samples, 0.02%)</title><rect x="1177.3" y="277" width="0.2" height="15.0" fill="rgb(248,199,47)" rx="2" ry="2" />
+<text  x="1180.27" y="287.5" ></text>
 </g>
 <g >
-<title>sysvec_apic_timer_interrupt (39,664,758 samples, 0.07%)</title><rect x="933.1" y="325" width="0.8" height="15.0" fill="rgb(220,69,16)" rx="2" ry="2" />
-<text  x="936.10" y="335.5" ></text>
+<title>unmap_vmas (5,680,473 samples, 0.01%)</title><rect x="10.1" y="181" width="0.1" height="15.0" fill="rgb(243,176,42)" rx="2" ry="2" />
+<text  x="13.08" y="191.5" ></text>
 </g>
 <g >
-<title>std::is_constant_evaluated (5,415,101 samples, 0.01%)</title><rect x="51.9" y="341" width="0.1" height="15.0" fill="rgb(212,33,8)" rx="2" ry="2" />
-<text  x="54.86" y="351.5" ></text>
+<title>do_syscall_64 (10,896,974 samples, 0.02%)</title><rect x="725.1" y="325" width="0.3" height="15.0" fill="rgb(209,20,4)" rx="2" ry="2" />
+<text  x="728.14" y="335.5" ></text>
 </g>
 <g >
-<title>__hrtimer_run_queues (22,409,725 samples, 0.04%)</title><rect x="72.1" y="389" width="0.5" height="15.0" fill="rgb(237,150,35)" rx="2" ry="2" />
-<text  x="75.14" y="399.5" ></text>
+<title>sched_balance_trigger (36,610,888 samples, 0.08%)</title><rect x="730.3" y="229" width="0.9" height="15.0" fill="rgb(213,38,9)" rx="2" ry="2" />
+<text  x="733.27" y="239.5" ></text>
 </g>
 <g >
-<title>handle_softirqs (21,872,037 samples, 0.04%)</title><rect x="481.0" y="309" width="0.4" height="15.0" fill="rgb(238,156,37)" rx="2" ry="2" />
-<text  x="483.96" y="319.5" ></text>
+<title>memcg1_commit_charge (23,789,054 samples, 0.05%)</title><rect x="1187.5" y="133" width="0.6" height="15.0" fill="rgb(219,66,15)" rx="2" ry="2" />
+<text  x="1190.51" y="143.5" ></text>
 </g>
 <g >
-<title>std::array&lt;int, 11ul&gt;::data (13,728,046 samples, 0.02%)</title><rect x="52.4" y="437" width="0.3" height="15.0" fill="rgb(216,53,12)" rx="2" ry="2" />
-<text  x="55.38" y="447.5" ></text>
+<title>_raw_spin_lock_irq (4,124,439 samples, 0.01%)</title><rect x="1172.5" y="277" width="0.1" height="15.0" fill="rgb(231,122,29)" rx="2" ry="2" />
+<text  x="1175.48" y="287.5" ></text>
 </g>
 <g >
-<title>std::_Deque_base&lt;Stan, std::allocator&lt;Stan&gt; &gt;::_M_deallocate_node (8,979,233 samples, 0.02%)</title><rect x="10.5" y="373" width="0.2" height="15.0" fill="rgb(229,112,27)" rx="2" ry="2" />
-<text  x="13.48" y="383.5" ></text>
+<title>__brk (13,310,470 samples, 0.03%)</title><rect x="1185.7" y="293" width="0.4" height="15.0" fill="rgb(225,94,22)" rx="2" ry="2" />
+<text  x="1188.73" y="303.5" ></text>
 </g>
 <g >
-<title>x64_sys_call (6,638,140 samples, 0.01%)</title><rect x="123.2" y="245" width="0.2" height="15.0" fill="rgb(247,194,46)" rx="2" ry="2" />
-<text  x="126.24" y="255.5" ></text>
+<title>perf_event_mmap (4,554,784 samples, 0.01%)</title><rect x="1185.8" y="181" width="0.1" height="15.0" fill="rgb(229,112,26)" rx="2" ry="2" />
+<text  x="1188.80" y="191.5" ></text>
 </g>
 <g >
-<title>do_anonymous_page (27,958,778 samples, 0.05%)</title><rect x="113.8" y="213" width="0.6" height="15.0" fill="rgb(238,155,37)" rx="2" ry="2" />
-<text  x="116.81" y="223.5" ></text>
+<title>percpu_counter_add_batch (6,923,890 samples, 0.01%)</title><rect x="1180.5" y="165" width="0.2" height="15.0" fill="rgb(241,166,39)" rx="2" ry="2" />
+<text  x="1183.55" y="175.5" ></text>
 </g>
 <g >
-<title>Stan::operator[] (89,763,055 samples, 0.15%)</title><rect x="18.8" y="469" width="1.8" height="15.0" fill="rgb(244,179,42)" rx="2" ry="2" />
-<text  x="21.76" y="479.5" ></text>
+<title>update_process_times (112,157,455 samples, 0.23%)</title><rect x="1169.7" y="245" width="2.8" height="15.0" fill="rgb(250,209,50)" rx="2" ry="2" />
+<text  x="1172.75" y="255.5" ></text>
 </g>
 <g >
-<title>tick_nohz_handler (9,146,383 samples, 0.02%)</title><rect x="1144.5" y="261" width="0.2" height="15.0" fill="rgb(248,200,48)" rx="2" ry="2" />
-<text  x="1147.52" y="271.5" ></text>
+<title>update_wall_time (23,392,939 samples, 0.05%)</title><rect x="728.1" y="245" width="0.6" height="15.0" fill="rgb(207,11,2)" rx="2" ry="2" />
+<text  x="731.09" y="255.5" ></text>
 </g>
 <g >
-<title>bool std::__equal4&lt;__gnu_cxx::__normal_iterator&lt;int const*, std::span&lt;int const, 18446744073709551615ul&gt; &gt;, __gnu_cxx::__normal_iterator&lt;int const*, std::span&lt;int const, 18446744073709551615ul&gt; &gt; &gt; (4,200,551,052 samples, 7.22%)</title><rect x="647.1" y="293" width="85.1" height="15.0" fill="rgb(253,224,53)" rx="2" ry="2" />
-<text  x="650.09" y="303.5" >bool std::..</text>
+<title>nohz_balancer_kick (26,423,055 samples, 0.05%)</title><rect x="730.5" y="213" width="0.7" height="15.0" fill="rgb(225,93,22)" rx="2" ry="2" />
+<text  x="733.52" y="223.5" ></text>
 </g>
 <g >
-<title>std::_Hashtable&lt;Stan, std::pair&lt;Stan const, int&gt;, std::allocator&lt;std::pair&lt;Stan const, int&gt; &gt;, std::__detail::_Select1st, std::equal_to&lt;Stan&gt;, StanHash, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits&lt;true, false, true&gt; &gt;::size (164,212,792 samples, 0.28%)</title><rect x="939.7" y="405" width="3.3" height="15.0" fill="rgb(235,140,33)" rx="2" ry="2" />
-<text  x="942.71" y="415.5" ></text>
+<title>vma_alloc_folio_noprof (11,646,356 samples, 0.02%)</title><rect x="1168.6" y="213" width="0.3" height="15.0" fill="rgb(218,61,14)" rx="2" ry="2" />
+<text  x="1171.65" y="223.5" ></text>
 </g>
 <g >
-<title>std::pair&lt;std::__detail::_Node_iterator&lt;std::pair&lt;Stan const, int&gt;, false, true&gt;, bool&gt; std::_Hashtable&lt;Stan, std::pair&lt;Stan const, int&gt;, std::allocator&lt;std::pair&lt;Stan const, int&gt; &gt;, std::__detail::_Select1st, std::equal_to&lt;Stan&gt;, StanHash, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits&lt;true, false, true&gt; &gt;::_M_emplace&lt;Stan const&amp;, int&amp;&gt; (1,361,582,994 samples, 2.34%)</title><rect x="105.5" y="405" width="27.6" height="15.0" fill="rgb(217,58,13)" rx="2" ry="2" />
-<text  x="108.53" y="415.5" >s..</text>
+<title>cgroup_rstat_updated (4,670,568 samples, 0.01%)</title><rect x="731.7" y="181" width="0.1" height="15.0" fill="rgb(244,180,43)" rx="2" ry="2" />
+<text  x="734.70" y="191.5" ></text>
 </g>
 <g >
-<title>std::unordered_map&lt;Stan, int, StanHash, std::equal_to&lt;Stan&gt;, std::allocator&lt;std::pair&lt;Stan const, int&gt; &gt; &gt;::end (78,216,025 samples, 0.13%)</title><rect x="1187.6" y="453" width="1.6" height="15.0" fill="rgb(207,13,3)" rx="2" ry="2" />
-<text  x="1190.62" y="463.5" ></text>
+<title>get_page_from_freelist (14,633,609 samples, 0.03%)</title><rect x="726.5" y="165" width="0.3" height="15.0" fill="rgb(252,218,52)" rx="2" ry="2" />
+<text  x="729.47" y="175.5" ></text>
 </g>
 <g >
-<title>asm_sysvec_apic_timer_interrupt (16,960,822 samples, 0.03%)</title><rect x="1144.7" y="357" width="0.4" height="15.0" fill="rgb(232,127,30)" rx="2" ry="2" />
-<text  x="1147.71" y="367.5" ></text>
+<title>alloc_anon_folio (64,993,303 samples, 0.13%)</title><rect x="1187.4" y="181" width="1.6" height="15.0" fill="rgb(223,86,20)" rx="2" ry="2" />
+<text  x="1190.43" y="191.5" ></text>
 </g>
 <g >
-<title>do_syscall_64 (6,638,140 samples, 0.01%)</title><rect x="123.2" y="261" width="0.2" height="15.0" fill="rgb(209,20,4)" rx="2" ry="2" />
-<text  x="126.24" y="271.5" ></text>
+<title>irq_work_tick (6,554,618 samples, 0.01%)</title><rect x="727.8" y="261" width="0.2" height="15.0" fill="rgb(219,67,16)" rx="2" ry="2" />
+<text  x="730.79" y="271.5" ></text>
 </g>
 <g >
-<title>__sysvec_apic_timer_interrupt (8,361,625 samples, 0.01%)</title><rect x="1128.7" y="325" width="0.1" height="15.0" fill="rgb(242,173,41)" rx="2" ry="2" />
-<text  x="1131.68" y="335.5" ></text>
+<title>do_user_addr_fault (135,536,122 samples, 0.28%)</title><rect x="1186.6" y="261" width="3.3" height="15.0" fill="rgb(228,108,25)" rx="2" ry="2" />
+<text  x="1189.60" y="271.5" ></text>
 </g>
 <g >
-<title>_int_malloc (36,033,216 samples, 0.06%)</title><rect x="90.4" y="309" width="0.7" height="15.0" fill="rgb(215,47,11)" rx="2" ry="2" />
-<text  x="93.36" y="319.5" ></text>
+<title>__x64_sys_munmap (8,903,468 samples, 0.02%)</title><rect x="10.0" y="277" width="0.2" height="15.0" fill="rgb(206,7,1)" rx="2" ry="2" />
+<text  x="13.00" y="287.5" ></text>
 </g>
 <g >
-<title>std::span&lt;int const, 18446744073709551615ul&gt;::end (26,558,287 samples, 0.05%)</title><rect x="53.4" y="437" width="0.6" height="15.0" fill="rgb(213,39,9)" rx="2" ry="2" />
-<text  x="56.42" y="447.5" ></text>
+<title>alloc_pages_mpol (26,943,690 samples, 0.06%)</title><rect x="1188.3" y="133" width="0.7" height="15.0" fill="rgb(254,227,54)" rx="2" ry="2" />
+<text  x="1191.31" y="143.5" ></text>
 </g>
 <g >
-<title>__irqentry_text_end (15,242,623 samples, 0.03%)</title><rect x="123.5" y="293" width="0.3" height="15.0" fill="rgb(248,199,47)" rx="2" ry="2" />
-<text  x="126.47" y="303.5" ></text>
+<title>clockevents_program_event (10,805,203 samples, 0.02%)</title><rect x="733.5" y="277" width="0.2" height="15.0" fill="rgb(244,182,43)" rx="2" ry="2" />
+<text  x="736.46" y="287.5" ></text>
 </g>
 <g >
-<title>__gnu_cxx::__normal_iterator&lt;int const*, std::span&lt;int const, 18446744073709551615ul&gt; &gt;::difference_type __gnu_cxx::operator-&lt;int const*, std::span&lt;int const, 18446744073709551615ul&gt; &gt; (810,497,340 samples, 1.39%)</title><rect x="666.6" y="277" width="16.4" height="15.0" fill="rgb(241,169,40)" rx="2" ry="2" />
-<text  x="669.60" y="287.5" ></text>
+<title>tick_nohz_handler (121,117,172 samples, 0.25%)</title><rect x="1169.5" y="261" width="3.0" height="15.0" fill="rgb(248,200,48)" rx="2" ry="2" />
+<text  x="1172.53" y="271.5" ></text>
 </g>
 <g >
-<title>sysvec_apic_timer_interrupt (6,917,733 samples, 0.01%)</title><rect x="589.2" y="261" width="0.1" height="15.0" fill="rgb(220,69,16)" rx="2" ry="2" />
-<text  x="592.18" y="271.5" ></text>
+<title>clear_page_erms (5,910,093 samples, 0.01%)</title><rect x="1168.8" y="133" width="0.1" height="15.0" fill="rgb(229,113,27)" rx="2" ry="2" />
+<text  x="1171.79" y="143.5" ></text>
 </g>
 <g >
-<title>std::span&lt;int const, 18446744073709551615ul&gt;::begin (797,342,265 samples, 1.37%)</title><rect x="1128.9" y="373" width="16.2" height="15.0" fill="rgb(232,128,30)" rx="2" ry="2" />
-<text  x="1131.89" y="383.5" ></text>
+<title>std::_Rb_tree&lt;Stan, std::pair&lt;Stan const, int&gt;, std::_Select1st&lt;std::pair&lt;Stan const, int&gt; &gt;, std::less&lt;Stan&gt;, std::allocator&lt;std::pair&lt;Stan const, int&gt; &gt; &gt;::_M_erase (146,288,418 samples, 0.30%)</title><rect x="13.1" y="325" width="3.6" height="15.0" fill="rgb(246,189,45)" rx="2" ry="2" />
+<text  x="16.10" y="335.5" ></text>
 </g>
 <g >
-<title>StanHash::operator (10,548,402,108 samples, 18.12%)</title><rect x="945.7" y="389" width="213.9" height="15.0" fill="rgb(226,97,23)" rx="2" ry="2" />
-<text  x="948.74" y="399.5" >StanHash::operator</text>
+<title>x64_sys_call (11,308,842 samples, 0.02%)</title><rect x="1185.7" y="245" width="0.3" height="15.0" fill="rgb(247,194,46)" rx="2" ry="2" />
+<text  x="1188.73" y="255.5" ></text>
 </g>
 <g >
-<title>bool std::equal&lt;__gnu_cxx::__normal_iterator&lt;int const*, std::span&lt;int const, 18446744073709551615ul&gt; &gt;, __gnu_cxx::__normal_iterator&lt;int const*, std::span&lt;int const, 18446744073709551615ul&gt; &gt; &gt; (13,678,505 samples, 0.02%)</title><rect x="820.9" y="325" width="0.3" height="15.0" fill="rgb(217,55,13)" rx="2" ry="2" />
-<text  x="823.88" y="335.5" ></text>
+<title>handle_pte_fault (107,289,854 samples, 0.22%)</title><rect x="1178.2" y="197" width="2.7" height="15.0" fill="rgb(217,57,13)" rx="2" ry="2" />
+<text  x="1181.23" y="207.5" ></text>
 </g>
 <g >
-<title>vma_alloc_folio_noprof (11,456,895 samples, 0.02%)</title><rect x="90.7" y="165" width="0.2" height="15.0" fill="rgb(218,61,14)" rx="2" ry="2" />
-<text  x="93.67" y="175.5" ></text>
+<title>folio_alloc_mpol_noprof (33,607,910 samples, 0.07%)</title><rect x="1179.1" y="133" width="0.9" height="15.0" fill="rgb(219,64,15)" rx="2" ry="2" />
+<text  x="1182.15" y="143.5" ></text>
 </g>
 <g >
-<title>_int_malloc (231,954,297 samples, 0.40%)</title><rect x="122.6" y="309" width="4.7" height="15.0" fill="rgb(215,47,11)" rx="2" ry="2" />
-<text  x="125.64" y="319.5" ></text>
+<title>charge_memcg (18,869,087 samples, 0.04%)</title><rect x="1178.6" y="133" width="0.4" height="15.0" fill="rgb(242,170,40)" rx="2" ry="2" />
+<text  x="1181.59" y="143.5" ></text>
 </g>
 <g >
-<title>std::deque&lt;Stan, std::allocator&lt;Stan&gt; &gt;::begin (9,018,300 samples, 0.02%)</title><rect x="81.2" y="405" width="0.2" height="15.0" fill="rgb(235,139,33)" rx="2" ry="2" />
-<text  x="84.21" y="415.5" ></text>
+<title>task_tick_fair (29,689,508 samples, 0.06%)</title><rect x="1171.3" y="213" width="0.7" height="15.0" fill="rgb(217,57,13)" rx="2" ry="2" />
+<text  x="1174.26" y="223.5" ></text>
 </g>
 <g >
-<title>vms_clear_ptes (9,456,914 samples, 0.02%)</title><rect x="114.5" y="133" width="0.2" height="15.0" fill="rgb(206,4,1)" rx="2" ry="2" />
-<text  x="117.54" y="143.5" ></text>
+<title>clockevents_program_event (4,390,385 samples, 0.01%)</title><rect x="1172.7" y="261" width="0.1" height="15.0" fill="rgb(244,182,43)" rx="2" ry="2" />
+<text  x="1175.66" y="271.5" ></text>
 </g>
 <g >
-<title>std::__detail::_Hashtable_alloc&lt;std::allocator&lt;std::__detail::_Hash_node&lt;std::pair&lt;Stan const, int&gt;, true&gt; &gt; &gt;::_M_deallocate_nodes (389,741,451 samples, 0.67%)</title><rect x="10.9" y="405" width="7.9" height="15.0" fill="rgb(224,87,20)" rx="2" ry="2" />
-<text  x="13.86" y="415.5" ></text>
+<title>fpregs_assert_state_consistent (6,843,071 samples, 0.01%)</title><rect x="1173.0" y="277" width="0.2" height="15.0" fill="rgb(228,109,26)" rx="2" ry="2" />
+<text  x="1175.99" y="287.5" ></text>
 </g>
 <g >
-<title>bool std::__equal&lt;true&gt;::equal&lt;int&gt; (27,381,744 samples, 0.05%)</title><rect x="51.4" y="357" width="0.6" height="15.0" fill="rgb(244,180,43)" rx="2" ry="2" />
-<text  x="54.42" y="367.5" ></text>
+<title>asm_sysvec_apic_timer_interrupt (278,015,302 samples, 0.57%)</title><rect x="727.2" y="357" width="6.8" height="15.0" fill="rgb(232,127,30)" rx="2" ry="2" />
+<text  x="730.22" y="367.5" ></text>
 </g>
 <g >
-<title>sched_tick (11,391,746 samples, 0.02%)</title><rect x="192.5" y="277" width="0.2" height="15.0" fill="rgb(238,155,37)" rx="2" ry="2" />
-<text  x="195.49" y="287.5" ></text>
+<title>unmap_page_range (5,680,473 samples, 0.01%)</title><rect x="10.1" y="149" width="0.1" height="15.0" fill="rgb(206,5,1)" rx="2" ry="2" />
+<text  x="13.08" y="159.5" ></text>
 </g>
 <g >
-<title>clear_page_erms (12,671,521 samples, 0.02%)</title><rect x="113.9" y="101" width="0.3" height="15.0" fill="rgb(229,113,27)" rx="2" ry="2" />
-<text  x="116.94" y="111.5" ></text>
+<title>__munmap (10,896,974 samples, 0.02%)</title><rect x="725.1" y="357" width="0.3" height="15.0" fill="rgb(211,29,7)" rx="2" ry="2" />
+<text  x="728.14" y="367.5" ></text>
 </g>
 <g >
-<title>std::_Hashtable&lt;Stan, std::pair&lt;Stan const, int&gt;, std::allocator&lt;std::pair&lt;Stan const, int&gt; &gt;, std::__detail::_Select1st, std::equal_to&lt;Stan&gt;, StanHash, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits&lt;true, false, true&gt; &gt;::_M_bucket_index (11,014,022 samples, 0.02%)</title><rect x="108.6" y="357" width="0.2" height="15.0" fill="rgb(224,91,21)" rx="2" ry="2" />
-<text  x="111.61" y="367.5" ></text>
+<title>count_memcg_events.constprop.0 (8,879,698 samples, 0.02%)</title><rect x="1180.9" y="213" width="0.2" height="15.0" fill="rgb(213,41,9)" rx="2" ry="2" />
+<text  x="1183.85" y="223.5" ></text>
 </g>
 <g >
-<title>all (58,213,863,862 samples, 100%)</title><rect x="10.0" y="565" width="1180.0" height="15.0" fill="rgb(213,39,9)" rx="2" ry="2" />
-<text  x="13.00" y="575.5" ></text>
+<title>raw_notifier_call_chain (12,509,609 samples, 0.03%)</title><rect x="728.3" y="197" width="0.3" height="15.0" fill="rgb(221,73,17)" rx="2" ry="2" />
+<text  x="731.31" y="207.5" ></text>
 </g>
 <g >
-<title>Stan::operator== (13,688,621,051 samples, 23.51%)</title><rect x="543.4" y="325" width="277.5" height="15.0" fill="rgb(244,181,43)" rx="2" ry="2" />
-<text  x="546.41" y="335.5" >Stan::operator==</text>
+<title>update_load_avg (30,464,174 samples, 0.06%)</title><rect x="731.8" y="213" width="0.8" height="15.0" fill="rgb(240,165,39)" rx="2" ry="2" />
+<text  x="734.82" y="223.5" ></text>
 </g>
 <g >
-<title>std::span&lt;int const, 18446744073709551615ul&gt;::begin (21,588,020 samples, 0.04%)</title><rect x="131.5" y="357" width="0.4" height="15.0" fill="rgb(232,128,30)" rx="2" ry="2" />
-<text  x="134.47" y="367.5" ></text>
+<title>do_vmi_munmap (10,896,974 samples, 0.02%)</title><rect x="725.1" y="261" width="0.3" height="15.0" fill="rgb(253,223,53)" rx="2" ry="2" />
+<text  x="728.14" y="271.5" ></text>
 </g>
 <g >
-<title>std::_Hashtable&lt;Stan, std::pair&lt;Stan const, int&gt;, std::allocator&lt;std::pair&lt;Stan const, int&gt; &gt;, std::__detail::_Select1st, std::equal_to&lt;Stan&gt;, StanHash, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits&lt;true, false, true&gt; &gt;::size (15,547,823 samples, 0.03%)</title><rect x="1185.3" y="421" width="0.3" height="15.0" fill="rgb(235,140,33)" rx="2" ry="2" />
-<text  x="1188.29" y="431.5" ></text>
+<title>__sysvec_apic_timer_interrupt (143,847,825 samples, 0.30%)</title><rect x="1169.3" y="309" width="3.5" height="15.0" fill="rgb(242,173,41)" rx="2" ry="2" />
+<text  x="1172.26" y="319.5" ></text>
 </g>
 <g >
-<title>std::__detail::_Hashtable_ebo_helper&lt;0, std::equal_to&lt;Stan&gt;, true&gt;::_M_cget (20,169,245 samples, 0.03%)</title><rect x="537.7" y="325" width="0.4" height="15.0" fill="rgb(209,20,4)" rx="2" ry="2" />
-<text  x="540.68" y="335.5" ></text>
+<title>folio_batch_move_lru (10,409,596 samples, 0.02%)</title><rect x="1180.1" y="117" width="0.3" height="15.0" fill="rgb(207,10,2)" rx="2" ry="2" />
+<text  x="1183.14" y="127.5" ></text>
 </g>
 <g >
-<title>do_anonymous_page (29,112,495 samples, 0.05%)</title><rect x="90.5" y="197" width="0.5" height="15.0" fill="rgb(238,155,37)" rx="2" ry="2" />
-<text  x="93.45" y="207.5" ></text>
+<title>sched_tick (83,853,590 samples, 0.17%)</title><rect x="1170.2" y="229" width="2.0" height="15.0" fill="rgb(238,155,37)" rx="2" ry="2" />
+<text  x="1173.18" y="239.5" ></text>
 </g>
 <g >
-<title>sysvec_apic_timer_interrupt (6,346,681 samples, 0.01%)</title><rect x="88.9" y="421" width="0.2" height="15.0" fill="rgb(220,69,16)" rx="2" ry="2" />
-<text  x="91.93" y="431.5" ></text>
+<title>read_tsc (7,688,925 samples, 0.02%)</title><rect x="733.2" y="293" width="0.2" height="15.0" fill="rgb(206,7,1)" rx="2" ry="2" />
+<text  x="736.18" y="303.5" ></text>
 </g>
 <g >
-<title>tick_nohz_handler (6,724,306 samples, 0.01%)</title><rect x="1093.9" y="261" width="0.1" height="15.0" fill="rgb(248,200,48)" rx="2" ry="2" />
-<text  x="1096.88" y="271.5" ></text>
+<title>std::_Rb_tree_insert_and_rebalance (77,935,153 samples, 0.16%)</title><rect x="1174.4" y="341" width="1.9" height="15.0" fill="rgb(225,94,22)" rx="2" ry="2" />
+<text  x="1177.42" y="351.5" ></text>
 </g>
 <g >
-<title>sysvec_apic_timer_interrupt (6,393,206 samples, 0.01%)</title><rect x="615.3" y="245" width="0.1" height="15.0" fill="rgb(220,69,16)" rx="2" ry="2" />
-<text  x="618.30" y="255.5" ></text>
+<title>raw_notifier_call_chain (4,349,711 samples, 0.01%)</title><rect x="1169.6" y="181" width="0.1" height="15.0" fill="rgb(221,73,17)" rx="2" ry="2" />
+<text  x="1172.64" y="191.5" ></text>
 </g>
 <g >
-<title>update_process_times (32,723,505 samples, 0.06%)</title><rect x="933.1" y="245" width="0.7" height="15.0" fill="rgb(250,209,50)" rx="2" ry="2" />
-<text  x="936.10" y="255.5" ></text>
+<title>update_cfs_group (5,357,132 samples, 0.01%)</title><rect x="732.6" y="229" width="0.1" height="15.0" fill="rgb(242,174,41)" rx="2" ry="2" />
+<text  x="735.56" y="239.5" ></text>
 </g>
 <g >
-<title>sched_balance_trigger (14,086,168 samples, 0.02%)</title><rect x="480.1" y="245" width="0.3" height="15.0" fill="rgb(213,38,9)" rx="2" ry="2" />
-<text  x="483.08" y="255.5" ></text>
+<title>timekeeping_advance (4,349,711 samples, 0.01%)</title><rect x="1169.6" y="213" width="0.1" height="15.0" fill="rgb(227,104,25)" rx="2" ry="2" />
+<text  x="1172.64" y="223.5" ></text>
 </g>
 <g >
-<title>__do_sys_brk (6,638,140 samples, 0.01%)</title><rect x="123.2" y="213" width="0.2" height="15.0" fill="rgb(217,58,13)" rx="2" ry="2" />
-<text  x="126.24" y="223.5" ></text>
+<title>__count_memcg_events (5,711,635 samples, 0.01%)</title><rect x="1180.9" y="197" width="0.2" height="15.0" fill="rgb(250,211,50)" rx="2" ry="2" />
+<text  x="1183.93" y="207.5" ></text>
 </g>
 <g >
-<title>std::span&lt;int const, 18446744073709551615ul&gt;::size (11,567,243 samples, 0.02%)</title><rect x="53.7" y="421" width="0.3" height="15.0" fill="rgb(210,27,6)" rx="2" ry="2" />
-<text  x="56.72" y="431.5" ></text>
+<title>vma_alloc_folio_noprof (30,740,924 samples, 0.06%)</title><rect x="1188.3" y="165" width="0.7" height="15.0" fill="rgb(218,61,14)" rx="2" ry="2" />
+<text  x="1191.26" y="175.5" ></text>
 </g>
 <g >
-<title>__sysvec_apic_timer_interrupt (21,586,148 samples, 0.04%)</title><rect x="1056.1" y="341" width="0.4" height="15.0" fill="rgb(242,173,41)" rx="2" ry="2" />
-<text  x="1059.08" y="351.5" ></text>
+<title>handle_mm_fault (50,968,494 samples, 0.11%)</title><rect x="726.0" y="309" width="1.2" height="15.0" fill="rgb(234,135,32)" rx="2" ry="2" />
+<text  x="728.98" y="319.5" ></text>
 </g>
 <g >
-<title>std::_Hashtable&lt;Stan, std::pair&lt;Stan const, int&gt;, std::allocator&lt;std::pair&lt;Stan const, int&gt; &gt;, std::__detail::_Select1st, std::equal_to&lt;Stan&gt;, StanHash, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits&lt;true, false, true&gt; &gt;::_Scoped_node::_Scoped_node&lt;Stan const&amp;, int&amp;&gt; (423,760,133 samples, 0.73%)</title><rect x="118.8" y="389" width="8.6" height="15.0" fill="rgb(214,43,10)" rx="2" ry="2" />
-<text  x="121.85" y="399.5" ></text>
+<title>tick_nohz_handler (214,152,022 samples, 0.44%)</title><rect x="727.8" y="277" width="5.2" height="15.0" fill="rgb(248,200,48)" rx="2" ry="2" />
+<text  x="730.75" y="287.5" ></text>
 </g>
 <g >
-<title>charge_memcg (11,585,276 samples, 0.02%)</title><rect x="125.2" y="149" width="0.2" height="15.0" fill="rgb(242,170,40)" rx="2" ry="2" />
-<text  x="128.18" y="159.5" ></text>
+<title>__folio_batch_add_and_move (14,323,629 samples, 0.03%)</title><rect x="1180.0" y="133" width="0.4" height="15.0" fill="rgb(254,227,54)" rx="2" ry="2" />
+<text  x="1183.04" y="143.5" ></text>
 </g>
 <g >
-<title>bool std::__equal_aux&lt;__gnu_cxx::__normal_iterator&lt;int const*, std::span&lt;int const, 18446744073709551615ul&gt; &gt;, __gnu_cxx::__normal_iterator&lt;int const*, std::span&lt;int const, 18446744073709551615ul&gt; &gt; &gt; (49,275,611 samples, 0.08%)</title><rect x="683.2" y="277" width="1.0" height="15.0" fill="rgb(218,62,14)" rx="2" ry="2" />
-<text  x="686.17" y="287.5" ></text>
+<title>alloc_anon_folio (12,886,624 samples, 0.03%)</title><rect x="1168.6" y="229" width="0.3" height="15.0" fill="rgb(223,86,20)" rx="2" ry="2" />
+<text  x="1171.62" y="239.5" ></text>
 </g>
 <g >
-<title>kolejka012::pop (133,518,120 samples, 0.23%)</title><rect x="79.2" y="453" width="2.7" height="15.0" fill="rgb(239,159,38)" rx="2" ry="2" />
-<text  x="82.20" y="463.5" ></text>
+<title>lru_add (7,827,227 samples, 0.02%)</title><rect x="1180.2" y="101" width="0.2" height="15.0" fill="rgb(241,167,40)" rx="2" ry="2" />
+<text  x="1183.20" y="111.5" ></text>
 </g>
 <g >
-<title>get_page_from_freelist (9,099,291 samples, 0.02%)</title><rect x="90.7" y="101" width="0.2" height="15.0" fill="rgb(252,218,52)" rx="2" ry="2" />
-<text  x="93.72" y="111.5" ></text>
+<title>folio_add_lru (14,323,629 samples, 0.03%)</title><rect x="1180.0" y="149" width="0.4" height="15.0" fill="rgb(208,17,4)" rx="2" ry="2" />
+<text  x="1183.04" y="159.5" ></text>
 </g>
 <g >
-<title>std::__detail::_Hashtable_base&lt;Stan, std::pair&lt;Stan const, int&gt;, std::__detail::_Select1st, std::equal_to&lt;Stan&gt;, StanHash, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Hashtable_traits&lt;true, false, true&gt; &gt;::_M_eq (32,621,168 samples, 0.06%)</title><rect x="523.3" y="357" width="0.7" height="15.0" fill="rgb(208,15,3)" rx="2" ry="2" />
-<text  x="526.34" y="367.5" ></text>
+<title>account_user_time (14,841,945 samples, 0.03%)</title><rect x="728.7" y="229" width="0.4" height="15.0" fill="rgb(225,96,23)" rx="2" ry="2" />
+<text  x="731.71" y="239.5" ></text>
 </g>
 <g >
-<title>std::span&lt;int const, 18446744073709551615ul&gt;::span&lt;int const*&gt; (119,410,611 samples, 0.21%)</title><rect x="818.5" y="309" width="2.4" height="15.0" fill="rgb(205,1,0)" rx="2" ry="2" />
-<text  x="821.46" y="319.5" ></text>
+<title>handle_pte_fault (18,647,273 samples, 0.04%)</title><rect x="1168.6" y="261" width="0.4" height="15.0" fill="rgb(217,57,13)" rx="2" ry="2" />
+<text  x="1171.57" y="271.5" ></text>
 </g>
 <g >
-<title>sched_tick (34,158,732 samples, 0.06%)</title><rect x="480.0" y="261" width="0.7" height="15.0" fill="rgb(238,155,37)" rx="2" ry="2" />
-<text  x="483.00" y="271.5" ></text>
+<title>__handle_mm_fault (45,206,179 samples, 0.09%)</title><rect x="726.0" y="293" width="1.1" height="15.0" fill="rgb(207,9,2)" rx="2" ry="2" />
+<text  x="729.03" y="303.5" ></text>
 </g>
 <g >
-<title>__folio_batch_add_and_move (15,674,600 samples, 0.03%)</title><rect x="126.4" y="149" width="0.3" height="15.0" fill="rgb(254,227,54)" rx="2" ry="2" />
-<text  x="129.37" y="159.5" ></text>
+<title>vms_clear_ptes (8,611,348 samples, 0.02%)</title><rect x="725.2" y="213" width="0.2" height="15.0" fill="rgb(206,4,1)" rx="2" ry="2" />
+<text  x="728.19" y="223.5" ></text>
 </g>
 <g >
-<title>std::deque&lt;Stan, std::allocator&lt;Stan&gt; &gt;::_M_pop_front_aux (7,069,664 samples, 0.01%)</title><rect x="81.7" y="405" width="0.2" height="15.0" fill="rgb(228,110,26)" rx="2" ry="2" />
-<text  x="84.72" y="415.5" ></text>
+<title>__hrtimer_run_queues (126,260,688 samples, 0.26%)</title><rect x="1169.4" y="277" width="3.1" height="15.0" fill="rgb(237,150,35)" rx="2" ry="2" />
+<text  x="1172.40" y="287.5" ></text>
 </g>
 <g >
-<title>std::array&lt;int, 11ul&gt;::operator[] (499,372,872 samples, 0.86%)</title><rect x="62.0" y="437" width="10.1" height="15.0" fill="rgb(217,58,13)" rx="2" ry="2" />
-<text  x="65.02" y="447.5" ></text>
+<title>__alloc_frozen_pages_noprof (26,943,690 samples, 0.06%)</title><rect x="1188.3" y="117" width="0.7" height="15.0" fill="rgb(228,109,26)" rx="2" ry="2" />
+<text  x="1191.31" y="127.5" ></text>
 </g>
 <g >
-<title>__mod_lruvec_state (9,063,265 samples, 0.02%)</title><rect x="126.5" y="85" width="0.2" height="15.0" fill="rgb(226,100,24)" rx="2" ry="2" />
-<text  x="129.50" y="95.5" ></text>
+<title>update_load_avg (10,616,454 samples, 0.02%)</title><rect x="1171.7" y="197" width="0.3" height="15.0" fill="rgb(240,165,39)" rx="2" ry="2" />
+<text  x="1174.72" y="207.5" ></text>
 </g>
 <g >
-<title>std::deque&lt;Stan, std::allocator&lt;Stan&gt; &gt;::_M_reserve_map_at_back (6,924,015 samples, 0.01%)</title><rect x="91.1" y="373" width="0.1" height="15.0" fill="rgb(253,222,53)" rx="2" ry="2" />
-<text  x="94.09" y="383.5" ></text>
+<title>__vm_munmap (8,903,468 samples, 0.02%)</title><rect x="10.0" y="261" width="0.2" height="15.0" fill="rgb(231,121,28)" rx="2" ry="2" />
+<text  x="13.00" y="271.5" ></text>
 </g>
 <g >
-<title>asm_sysvec_apic_timer_interrupt (22,599,835 samples, 0.04%)</title><rect x="1056.1" y="373" width="0.4" height="15.0" fill="rgb(232,127,30)" rx="2" ry="2" />
-<text  x="1059.08" y="383.5" ></text>
+<title>std::_Rb_tree_decrement (47,889,352 samples, 0.10%)</title><rect x="1173.3" y="341" width="1.1" height="15.0" fill="rgb(238,152,36)" rx="2" ry="2" />
+<text  x="1176.25" y="351.5" ></text>
 </g>
 <g >
-<title>lru_add (13,167,200 samples, 0.02%)</title><rect x="126.4" y="117" width="0.3" height="15.0" fill="rgb(241,167,40)" rx="2" ry="2" />
-<text  x="129.42" y="127.5" ></text>
+<title>_int_malloc (184,576,859 samples, 0.38%)</title><rect x="1176.8" y="293" width="4.5" height="15.0" fill="rgb(215,47,11)" rx="2" ry="2" />
+<text  x="1179.80" y="303.5" ></text>
 </g>
 <g >
-<title>solve (57,642,867,430 samples, 99.02%)</title><rect x="21.6" y="469" width="1168.4" height="15.0" fill="rgb(241,166,39)" rx="2" ry="2" />
-<text  x="24.57" y="479.5" >solve</text>
+<title>hrtimer_update_next_event (4,503,546 samples, 0.01%)</title><rect x="733.0" y="293" width="0.1" height="15.0" fill="rgb(225,92,22)" rx="2" ry="2" />
+<text  x="736.03" y="303.5" ></text>
 </g>
 <g >
-<title>int const* std::__to_address&lt;int const&gt; (6,414,580 samples, 0.01%)</title><rect x="1030.5" y="341" width="0.2" height="15.0" fill="rgb(250,209,50)" rx="2" ry="2" />
-<text  x="1033.52" y="351.5" ></text>
+<title>__cgroup_account_cputime (4,670,568 samples, 0.01%)</title><rect x="731.7" y="197" width="0.1" height="15.0" fill="rgb(229,113,27)" rx="2" ry="2" />
+<text  x="734.70" y="207.5" ></text>
 </g>
 <g >
-<title>std::__new_allocator&lt;std::__detail::_Hash_node&lt;std::pair&lt;Stan const, int&gt;, true&gt; &gt;::deallocate (47,601,222 samples, 0.08%)</title><rect x="17.5" y="357" width="1.0" height="15.0" fill="rgb(239,158,38)" rx="2" ry="2" />
-<text  x="20.51" y="367.5" ></text>
+<title>hrtimer_interrupt (143,847,825 samples, 0.30%)</title><rect x="1169.3" y="293" width="3.5" height="15.0" fill="rgb(228,109,26)" rx="2" ry="2" />
+<text  x="1172.26" y="303.5" ></text>
 </g>
 <g >
-<title>std::__new_allocator&lt;std::__detail::_Hash_node_base*&gt;::deallocate (9,456,914 samples, 0.02%)</title><rect x="114.5" y="293" width="0.2" height="15.0" fill="rgb(237,151,36)" rx="2" ry="2" />
-<text  x="117.54" y="303.5" ></text>
+<title>operator new (190,237,777 samples, 0.39%)</title><rect x="1176.7" y="325" width="4.7" height="15.0" fill="rgb(216,51,12)" rx="2" ry="2" />
+<text  x="1179.74" y="335.5" ></text>
 </g>
 <g >
-<title>std::__detail::_Hash_code_base&lt;Stan, std::pair&lt;Stan const, int&gt;, std::__detail::_Select1st, StanHash, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, true&gt;::_M_bucket_index (36,584,363 samples, 0.06%)</title><rect x="114.7" y="341" width="0.8" height="15.0" fill="rgb(205,1,0)" rx="2" ry="2" />
-<text  x="117.73" y="351.5" ></text>
+<title>tick_do_update_jiffies64 (27,219,038 samples, 0.06%)</title><rect x="728.0" y="261" width="0.7" height="15.0" fill="rgb(208,14,3)" rx="2" ry="2" />
+<text  x="731.00" y="271.5" ></text>
 </g>
 <g >
-<title>std::deque&lt;Stan, std::allocator&lt;Stan&gt; &gt;::push_back (90,719,000 samples, 0.16%)</title><rect x="89.5" y="405" width="1.8" height="15.0" fill="rgb(227,101,24)" rx="2" ry="2" />
-<text  x="92.47" y="415.5" ></text>
+<title>entry_SYSCALL_64_after_hwframe (11,308,842 samples, 0.02%)</title><rect x="1185.7" y="277" width="0.3" height="15.0" fill="rgb(218,63,15)" rx="2" ry="2" />
+<text  x="1188.73" y="287.5" ></text>
 </g>
 <g >
-<title>std::span&lt;int const, 18446744073709551615ul&gt;::begin (15,564,552 samples, 0.03%)</title><rect x="1175.0" y="389" width="0.4" height="15.0" fill="rgb(232,128,30)" rx="2" ry="2" />
-<text  x="1178.05" y="399.5" ></text>
+<title>notifier_call_chain (9,073,184 samples, 0.02%)</title><rect x="728.3" y="181" width="0.3" height="15.0" fill="rgb(216,52,12)" rx="2" ry="2" />
+<text  x="731.35" y="191.5" ></text>
 </g>
 <g >
-<title>update_process_times (14,673,222 samples, 0.03%)</title><rect x="1144.7" y="261" width="0.3" height="15.0" fill="rgb(250,209,50)" rx="2" ry="2" />
-<text  x="1147.71" y="271.5" ></text>
+<title>_find_next_bit (8,069,182 samples, 0.02%)</title><rect x="730.7" y="197" width="0.2" height="15.0" fill="rgb(230,116,27)" rx="2" ry="2" />
+<text  x="733.68" y="207.5" ></text>
 </g>
 <g >
-<title>__gnu_cxx::__normal_iterator&lt;int const*, std::span&lt;int const, 18446744073709551615ul&gt; &gt;::__normal_iterator (6,901,288 samples, 0.01%)</title><rect x="129.5" y="357" width="0.1" height="15.0" fill="rgb(240,162,38)" rx="2" ry="2" />
-<text  x="132.49" y="367.5" ></text>
+<title>amd_iommu_flush_iotlb_all (4,151,731 samples, 0.01%)</title><rect x="1172.8" y="117" width="0.1" height="15.0" fill="rgb(248,198,47)" rx="2" ry="2" />
+<text  x="1175.81" y="127.5" ></text>
 </g>
 <g >
-<title>get_page_from_freelist (21,403,786 samples, 0.04%)</title><rect x="113.9" y="117" width="0.5" height="15.0" fill="rgb(252,218,52)" rx="2" ry="2" />
-<text  x="116.94" y="127.5" ></text>
+<title>tmigr_handle_remote_up (4,151,731 samples, 0.01%)</title><rect x="1172.8" y="229" width="0.1" height="15.0" fill="rgb(242,173,41)" rx="2" ry="2" />
+<text  x="1175.81" y="239.5" ></text>
 </g>
 <g >
-<title>std::__new_allocator&lt;std::__detail::_Hash_node&lt;std::pair&lt;Stan const, int&gt;, true&gt; &gt;::allocate (264,961,331 samples, 0.46%)</title><rect x="122.0" y="357" width="5.4" height="15.0" fill="rgb(237,151,36)" rx="2" ry="2" />
-<text  x="125.02" y="367.5" ></text>
+<title>__x64_sys_brk (11,308,842 samples, 0.02%)</title><rect x="1185.7" y="229" width="0.3" height="15.0" fill="rgb(220,72,17)" rx="2" ry="2" />
+<text  x="1188.73" y="239.5" ></text>
 </g>
 <g >
-<title>sysvec_apic_timer_interrupt (7,097,416 samples, 0.01%)</title><rect x="801.3" y="277" width="0.2" height="15.0" fill="rgb(220,69,16)" rx="2" ry="2" />
-<text  x="804.31" y="287.5" ></text>
+<title>free (26,401,221 samples, 0.05%)</title><rect x="16.0" y="309" width="0.7" height="15.0" fill="rgb(213,38,9)" rx="2" ry="2" />
+<text  x="19.02" y="319.5" ></text>
 </g>
 <g >
-<title>std::array&lt;int, 11ul&gt;::data (152,800,196 samples, 0.26%)</title><rect x="732.8" y="309" width="3.1" height="15.0" fill="rgb(216,53,12)" rx="2" ry="2" />
-<text  x="735.84" y="319.5" ></text>
+<title>__alloc_frozen_pages_noprof (9,678,963 samples, 0.02%)</title><rect x="1168.7" y="165" width="0.2" height="15.0" fill="rgb(228,109,26)" rx="2" ry="2" />
+<text  x="1171.69" y="175.5" ></text>
 </g>
 <g >
-<title>__gnu_cxx::__normal_iterator&lt;int const*, std::span&lt;int const, 18446744073709551615ul&gt; &gt;::difference_type __gnu_cxx::operator-&lt;int const*, std::span&lt;int const, 18446744073709551615ul&gt; &gt; (77,635,066 samples, 0.13%)</title><rect x="645.5" y="293" width="1.6" height="15.0" fill="rgb(241,169,40)" rx="2" ry="2" />
-<text  x="648.52" y="303.5" ></text>
+<title>handle_mm_fault (128,092,590 samples, 0.26%)</title><rect x="1186.7" y="245" width="3.1" height="15.0" fill="rgb(234,135,32)" rx="2" ry="2" />
+<text  x="1189.69" y="255.5" ></text>
 </g>
 <g >
-<title>__irq_exit_rcu (6,345,534 samples, 0.01%)</title><rect x="72.6" y="405" width="0.1" height="15.0" fill="rgb(227,101,24)" rx="2" ry="2" />
-<text  x="75.59" y="415.5" ></text>
+<title>__run_timers (4,151,731 samples, 0.01%)</title><rect x="1172.8" y="181" width="0.1" height="15.0" fill="rgb(206,5,1)" rx="2" ry="2" />
+<text  x="1175.81" y="191.5" ></text>
 </g>
 <g >
-<title>std::span&lt;int const, 18446744073709551615ul&gt;::begin (1,421,434,062 samples, 2.44%)</title><rect x="735.9" y="309" width="28.8" height="15.0" fill="rgb(232,128,30)" rx="2" ry="2" />
-<text  x="738.93" y="319.5" >st..</text>
+<title>irqentry_exit_to_user_mode (5,301,503 samples, 0.01%)</title><rect x="733.8" y="309" width="0.2" height="15.0" fill="rgb(254,229,54)" rx="2" ry="2" />
+<text  x="736.82" y="319.5" ></text>
 </g>
 <g >
-<title>std::deque&lt;Stan, std::allocator&lt;Stan&gt; &gt;::empty (24,660,493 samples, 0.04%)</title><rect x="78.7" y="421" width="0.5" height="15.0" fill="rgb(214,41,9)" rx="2" ry="2" />
-<text  x="81.65" y="431.5" ></text>
+<title>update_curr (17,708,629 samples, 0.04%)</title><rect x="731.4" y="213" width="0.4" height="15.0" fill="rgb(227,105,25)" rx="2" ry="2" />
+<text  x="734.39" y="223.5" ></text>
 </g>
 <g >
-<title>std::span&lt;int const, 18446744073709551615ul&gt;::end (2,459,562,648 samples, 4.23%)</title><rect x="764.7" y="309" width="49.9" height="15.0" fill="rgb(213,39,9)" rx="2" ry="2" />
-<text  x="767.75" y="319.5" >std::..</text>
+<title>sched_use_asym_prio (10,398,269 samples, 0.02%)</title><rect x="1171.0" y="181" width="0.3" height="15.0" fill="rgb(208,14,3)" rx="2" ry="2" />
+<text  x="1174.01" y="191.5" ></text>
 </g>
 <g >
-<title>StanHash::operator (22,615,454 samples, 0.04%)</title><rect x="167.3" y="405" width="0.4" height="15.0" fill="rgb(226,97,23)" rx="2" ry="2" />
-<text  x="170.26" y="415.5" ></text>
+<title>folio_alloc_mpol_noprof (11,646,356 samples, 0.02%)</title><rect x="1168.6" y="197" width="0.3" height="15.0" fill="rgb(219,64,15)" rx="2" ry="2" />
+<text  x="1171.65" y="207.5" ></text>
 </g>
 <g >
-<title>std::__detail::_Mod_range_hashing::operator (11,051,967 samples, 0.02%)</title><rect x="115.2" y="325" width="0.3" height="15.0" fill="rgb(230,116,27)" rx="2" ry="2" />
-<text  x="118.25" y="335.5" ></text>
+<title>zap_pud_range.isra.0 (6,431,262 samples, 0.01%)</title><rect x="725.2" y="149" width="0.2" height="15.0" fill="rgb(242,172,41)" rx="2" ry="2" />
+<text  x="728.25" y="159.5" ></text>
 </g>
 <g >
-<title>tick_nohz_handler (22,409,725 samples, 0.04%)</title><rect x="72.1" y="373" width="0.5" height="15.0" fill="rgb(248,200,48)" rx="2" ry="2" />
-<text  x="75.14" y="383.5" ></text>
+<title>do_user_addr_fault (58,876,087 samples, 0.12%)</title><rect x="725.8" y="325" width="1.4" height="15.0" fill="rgb(228,108,25)" rx="2" ry="2" />
+<text  x="728.79" y="335.5" ></text>
 </g>
 <g >
-<title>int const* std::__niter_base&lt;int const*, std::span&lt;int const, 18446744073709551615ul&gt; &gt; (341,956,466 samples, 0.59%)</title><rect x="722.6" y="245" width="7.0" height="15.0" fill="rgb(217,57,13)" rx="2" ry="2" />
-<text  x="725.64" y="255.5" ></text>
+<title>run_timer_softirq (4,151,731 samples, 0.01%)</title><rect x="1172.8" y="261" width="0.1" height="15.0" fill="rgb(249,206,49)" rx="2" ry="2" />
+<text  x="1175.81" y="271.5" ></text>
 </g>
 <g >
-<title>std::__detail::_Hashtable_base&lt;Stan, std::pair&lt;Stan const, int&gt;, std::__detail::_Select1st, std::equal_to&lt;Stan&gt;, StanHash, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Hashtable_traits&lt;true, false, true&gt; &gt;::_S_equals (6,005,302 samples, 0.01%)</title><rect x="108.8" y="341" width="0.2" height="15.0" fill="rgb(246,191,45)" rx="2" ry="2" />
-<text  x="111.83" y="351.5" ></text>
+<title>vms_complete_munmap_vmas (8,903,468 samples, 0.02%)</title><rect x="10.0" y="213" width="0.2" height="15.0" fill="rgb(216,52,12)" rx="2" ry="2" />
+<text  x="13.00" y="223.5" ></text>
 </g>
 <g >
-<title>std::_Hashtable&lt;Stan, std::pair&lt;Stan const, int&gt;, std::allocator&lt;std::pair&lt;Stan const, int&gt; &gt;, std::__detail::_Select1st, std::equal_to&lt;Stan&gt;, StanHash, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits&lt;true, false, true&gt; &gt;::_M_insert_unique_node (485,941,746 samples, 0.83%)</title><rect x="109.0" y="389" width="9.8" height="15.0" fill="rgb(216,50,12)" rx="2" ry="2" />
-<text  x="112.00" y="399.5" ></text>
+<title>malloc (189,224,007 samples, 0.39%)</title><rect x="1185.3" y="325" width="4.6" height="15.0" fill="rgb(230,119,28)" rx="2" ry="2" />
+<text  x="1188.33" y="335.5" ></text>
 </g>
 <g >
-<title>std::__detail::operator== (20,363,676 samples, 0.03%)</title><rect x="1186.0" y="453" width="0.4" height="15.0" fill="rgb(251,215,51)" rx="2" ry="2" />
-<text  x="1188.98" y="463.5" ></text>
+<title>__run_exit_handlers (273,185,078 samples, 0.56%)</title><rect x="10.0" y="373" width="6.7" height="15.0" fill="rgb(216,51,12)" rx="2" ry="2" />
+<text  x="13.00" y="383.5" ></text>
 </g>
 <g >
-<title>std::__detail::_Mod_range_hashing::operator (21,448,058 samples, 0.04%)</title><rect x="514.1" y="357" width="0.4" height="15.0" fill="rgb(230,116,27)" rx="2" ry="2" />
-<text  x="517.05" y="367.5" ></text>
+<title>vms_clear_ptes (8,903,468 samples, 0.02%)</title><rect x="10.0" y="197" width="0.2" height="15.0" fill="rgb(206,4,1)" rx="2" ry="2" />
+<text  x="13.00" y="207.5" ></text>
 </g>
 <g >
-<title>std::queue&lt;Stan, std::deque&lt;Stan, std::allocator&lt;Stan&gt; &gt; &gt;::pop (25,394,803 samples, 0.04%)</title><rect x="81.4" y="437" width="0.5" height="15.0" fill="rgb(218,62,14)" rx="2" ry="2" />
-<text  x="84.39" y="447.5" ></text>
+<title>__mem_cgroup_charge (4,120,853 samples, 0.01%)</title><rect x="726.3" y="229" width="0.1" height="15.0" fill="rgb(218,60,14)" rx="2" ry="2" />
+<text  x="729.31" y="239.5" ></text>
 </g>
 <g >
-<title>std::__detail::_Hash_code_base&lt;Stan, std::pair&lt;Stan const, int&gt;, std::__detail::_Select1st, StanHash, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, true&gt;::_M_bucket_index (11,014,022 samples, 0.02%)</title><rect x="108.6" y="341" width="0.2" height="15.0" fill="rgb(205,1,0)" rx="2" ry="2" />
-<text  x="111.61" y="351.5" ></text>
+<title>tick_do_update_jiffies64 (4,349,711 samples, 0.01%)</title><rect x="1169.6" y="245" width="0.1" height="15.0" fill="rgb(208,14,3)" rx="2" ry="2" />
+<text  x="1172.64" y="255.5" ></text>
 </g>
 <g >
-<title>tmigr_handle_remote (11,369,334 samples, 0.02%)</title><rect x="481.2" y="277" width="0.2" height="15.0" fill="rgb(235,140,33)" rx="2" ry="2" />
-<text  x="484.17" y="287.5" ></text>
+<title>entry_SYSCALL_64_after_hwframe (8,903,468 samples, 0.02%)</title><rect x="10.0" y="325" width="0.2" height="15.0" fill="rgb(218,63,15)" rx="2" ry="2" />
+<text  x="13.00" y="335.5" ></text>
 </g>
 <g >
-<title>unmap_single_vma (6,261,246 samples, 0.01%)</title><rect x="114.6" y="101" width="0.1" height="15.0" fill="rgb(225,93,22)" rx="2" ry="2" />
-<text  x="117.60" y="111.5" ></text>
+<title>x64_sys_call (8,903,468 samples, 0.02%)</title><rect x="10.0" y="293" width="0.2" height="15.0" fill="rgb(247,194,46)" rx="2" ry="2" />
+<text  x="13.00" y="303.5" ></text>
 </g>
 <g >
-<title>__gnu_cxx::__normal_iterator&lt;int const*, std::span&lt;int const, 18446744073709551615ul&gt; &gt;::difference_type __gnu_cxx::operator-&lt;int const*, std::span&lt;int const, 18446744073709551615ul&gt; &gt; (13,409,458 samples, 0.02%)</title><rect x="50.7" y="405" width="0.3" height="15.0" fill="rgb(241,169,40)" rx="2" ry="2" />
-<text  x="53.73" y="415.5" ></text>
+<title>__munmap (8,903,468 samples, 0.02%)</title><rect x="10.0" y="341" width="0.2" height="15.0" fill="rgb(211,29,7)" rx="2" ry="2" />
+<text  x="13.00" y="351.5" ></text>
 </g>
 <g >
-<title>std::__detail::_Hashtable_base&lt;Stan, std::pair&lt;Stan const, int&gt;, std::__detail::_Select1st, std::equal_to&lt;Stan&gt;, StanHash, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Hashtable_traits&lt;true, false, true&gt; &gt;::_M_equals (6,005,302 samples, 0.01%)</title><rect x="108.8" y="357" width="0.2" height="15.0" fill="rgb(235,140,33)" rx="2" ry="2" />
-<text  x="111.83" y="367.5" ></text>
+<title>tick_program_event (4,390,385 samples, 0.01%)</title><rect x="1172.7" y="277" width="0.1" height="15.0" fill="rgb(241,166,39)" rx="2" ry="2" />
+<text  x="1175.66" y="287.5" ></text>
 </g>
 <g >
-<title>nohz_balancer_kick (14,086,168 samples, 0.02%)</title><rect x="480.1" y="229" width="0.3" height="15.0" fill="rgb(225,93,22)" rx="2" ry="2" />
-<text  x="483.08" y="239.5" ></text>
+<title>__libc_start_call_main (48,390,350,767 samples, 100.00%)</title><rect x="10.0" y="405" width="1180.0" height="15.0" fill="rgb(210,26,6)" rx="2" ry="2" />
+<text  x="13.00" y="415.5" >__libc_start_call_main</text>
 </g>
 <g >
-<title>std::span&lt;int const, 18446744073709551615ul&gt;::end (11,490,631 samples, 0.02%)</title><rect x="131.9" y="357" width="0.2" height="15.0" fill="rgb(213,39,9)" rx="2" ry="2" />
-<text  x="134.91" y="367.5" ></text>
+<title>do_vmi_align_munmap (8,903,468 samples, 0.02%)</title><rect x="10.0" y="229" width="0.2" height="15.0" fill="rgb(211,29,7)" rx="2" ry="2" />
+<text  x="13.00" y="239.5" ></text>
 </g>
 <g >
-<title>StanHash::operator (225,502,970 samples, 0.39%)</title><rect x="127.6" y="373" width="4.5" height="15.0" fill="rgb(226,97,23)" rx="2" ry="2" />
-<text  x="130.57" y="383.5" ></text>
+<title>clear_page_erms (11,872,824 samples, 0.02%)</title><rect x="1179.3" y="69" width="0.3" height="15.0" fill="rgb(229,113,27)" rx="2" ry="2" />
+<text  x="1182.28" y="79.5" ></text>
 </g>
 <g >
-<title>std::queue&lt;Stan, std::deque&lt;Stan, std::allocator&lt;Stan&gt; &gt; &gt;::~queue (8,979,233 samples, 0.02%)</title><rect x="10.5" y="437" width="0.2" height="15.0" fill="rgb(222,79,18)" rx="2" ry="2" />
-<text  x="13.48" y="447.5" ></text>
+<title>sched_balance_trigger (30,825,188 samples, 0.06%)</title><rect x="1170.5" y="213" width="0.8" height="15.0" fill="rgb(213,38,9)" rx="2" ry="2" />
+<text  x="1173.51" y="223.5" ></text>
 </g>
 <g >
-<title>sysvec_apic_timer_interrupt (28,755,259 samples, 0.05%)</title><rect x="72.1" y="437" width="0.6" height="15.0" fill="rgb(220,69,16)" rx="2" ry="2" />
-<text  x="75.14" y="447.5" ></text>
+<title>tmigr_handle_remote (4,151,731 samples, 0.01%)</title><rect x="1172.8" y="245" width="0.1" height="15.0" fill="rgb(235,140,33)" rx="2" ry="2" />
+<text  x="1175.81" y="255.5" ></text>
 </g>
 <g >
-<title>std::__detail::_Hash_node&lt;std::pair&lt;Stan const, int&gt;, true&gt;::_M_next (19,096,020 samples, 0.03%)</title><rect x="936.1" y="389" width="0.4" height="15.0" fill="rgb(245,187,44)" rx="2" ry="2" />
-<text  x="939.14" y="399.5" ></text>
+<title>_find_next_bit (5,697,016 samples, 0.01%)</title><rect x="1170.8" y="181" width="0.1" height="15.0" fill="rgb(230,116,27)" rx="2" ry="2" />
+<text  x="1173.81" y="191.5" ></text>
 </g>
 <g >
-<title>std::equal_to&lt;Stan&gt;::operator (13,771,210,415 samples, 23.66%)</title><rect x="542.0" y="341" width="279.2" height="15.0" fill="rgb(214,43,10)" rx="2" ry="2" />
-<text  x="545.01" y="351.5" >std::equal_to&lt;Stan&gt;::operator</text>
+<title>charge_memcg (25,469,613 samples, 0.05%)</title><rect x="1187.5" y="149" width="0.6" height="15.0" fill="rgb(242,170,40)" rx="2" ry="2" />
+<text  x="1190.51" y="159.5" ></text>
 </g>
 <g >
-<title>std::span&lt;int const, 18446744073709551615ul&gt;::size (599,636,717 samples, 1.03%)</title><rect x="802.4" y="293" width="12.2" height="15.0" fill="rgb(210,27,6)" rx="2" ry="2" />
-<text  x="805.45" y="303.5" ></text>
-</g>
-<g >
-<title>__brk (10,903,352 samples, 0.02%)</title><rect x="123.2" y="293" width="0.3" height="15.0" fill="rgb(225,94,22)" rx="2" ry="2" />
-<text  x="126.24" y="303.5" ></text>
-</g>
-<g >
-<title>std::__detail::_Hash_node_base::_Hash_node_base (19,045,696 samples, 0.03%)</title><rect x="121.5" y="341" width="0.4" height="15.0" fill="rgb(242,171,41)" rx="2" ry="2" />
-<text  x="124.49" y="351.5" ></text>
-</g>
-<g >
-<title>tick_nohz_handler (51,983,492 samples, 0.09%)</title><rect x="479.8" y="293" width="1.1" height="15.0" fill="rgb(248,200,48)" rx="2" ry="2" />
-<text  x="482.82" y="303.5" ></text>
-</g>
-<g >
-<title>std::__detail::_Hash_node&lt;std::pair&lt;Stan const, int&gt;, true&gt;::_M_next (313,685,868 samples, 0.54%)</title><rect x="10.9" y="389" width="6.3" height="15.0" fill="rgb(245,187,44)" rx="2" ry="2" />
-<text  x="13.86" y="399.5" ></text>
-</g>
-<g >
-<title>__handle_mm_fault (29,112,495 samples, 0.05%)</title><rect x="90.5" y="229" width="0.5" height="15.0" fill="rgb(207,9,2)" rx="2" ry="2" />
-<text  x="93.45" y="239.5" ></text>
-</g>
-<g >
-<title>bool std::equal&lt;__gnu_cxx::__normal_iterator&lt;int const*, std::span&lt;int const, 18446744073709551615ul&gt; &gt;, __gnu_cxx::__normal_iterator&lt;int const*, std::span&lt;int const, 18446744073709551615ul&gt; &gt; &gt; (4,459,294,270 samples, 7.66%)</title><rect x="642.4" y="309" width="90.4" height="15.0" fill="rgb(217,55,13)" rx="2" ry="2" />
-<text  x="645.45" y="319.5" >bool std::..</text>
-</g>
-<g >
-<title>__gnu_cxx::__normal_iterator&lt;int const*, std::span&lt;int const, 18446744073709551615ul&gt; &gt;::operator* (261,007,988 samples, 0.45%)</title><rect x="1045.4" y="373" width="5.3" height="15.0" fill="rgb(239,158,37)" rx="2" ry="2" />
-<text  x="1048.40" y="383.5" ></text>
-</g>
-<g >
-<title>std::__new_allocator&lt;Stan&gt;::deallocate (8,979,233 samples, 0.02%)</title><rect x="10.5" y="357" width="0.2" height="15.0" fill="rgb(229,113,27)" rx="2" ry="2" />
-<text  x="13.48" y="367.5" ></text>
-</g>
-<g >
-<title>std::__detail::_Hashtable_base&lt;Stan, std::pair&lt;Stan const, int&gt;, std::__detail::_Select1st, std::equal_to&lt;Stan&gt;, StanHash, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Hashtable_traits&lt;true, false, true&gt; &gt;::_M_equals (20,633,369,908 samples, 35.44%)</title><rect x="516.3" y="373" width="418.3" height="15.0" fill="rgb(235,140,33)" rx="2" ry="2" />
-<text  x="519.34" y="383.5" >std::__detail::_Hashtable_base&lt;Stan, std::pair&lt;Stan const..</text>
-</g>
-<g >
-<title>__memcmp_avx2_movbe (814,408,797 samples, 1.40%)</title><rect x="702.7" y="213" width="16.5" height="15.0" fill="rgb(224,91,21)" rx="2" ry="2" />
-<text  x="705.70" y="223.5" ></text>
-</g>
-<g >
-<title>std::deque&lt;Stan, std::allocator&lt;Stan&gt; &gt;::~deque (8,979,233 samples, 0.02%)</title><rect x="10.5" y="421" width="0.2" height="15.0" fill="rgb(224,89,21)" rx="2" ry="2" />
-<text  x="13.48" y="431.5" ></text>
-</g>
-<g >
-<title>asm_exc_page_fault (33,706,856 samples, 0.06%)</title><rect x="90.4" y="293" width="0.7" height="15.0" fill="rgb(225,93,22)" rx="2" ry="2" />
-<text  x="93.41" y="303.5" ></text>
-</g>
-<g >
-<title>hrtimer_interrupt (6,604,076 samples, 0.01%)</title><rect x="683.0" y="229" width="0.2" height="15.0" fill="rgb(228,109,26)" rx="2" ry="2" />
-<text  x="686.03" y="239.5" ></text>
-</g>
-<g >
-<title>exc_page_fault (176,111,390 samples, 0.30%)</title><rect x="123.8" y="277" width="3.5" height="15.0" fill="rgb(212,35,8)" rx="2" ry="2" />
-<text  x="126.77" y="287.5" ></text>
-</g>
-<g >
-<title>__gnu_cxx::__normal_iterator&lt;int const*, std::span&lt;int const, 18446744073709551615ul&gt; &gt;::base (100,553,630 samples, 0.17%)</title><rect x="681.0" y="261" width="2.0" height="15.0" fill="rgb(214,44,10)" rx="2" ry="2" />
-<text  x="683.99" y="271.5" ></text>
-</g>
-<g >
-<title> (381,966,105 samples, 0.66%)</title><rect x="91.8" y="421" width="7.8" height="15.0" fill="rgb(232,128,30)" rx="2" ry="2" />
-<text  x="94.81" y="431.5" ></text>
-</g>
-<g >
-<title>kolejka012::push (106,604,136 samples, 0.18%)</title><rect x="89.1" y="437" width="2.2" height="15.0" fill="rgb(209,21,5)" rx="2" ry="2" />
-<text  x="92.15" y="447.5" ></text>
-</g>
-<g >
-<title>bool std::__equal_aux1&lt;int const*, int const*&gt; (1,687,051,756 samples, 2.90%)</title><rect x="688.4" y="245" width="34.2" height="15.0" fill="rgb(246,190,45)" rx="2" ry="2" />
-<text  x="691.44" y="255.5" >bo..</text>
-</g>
-<g >
-<title>bool std::__equal&lt;true&gt;::equal&lt;int&gt; (1,539,015,580 samples, 2.64%)</title><rect x="690.8" y="229" width="31.2" height="15.0" fill="rgb(244,180,43)" rx="2" ry="2" />
-<text  x="693.85" y="239.5" >bo..</text>
-</g>
-<g >
-<title>std::__detail::_Hashtable_base&lt;Stan, std::pair&lt;Stan const, int&gt;, std::__detail::_Select1st, std::equal_to&lt;Stan&gt;, StanHash, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Hashtable_traits&lt;true, false, true&gt; &gt;::_M_equals (145,752,796 samples, 0.25%)</title><rect x="936.5" y="389" width="3.0" height="15.0" fill="rgb(235,140,33)" rx="2" ry="2" />
-<text  x="939.53" y="399.5" ></text>
-</g>
-<g >
-<title>std::__detail::_Hash_code_base&lt;Stan, std::pair&lt;Stan const, int&gt;, std::__detail::_Select1st, StanHash, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, true&gt;::_M_hash (337,955,844 samples, 0.58%)</title><rect x="1167.3" y="389" width="6.9" height="15.0" fill="rgb(239,160,38)" rx="2" ry="2" />
-<text  x="1170.35" y="399.5" ></text>
-</g>
-<g >
-<title>std::__detail::_Hashtable_base&lt;Stan, std::pair&lt;Stan const, int&gt;, std::__detail::_Select1st, std::equal_to&lt;Stan&gt;, StanHash, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Hashtable_traits&lt;true, false, true&gt; &gt;::_S_equals (5,542,930,396 samples, 9.52%)</title><rect x="821.5" y="357" width="112.4" height="15.0" fill="rgb(246,191,45)" rx="2" ry="2" />
-<text  x="824.55" y="367.5" >std::__detail..</text>
-</g>
-<g >
-<title>std::__detail::_Prime_rehash_policy::_M_state (12,952,105 samples, 0.02%)</title><rect x="118.6" y="373" width="0.2" height="15.0" fill="rgb(235,139,33)" rx="2" ry="2" />
-<text  x="121.59" y="383.5" ></text>
-</g>
-<g >
-<title>operator new (251,900,389 samples, 0.43%)</title><rect x="122.3" y="341" width="5.1" height="15.0" fill="rgb(216,51,12)" rx="2" ry="2" />
-<text  x="125.28" y="351.5" ></text>
-</g>
-<g >
-<title>sched_tick (11,011,119 samples, 0.02%)</title><rect x="72.3" y="341" width="0.2" height="15.0" fill="rgb(238,155,37)" rx="2" ry="2" />
-<text  x="75.28" y="351.5" ></text>
-</g>
-<g >
-<title>std::_Hashtable&lt;Stan, std::pair&lt;Stan const, int&gt;, std::allocator&lt;std::pair&lt;Stan const, int&gt; &gt;, std::__detail::_Select1st, std::equal_to&lt;Stan&gt;, StanHash, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits&lt;true, false, true&gt; &gt;::end (836,912,471 samples, 1.44%)</title><rect x="135.3" y="421" width="16.9" height="15.0" fill="rgb(238,152,36)" rx="2" ry="2" />
-<text  x="138.25" y="431.5" ></text>
-</g>
-<g >
-<title>asm_sysvec_apic_timer_interrupt (7,097,416 samples, 0.01%)</title><rect x="801.3" y="293" width="0.2" height="15.0" fill="rgb(232,127,30)" rx="2" ry="2" />
-<text  x="804.31" y="303.5" ></text>
-</g>
-<g >
-<title>bool std::equal&lt;__gnu_cxx::__normal_iterator&lt;int const*, std::span&lt;int const, 18446744073709551615ul&gt; &gt;, __gnu_cxx::__normal_iterator&lt;int const*, std::span&lt;int const, 18446744073709551615ul&gt; &gt; &gt; (125,035,441 samples, 0.21%)</title><rect x="49.8" y="437" width="2.6" height="15.0" fill="rgb(217,55,13)" rx="2" ry="2" />
-<text  x="52.85" y="447.5" ></text>
-</g>
-<g >
-<title>std::__detail::_Node_iterator&lt;std::pair&lt;Stan const, int&gt;, false, true&gt;::_Node_iterator (438,110,492 samples, 0.75%)</title><rect x="1176.1" y="405" width="8.9" height="15.0" fill="rgb(213,37,8)" rx="2" ry="2" />
-<text  x="1179.07" y="415.5" ></text>
-</g>
-<g >
-<title>__gnu_cxx::__normal_iterator&lt;int const*, std::span&lt;int const, 18446744073709551615ul&gt; &gt;::base (71,286,093 samples, 0.12%)</title><rect x="728.1" y="229" width="1.5" height="15.0" fill="rgb(214,44,10)" rx="2" ry="2" />
-<text  x="731.12" y="239.5" ></text>
-</g>
-<g >
-<title>std::__detail::__extent_storage&lt;18446744073709551615ul&gt;::_M_extent (6,754,009 samples, 0.01%)</title><rect x="132.0" y="325" width="0.1" height="15.0" fill="rgb(209,21,5)" rx="2" ry="2" />
-<text  x="135.00" y="335.5" ></text>
-</g>
-<g >
-<title>asm_sysvec_apic_timer_interrupt (28,755,259 samples, 0.05%)</title><rect x="72.1" y="453" width="0.6" height="15.0" fill="rgb(232,127,30)" rx="2" ry="2" />
-<text  x="75.14" y="463.5" ></text>
-</g>
-<g >
-<title>hrtimer_interrupt (9,146,383 samples, 0.02%)</title><rect x="1144.5" y="293" width="0.2" height="15.0" fill="rgb(228,109,26)" rx="2" ry="2" />
-<text  x="1147.52" y="303.5" ></text>
-</g>
-<g >
-<title>do_syscall_64 (9,456,914 samples, 0.02%)</title><rect x="114.5" y="245" width="0.2" height="15.0" fill="rgb(209,20,4)" rx="2" ry="2" />
-<text  x="117.54" y="255.5" ></text>
-</g>
-<g >
-<title>exc_page_fault (44,248,035 samples, 0.08%)</title><rect x="113.6" y="293" width="0.9" height="15.0" fill="rgb(212,35,8)" rx="2" ry="2" />
-<text  x="116.60" y="303.5" ></text>
-</g>
-<g >
-<title>__gnu_cxx::__normal_iterator&lt;int const*, std::span&lt;int const, 18446744073709551615ul&gt; &gt;::base (350,349,413 samples, 0.60%)</title><rect x="1086.9" y="357" width="7.1" height="15.0" fill="rgb(214,44,10)" rx="2" ry="2" />
-<text  x="1089.92" y="367.5" ></text>
-</g>
-<g >
-<title>std::_Hashtable&lt;Stan, std::pair&lt;Stan const, int&gt;, std::allocator&lt;std::pair&lt;Stan const, int&gt; &gt;, std::__detail::_Select1st, std::equal_to&lt;Stan&gt;, StanHash, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits&lt;true, false, true&gt; &gt;::_M_rehash (379,232,705 samples, 0.65%)</title><rect x="109.7" y="373" width="7.7" height="15.0" fill="rgb(220,70,16)" rx="2" ry="2" />
-<text  x="112.73" y="383.5" ></text>
-</g>
-<g >
-<title>__gnu_cxx::__aligned_buffer&lt;std::pair&lt;Stan const, int&gt; &gt;::_M_addr (166,661,888 samples, 0.29%)</title><rect x="96.1" y="389" width="3.4" height="15.0" fill="rgb(205,1,0)" rx="2" ry="2" />
-<text  x="99.08" y="399.5" ></text>
-</g>
-<g >
-<title>std::__detail::_Hashtable_ebo_helper&lt;0, std::equal_to&lt;Stan&gt;, true&gt;::_M_cget (27,051,357 samples, 0.05%)</title><rect x="538.1" y="341" width="0.5" height="15.0" fill="rgb(209,20,4)" rx="2" ry="2" />
-<text  x="541.09" y="351.5" ></text>
-</g>
-<g >
-<title>std::integral_constant&lt;bool, true&gt;::operator bool (37,906,745 samples, 0.07%)</title><rect x="731.5" y="277" width="0.7" height="15.0" fill="rgb(231,123,29)" rx="2" ry="2" />
-<text  x="734.47" y="287.5" ></text>
-</g>
-<g >
-<title>__hrtimer_run_queues (32,723,505 samples, 0.06%)</title><rect x="933.1" y="277" width="0.7" height="15.0" fill="rgb(237,150,35)" rx="2" ry="2" />
-<text  x="936.10" y="287.5" ></text>
-</g>
-<g >
-<title>__libc_start_call_main (58,189,752,713 samples, 99.96%)</title><rect x="10.5" y="501" width="1179.5" height="15.0" fill="rgb(210,26,6)" rx="2" ry="2" />
-<text  x="13.48" y="511.5" >__libc_start_call_main</text>
-</g>
-<g >
-<title>Stan::operator== (329,908,388 samples, 0.57%)</title><rect x="47.3" y="453" width="6.7" height="15.0" fill="rgb(244,181,43)" rx="2" ry="2" />
-<text  x="50.27" y="463.5" ></text>
-</g>
-<g >
-<title>int const&amp; std::min&lt;int&gt; (279,054,441 samples, 0.48%)</title><rect x="72.7" y="453" width="5.7" height="15.0" fill="rgb(250,207,49)" rx="2" ry="2" />
-<text  x="75.72" y="463.5" ></text>
-</g>
-<g >
-<title>std::__detail::_Hashtable_alloc&lt;std::allocator&lt;std::__detail::_Hash_node&lt;std::pair&lt;Stan const, int&gt;, true&gt; &gt; &gt;::_M_deallocate_node (76,055,583 samples, 0.13%)</title><rect x="17.2" y="389" width="1.6" height="15.0" fill="rgb(216,54,13)" rx="2" ry="2" />
-<text  x="20.22" y="399.5" ></text>
-</g>
-<g >
-<title>std::__detail::_Hash_code_base&lt;Stan, std::pair&lt;Stan const, int&gt;, std::__detail::_Select1st, StanHash, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, true&gt;::_M_bucket_index (511,464,559 samples, 0.88%)</title><rect x="170.2" y="389" width="10.3" height="15.0" fill="rgb(205,1,0)" rx="2" ry="2" />
-<text  x="173.16" y="399.5" ></text>
-</g>
-<g >
-<title>__gnu_cxx::__aligned_buffer&lt;std::pair&lt;Stan const, int&gt; &gt;::_M_ptr (233,290,615 samples, 0.40%)</title><rect x="532.3" y="341" width="4.7" height="15.0" fill="rgb(251,212,50)" rx="2" ry="2" />
-<text  x="535.27" y="351.5" ></text>
-</g>
-<g >
-<title>pushJesliNowy (54,468,045,331 samples, 93.57%)</title><rect x="81.9" y="453" width="1104.1" height="15.0" fill="rgb(248,201,48)" rx="2" ry="2" />
-<text  x="84.90" y="463.5" >pushJesliNowy</text>
-</g>
-<g >
-<title>std::_Hashtable&lt;Stan, std::pair&lt;Stan const, int&gt;, std::allocator&lt;std::pair&lt;Stan const, int&gt; &gt;, std::__detail::_Select1st, std::equal_to&lt;Stan&gt;, StanHash, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits&lt;true, false, true&gt; &gt;::clear (389,741,451 samples, 0.67%)</title><rect x="10.9" y="421" width="7.9" height="15.0" fill="rgb(244,181,43)" rx="2" ry="2" />
-<text  x="13.86" y="431.5" ></text>
-</g>
-<g >
-<title>tick_nohz_handler (5,982,079 samples, 0.01%)</title><rect x="1128.7" y="277" width="0.1" height="15.0" fill="rgb(248,200,48)" rx="2" ry="2" />
-<text  x="1131.68" y="287.5" ></text>
-</g>
-<g >
-<title>tmigr_handle_remote_up (11,369,334 samples, 0.02%)</title><rect x="481.2" y="261" width="0.2" height="15.0" fill="rgb(242,173,41)" rx="2" ry="2" />
-<text  x="484.17" y="271.5" ></text>
-</g>
-<g >
-<title>std::is_constant_evaluated (55,516,778 samples, 0.10%)</title><rect x="720.9" y="213" width="1.1" height="15.0" fill="rgb(212,33,8)" rx="2" ry="2" />
-<text  x="723.92" y="223.5" ></text>
-</g>
-<g >
-<title>std::__detail::__extent_storage&lt;18446744073709551615ul&gt;::__extent_storage (12,904,704 samples, 0.02%)</title><rect x="49.6" y="405" width="0.2" height="15.0" fill="rgb(253,222,53)" rx="2" ry="2" />
-<text  x="52.59" y="415.5" ></text>
-</g>
-<g >
-<title>__gnu_cxx::__normal_iterator&lt;int const*, std::span&lt;int const, 18446744073709551615ul&gt; &gt;::__normal_iterator (64,281,794 samples, 0.11%)</title><rect x="641.1" y="309" width="1.3" height="15.0" fill="rgb(240,162,38)" rx="2" ry="2" />
-<text  x="644.05" y="319.5" ></text>
-</g>
-<g >
-<title>asm_sysvec_apic_timer_interrupt (7,035,871 samples, 0.01%)</title><rect x="577.1" y="293" width="0.1" height="15.0" fill="rgb(232,127,30)" rx="2" ry="2" />
-<text  x="580.05" y="303.5" ></text>
-</g>
-<g >
-<title>std::unordered_map&lt;Stan, int, StanHash, std::equal_to&lt;Stan&gt;, std::allocator&lt;std::pair&lt;Stan const, int&gt; &gt; &gt;::~unordered_map (399,289,360 samples, 0.69%)</title><rect x="10.7" y="453" width="8.1" height="15.0" fill="rgb(231,124,29)" rx="2" ry="2" />
-<text  x="13.67" y="463.5" ></text>
-</g>
-<g >
-<title>__hrtimer_run_queues (51,983,492 samples, 0.09%)</title><rect x="479.8" y="309" width="1.1" height="15.0" fill="rgb(237,150,35)" rx="2" ry="2" />
-<text  x="482.82" y="319.5" ></text>
-</g>
-<g >
-<title>bool __gnu_cxx::operator==&lt;int const*, std::span&lt;int const, 18446744073709551615ul&gt; &gt; (36,462,524 samples, 0.06%)</title><rect x="130.1" y="357" width="0.8" height="15.0" fill="rgb(230,115,27)" rx="2" ry="2" />
-<text  x="133.13" y="367.5" ></text>
-</g>
-<g >
-<title>__gnu_cxx::__normal_iterator&lt;int const*, std::span&lt;int const, 18446744073709551615ul&gt; &gt;::operator* (116,464,406 samples, 0.20%)</title><rect x="1159.6" y="389" width="2.3" height="15.0" fill="rgb(239,158,37)" rx="2" ry="2" />
-<text  x="1162.56" y="399.5" ></text>
-</g>
-<g >
-<title>kolejka012::isEmpty (40,366,866 samples, 0.07%)</title><rect x="78.4" y="453" width="0.8" height="15.0" fill="rgb(228,106,25)" rx="2" ry="2" />
-<text  x="81.38" y="463.5" ></text>
-</g>
-<g >
-<title>int const* std::to_address&lt;int const&gt; (343,865,143 samples, 0.59%)</title><rect x="1030.7" y="341" width="6.9" height="15.0" fill="rgb(227,105,25)" rx="2" ry="2" />
-<text  x="1033.65" y="351.5" ></text>
-</g>
-<g >
-<title>asm_sysvec_apic_timer_interrupt (7,954,345 samples, 0.01%)</title><rect x="509.2" y="341" width="0.2" height="15.0" fill="rgb(232,127,30)" rx="2" ry="2" />
-<text  x="512.19" y="351.5" ></text>
-</g>
-<g >
-<title>[unknown] (19,189,226 samples, 0.03%)</title><rect x="10.0" y="517" width="0.4" height="15.0" fill="rgb(210,24,5)" rx="2" ry="2" />
-<text  x="13.00" y="527.5" ></text>
-</g>
-<g >
-<title>std::__detail::_Node_iterator_base&lt;std::pair&lt;Stan const, int&gt;, true&gt;::_Node_iterator_base (28,348,698 samples, 0.05%)</title><rect x="117.8" y="357" width="0.5" height="15.0" fill="rgb(245,184,44)" rx="2" ry="2" />
-<text  x="120.77" y="367.5" ></text>
-</g>
-<g >
-<title>int std::__memcmp&lt;int, int&gt; (79,758,290 samples, 0.14%)</title><rect x="719.3" y="213" width="1.6" height="15.0" fill="rgb(220,70,16)" rx="2" ry="2" />
-<text  x="722.30" y="223.5" ></text>
-</g>
-<g >
-<title>int const* std::to_address&lt;int const&gt; (22,810,465 samples, 0.04%)</title><rect x="49.1" y="405" width="0.5" height="15.0" fill="rgb(227,105,25)" rx="2" ry="2" />
-<text  x="52.12" y="415.5" ></text>
-</g>
-<g >
-<title>__gnu_cxx::__normal_iterator&lt;int const*, std::span&lt;int const, 18446744073709551615ul&gt; &gt;::operator* (15,746,171 samples, 0.03%)</title><rect x="129.7" y="357" width="0.3" height="15.0" fill="rgb(239,158,37)" rx="2" ry="2" />
-<text  x="132.72" y="367.5" ></text>
-</g>
-<g >
-<title>std::span&lt;int const, 18446744073709551615ul&gt;::end (672,611,466 samples, 1.16%)</title><rect x="1145.1" y="373" width="13.6" height="15.0" fill="rgb(213,39,9)" rx="2" ry="2" />
-<text  x="1148.05" y="383.5" ></text>
-</g>
-<g >
-<title>bool std::__equal_aux&lt;__gnu_cxx::__normal_iterator&lt;int const*, std::span&lt;int const, 18446744073709551615ul&gt; &gt;, __gnu_cxx::__normal_iterator&lt;int const*, std::span&lt;int const, 18446744073709551615ul&gt; &gt; &gt; (58,944,146 samples, 0.10%)</title><rect x="51.1" y="389" width="1.2" height="15.0" fill="rgb(218,62,14)" rx="2" ry="2" />
-<text  x="54.14" y="399.5" ></text>
-</g>
-<g >
-<title>std::__detail::_Hashtable_alloc&lt;std::allocator&lt;std::__detail::_Hash_node&lt;std::pair&lt;Stan const, int&gt;, true&gt; &gt; &gt;::_M_deallocate_buckets (9,456,914 samples, 0.02%)</title><rect x="114.5" y="309" width="0.2" height="15.0" fill="rgb(228,108,26)" rx="2" ry="2" />
-<text  x="117.54" y="319.5" ></text>
-</g>
-<g >
-<title>[unknown] (23,879,396 samples, 0.04%)</title><rect x="10.0" y="533" width="0.5" height="15.0" fill="rgb(210,24,5)" rx="2" ry="2" />
-<text  x="13.00" y="543.5" ></text>
-</g>
-<g >
-<title>std::pair&lt;std::__detail::_Node_iterator&lt;std::pair&lt;Stan const, int&gt;, false, true&gt;, bool&gt; std::_Hashtable&lt;Stan, std::pair&lt;Stan const, int&gt;, std::allocator&lt;std::pair&lt;Stan const, int&gt; &gt;, std::__detail::_Select1st, std::equal_to&lt;Stan&gt;, StanHash, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits&lt;true, false, true&gt; &gt;::emplace&lt;Stan const&amp;, int&amp;&gt; (1,381,583,558 samples, 2.37%)</title><rect x="105.1" y="421" width="28.0" height="15.0" fill="rgb(242,172,41)" rx="2" ry="2" />
-<text  x="108.12" y="431.5" >s..</text>
-</g>
-<g >
-<title>sched_tick (9,146,383 samples, 0.02%)</title><rect x="1144.5" y="229" width="0.2" height="15.0" fill="rgb(238,155,37)" rx="2" ry="2" />
-<text  x="1147.52" y="239.5" ></text>
-</g>
-<g >
-<title>__gnu_cxx::__normal_iterator&lt;int const*, std::span&lt;int const, 18446744073709551615ul&gt; &gt;::__normal_iterator (156,155,978 samples, 0.27%)</title><rect x="1151.3" y="357" width="3.2" height="15.0" fill="rgb(240,162,38)" rx="2" ry="2" />
-<text  x="1154.30" y="367.5" ></text>
-</g>
-<g >
-<title>bool __gnu_cxx::operator==&lt;int const*, std::span&lt;int const, 18446744073709551615ul&gt; &gt; (9,412,446 samples, 0.02%)</title><rect x="132.2" y="373" width="0.2" height="15.0" fill="rgb(230,115,27)" rx="2" ry="2" />
-<text  x="135.24" y="383.5" ></text>
-</g>
-<g >
-<title>free (8,979,233 samples, 0.02%)</title><rect x="10.5" y="341" width="0.2" height="15.0" fill="rgb(213,38,9)" rx="2" ry="2" />
-<text  x="13.48" y="351.5" ></text>
-</g>
-<g >
-<title>malloc (42,778,413 samples, 0.07%)</title><rect x="90.2" y="325" width="0.9" height="15.0" fill="rgb(230,119,28)" rx="2" ry="2" />
-<text  x="93.22" y="335.5" ></text>
-</g>
-<g >
-<title>std::_Hashtable&lt;Stan, std::pair&lt;Stan const, int&gt;, std::allocator&lt;std::pair&lt;Stan const, int&gt; &gt;, std::__detail::_Select1st, std::equal_to&lt;Stan&gt;, StanHash, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits&lt;true, false, true&gt; &gt;::_M_find_before_node (55,128,975 samples, 0.09%)</title><rect x="107.8" y="373" width="1.2" height="15.0" fill="rgb(224,91,21)" rx="2" ry="2" />
-<text  x="110.83" y="383.5" ></text>
-</g>
-<g >
-<title>int const* std::__to_address&lt;int const&gt; (8,482,044 samples, 0.01%)</title><rect x="49.0" y="405" width="0.1" height="15.0" fill="rgb(250,209,50)" rx="2" ry="2" />
-<text  x="51.95" y="415.5" ></text>
-</g>
-<g >
-<title>__hrtimer_run_queues (5,982,079 samples, 0.01%)</title><rect x="1128.7" y="293" width="0.1" height="15.0" fill="rgb(237,150,35)" rx="2" ry="2" />
-<text  x="1131.68" y="303.5" ></text>
-</g>
-<g >
-<title>decltype  (25,330,673 samples, 0.04%)</title><rect x="120.2" y="357" width="0.5" height="15.0" fill="rgb(214,42,10)" rx="2" ry="2" />
-<text  x="123.23" y="367.5" ></text>
-</g>
-<g >
-<title>bool std::__equal_aux1&lt;int const*, int const*&gt; (34,232,161 samples, 0.06%)</title><rect x="51.3" y="373" width="0.7" height="15.0" fill="rgb(246,190,45)" rx="2" ry="2" />
-<text  x="54.28" y="383.5" ></text>
-</g>
-<g >
-<title>free (47,601,222 samples, 0.08%)</title><rect x="17.5" y="341" width="1.0" height="15.0" fill="rgb(213,38,9)" rx="2" ry="2" />
-<text  x="20.51" y="351.5" ></text>
-</g>
-<g >
-<title>asm_exc_page_fault (176,111,390 samples, 0.30%)</title><rect x="123.8" y="293" width="3.5" height="15.0" fill="rgb(225,93,22)" rx="2" ry="2" />
-<text  x="126.77" y="303.5" ></text>
-</g>
-<g >
-<title>sysvec_apic_timer_interrupt (16,960,822 samples, 0.03%)</title><rect x="1144.7" y="341" width="0.4" height="15.0" fill="rgb(220,69,16)" rx="2" ry="2" />
-<text  x="1147.71" y="351.5" ></text>
-</g>
-<g >
-<title>asm_sysvec_apic_timer_interrupt (13,376,900 samples, 0.02%)</title><rect x="151.0" y="373" width="0.3" height="15.0" fill="rgb(232,127,30)" rx="2" ry="2" />
-<text  x="153.99" y="383.5" ></text>
-</g>
-<g >
-<title>asm_sysvec_apic_timer_interrupt (6,346,681 samples, 0.01%)</title><rect x="88.9" y="437" width="0.2" height="15.0" fill="rgb(232,127,30)" rx="2" ry="2" />
-<text  x="91.93" y="447.5" ></text>
-</g>
-<g >
-<title>folio_batch_move_lru (15,674,600 samples, 0.03%)</title><rect x="126.4" y="133" width="0.3" height="15.0" fill="rgb(207,10,2)" rx="2" ry="2" />
-<text  x="129.37" y="143.5" ></text>
-</g>
-<g >
-<title>hrtimer_interrupt (14,673,222 samples, 0.03%)</title><rect x="1144.7" y="309" width="0.3" height="15.0" fill="rgb(228,109,26)" rx="2" ry="2" />
-<text  x="1147.71" y="319.5" ></text>
-</g>
-<g >
-<title>int const* std::to_address&lt;int const&gt; (972,309,725 samples, 1.67%)</title><rect x="607.4" y="277" width="19.7" height="15.0" fill="rgb(227,105,25)" rx="2" ry="2" />
-<text  x="610.36" y="287.5" ></text>
-</g>
-<g >
-<title>_start (58,189,982,684 samples, 99.96%)</title><rect x="10.5" y="533" width="1179.5" height="15.0" fill="rgb(245,185,44)" rx="2" ry="2" />
-<text  x="13.48" y="543.5" >_start</text>
-</g>
-<g >
-<title>__gnu_cxx::__normal_iterator&lt;int const*, std::span&lt;int const, 18446744073709551615ul&gt; &gt;::base (253,840,191 samples, 0.44%)</title><rect x="1040.3" y="373" width="5.1" height="15.0" fill="rgb(214,44,10)" rx="2" ry="2" />
-<text  x="1043.26" y="383.5" ></text>
-</g>
-<g >
-<title>__hrtimer_run_queues (14,673,222 samples, 0.03%)</title><rect x="1144.7" y="293" width="0.3" height="15.0" fill="rgb(237,150,35)" rx="2" ry="2" />
-<text  x="1147.71" y="303.5" ></text>
-</g>
-<g >
-<title>__sysvec_apic_timer_interrupt (11,391,746 samples, 0.02%)</title><rect x="192.5" y="357" width="0.2" height="15.0" fill="rgb(242,173,41)" rx="2" ry="2" />
-<text  x="195.49" y="367.5" ></text>
-</g>
-<g >
-<title>update_process_times (6,393,206 samples, 0.01%)</title><rect x="615.3" y="165" width="0.1" height="15.0" fill="rgb(250,209,50)" rx="2" ry="2" />
-<text  x="618.30" y="175.5" ></text>
-</g>
-<g >
-<title>_int_free_merge_chunk (8,979,233 samples, 0.02%)</title><rect x="10.5" y="325" width="0.2" height="15.0" fill="rgb(240,163,39)" rx="2" ry="2" />
-<text  x="13.48" y="335.5" ></text>
-</g>
-<g >
-<title>std::__detail::_Node_iterator&lt;std::pair&lt;Stan const, int&gt;, false, true&gt;::_Node_iterator (6,813,995 samples, 0.01%)</title><rect x="1185.8" y="421" width="0.2" height="15.0" fill="rgb(213,37,8)" rx="2" ry="2" />
-<text  x="1188.84" y="431.5" ></text>
-</g>
-<g >
-<title>entry_SYSCALL_64_after_hwframe (9,456,914 samples, 0.02%)</title><rect x="114.5" y="261" width="0.2" height="15.0" fill="rgb(218,63,15)" rx="2" ry="2" />
-<text  x="117.54" y="271.5" ></text>
-</g>
-<g >
-<title>clear_page_erms (22,151,594 samples, 0.04%)</title><rect x="125.5" y="85" width="0.5" height="15.0" fill="rgb(229,113,27)" rx="2" ry="2" />
-<text  x="128.51" y="95.5" ></text>
-</g>
-<g >
-<title>sched_balance_trigger (5,904,478 samples, 0.01%)</title><rect x="1056.4" y="245" width="0.1" height="15.0" fill="rgb(213,38,9)" rx="2" ry="2" />
-<text  x="1059.35" y="255.5" ></text>
-</g>
-<g >
-<title>hrtimer_interrupt (37,283,901 samples, 0.06%)</title><rect x="933.1" y="293" width="0.8" height="15.0" fill="rgb(228,109,26)" rx="2" ry="2" />
-<text  x="936.10" y="303.5" ></text>
-</g>
-<g >
-<title>lock_vma_under_rcu (5,733,915 samples, 0.01%)</title><rect x="127.1" y="245" width="0.2" height="15.0" fill="rgb(251,211,50)" rx="2" ry="2" />
-<text  x="130.14" y="255.5" ></text>
-</g>
-<g >
-<title>asm_sysvec_apic_timer_interrupt (9,356,099 samples, 0.02%)</title><rect x="10.2" y="485" width="0.1" height="15.0" fill="rgb(232,127,30)" rx="2" ry="2" />
-<text  x="13.16" y="495.5" ></text>
-</g>
-<g >
-<title>int const* std::__to_address&lt;int const&gt; (7,014,958 samples, 0.01%)</title><rect x="129.3" y="309" width="0.2" height="15.0" fill="rgb(250,209,50)" rx="2" ry="2" />
-<text  x="132.35" y="319.5" ></text>
-</g>
-<g >
-<title>std::queue&lt;Stan, std::deque&lt;Stan, std::allocator&lt;Stan&gt; &gt; &gt;::push (95,389,440 samples, 0.16%)</title><rect x="89.4" y="421" width="1.9" height="15.0" fill="rgb(238,154,36)" rx="2" ry="2" />
-<text  x="92.37" y="431.5" ></text>
-</g>
-<g >
-<title>std::__detail::_Hash_code_base&lt;Stan, std::pair&lt;Stan const, int&gt;, std::__detail::_Select1st, StanHash, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, true&gt;::_M_bucket_index (18,594,762 samples, 0.03%)</title><rect x="943.0" y="405" width="0.4" height="15.0" fill="rgb(205,1,0)" rx="2" ry="2" />
-<text  x="946.04" y="415.5" ></text>
-</g>
-<g >
-<title>alloc_pages_mpol (11,456,895 samples, 0.02%)</title><rect x="90.7" y="133" width="0.2" height="15.0" fill="rgb(254,227,54)" rx="2" ry="2" />
-<text  x="93.67" y="143.5" ></text>
-</g>
-<g >
-<title>memcg1_commit_charge (11,585,276 samples, 0.02%)</title><rect x="125.2" y="133" width="0.2" height="15.0" fill="rgb(219,66,15)" rx="2" ry="2" />
-<text  x="128.18" y="143.5" ></text>
-</g>
-<g >
-<title>do_user_addr_fault (171,861,334 samples, 0.30%)</title><rect x="123.8" y="261" width="3.5" height="15.0" fill="rgb(228,108,25)" rx="2" ry="2" />
-<text  x="126.77" y="271.5" ></text>
-</g>
-<g >
-<title>__x64_sys_brk (6,638,140 samples, 0.01%)</title><rect x="123.2" y="229" width="0.2" height="15.0" fill="rgb(220,72,17)" rx="2" ry="2" />
-<text  x="126.24" y="239.5" ></text>
-</g>
-<g >
-<title>folio_add_new_anon_rmap (6,976,441 samples, 0.01%)</title><rect x="126.7" y="181" width="0.1" height="15.0" fill="rgb(233,133,31)" rx="2" ry="2" />
-<text  x="129.69" y="191.5" ></text>
-</g>
-<g >
-<title>handle_pte_fault (132,125,916 samples, 0.23%)</title><rect x="124.4" y="213" width="2.6" height="15.0" fill="rgb(217,57,13)" rx="2" ry="2" />
-<text  x="127.37" y="223.5" ></text>
-</g>
-<g >
-<title>std::_Hashtable&lt;Stan, std::pair&lt;Stan const, int&gt;, std::allocator&lt;std::pair&lt;Stan const, int&gt; &gt;, std::__detail::_Select1st, std::equal_to&lt;Stan&gt;, StanHash, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits&lt;true, false, true&gt; &gt;::_M_find_node (37,404,153,438 samples, 64.25%)</title><rect x="181.4" y="405" width="758.1" height="15.0" fill="rgb(238,155,37)" rx="2" ry="2" />
-<text  x="184.36" y="415.5" >std::_Hashtable&lt;Stan, std::pair&lt;Stan const, int&gt;, std::allocator&lt;std::pair&lt;Stan const, int&gt; &gt;, std::__det..</text>
-</g>
-<g >
-<title>__sysvec_apic_timer_interrupt (22,409,725 samples, 0.04%)</title><rect x="72.1" y="421" width="0.5" height="15.0" fill="rgb(242,173,41)" rx="2" ry="2" />
-<text  x="75.14" y="431.5" ></text>
-</g>
-<g >
-<title>task_tick_fair (8,692,829 samples, 0.01%)</title><rect x="1144.8" y="229" width="0.2" height="15.0" fill="rgb(217,57,13)" rx="2" ry="2" />
-<text  x="1147.79" y="239.5" ></text>
-</g>
-<g >
-<title>handle_mm_fault (39,558,736 samples, 0.07%)</title><rect x="113.6" y="261" width="0.8" height="15.0" fill="rgb(234,135,32)" rx="2" ry="2" />
-<text  x="116.64" y="271.5" ></text>
-</g>
-<g >
-<title>hrtimer_interrupt (11,391,746 samples, 0.02%)</title><rect x="192.5" y="341" width="0.2" height="15.0" fill="rgb(228,109,26)" rx="2" ry="2" />
-<text  x="195.49" y="351.5" ></text>
-</g>
-<g >
-<title>std::queue&lt;Stan, std::deque&lt;Stan, std::allocator&lt;Stan&gt; &gt; &gt;::empty (33,784,259 samples, 0.06%)</title><rect x="78.5" y="437" width="0.7" height="15.0" fill="rgb(221,76,18)" rx="2" ry="2" />
-<text  x="81.51" y="447.5" ></text>
-</g>
-<g >
-<title>__sysvec_apic_timer_interrupt (14,673,222 samples, 0.03%)</title><rect x="1144.7" y="325" width="0.3" height="15.0" fill="rgb(242,173,41)" rx="2" ry="2" />
-<text  x="1147.71" y="335.5" ></text>
-</g>
-<g >
-<title>asm_sysvec_apic_timer_interrupt (9,146,383 samples, 0.02%)</title><rect x="1144.5" y="341" width="0.2" height="15.0" fill="rgb(232,127,30)" rx="2" ry="2" />
-<text  x="1147.52" y="351.5" ></text>
-</g>
-<g >
-<title>hrtimer_interrupt (6,393,206 samples, 0.01%)</title><rect x="615.3" y="213" width="0.1" height="15.0" fill="rgb(228,109,26)" rx="2" ry="2" />
-<text  x="618.30" y="223.5" ></text>
-</g>
-<g >
-<title>bool __gnu_cxx::operator==&lt;int const*, std::span&lt;int const, 18446744073709551615ul&gt; &gt; (1,853,798,061 samples, 3.18%)</title><rect x="1056.5" y="373" width="37.6" height="15.0" fill="rgb(230,115,27)" rx="2" ry="2" />
-<text  x="1059.54" y="383.5" >boo..</text>
-</g>
-<g >
-<title>do_user_addr_fault (39,558,736 samples, 0.07%)</title><rect x="113.6" y="277" width="0.8" height="15.0" fill="rgb(228,108,25)" rx="2" ry="2" />
-<text  x="116.64" y="287.5" ></text>
-</g>
-<g >
-<title>alloc_anon_folio (15,994,531 samples, 0.03%)</title><rect x="90.6" y="181" width="0.3" height="15.0" fill="rgb(223,86,20)" rx="2" ry="2" />
-<text  x="93.58" y="191.5" ></text>
-</g>
-<g >
-<title>sched_tick (7,986,005 samples, 0.01%)</title><rect x="1056.4" y="261" width="0.1" height="15.0" fill="rgb(238,155,37)" rx="2" ry="2" />
-<text  x="1059.35" y="271.5" ></text>
-</g>
-<g >
-<title>std::__detail::_Node_iterator_base&lt;std::pair&lt;Stan const, int&gt;, true&gt;::_Node_iterator_base (502,180,456 samples, 0.86%)</title><rect x="141.1" y="389" width="10.2" height="15.0" fill="rgb(245,184,44)" rx="2" ry="2" />
-<text  x="144.09" y="399.5" ></text>
-</g>
-<g >
-<title>asm_exc_page_fault (44,248,035 samples, 0.08%)</title><rect x="113.6" y="309" width="0.9" height="15.0" fill="rgb(225,93,22)" rx="2" ry="2" />
-<text  x="116.60" y="319.5" ></text>
-</g>
-<g >
-<title>std::__detail::_Hashtable_base&lt;Stan, std::pair&lt;Stan const, int&gt;, std::__detail::_Select1st, std::equal_to&lt;Stan&gt;, StanHash, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Hashtable_traits&lt;true, false, true&gt; &gt;::_M_key_equals (35,275,109 samples, 0.06%)</title><rect x="934.6" y="373" width="0.7" height="15.0" fill="rgb(246,190,45)" rx="2" ry="2" />
-<text  x="937.58" y="383.5" ></text>
-</g>
-<g >
-<title>std::pair&lt;Stan const, int&gt; const&amp; std::forward&lt;std::pair&lt;Stan const, int&gt; const&amp;&gt; (19,260,770 samples, 0.03%)</title><rect x="821.2" y="341" width="0.3" height="15.0" fill="rgb(250,210,50)" rx="2" ry="2" />
-<text  x="824.16" y="351.5" ></text>
-</g>
-<g >
-<title>__gnu_cxx::__normal_iterator&lt;int const*, std::span&lt;int const, 18446744073709551615ul&gt; &gt;::operator++ (261,031,399 samples, 0.45%)</title><rect x="1050.7" y="373" width="5.3" height="15.0" fill="rgb(205,1,0)" rx="2" ry="2" />
-<text  x="1053.69" y="383.5" ></text>
-</g>
-<g >
-<title>std::_Hashtable&lt;Stan, std::pair&lt;Stan const, int&gt;, std::allocator&lt;std::pair&lt;Stan const, int&gt; &gt;, std::__detail::_Select1st, std::equal_to&lt;Stan&gt;, StanHash, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits&lt;true, false, true&gt; &gt;::_M_bucket_index (1,629,778,246 samples, 2.80%)</title><rect x="481.5" y="373" width="33.0" height="15.0" fill="rgb(224,91,21)" rx="2" ry="2" />
-<text  x="484.45" y="383.5" >st..</text>
-</g>
-<g >
-<title>std::span&lt;int const, 18446744073709551615ul&gt;::size (22,690,046 samples, 0.04%)</title><rect x="1158.7" y="373" width="0.4" height="15.0" fill="rgb(210,27,6)" rx="2" ry="2" />
-<text  x="1161.69" y="383.5" ></text>
-</g>
-<g >
-<title>std::__detail::_Hash_node&lt;std::pair&lt;Stan const, int&gt;, true&gt;::_Hash_node (25,700,403 samples, 0.04%)</title><rect x="121.4" y="357" width="0.5" height="15.0" fill="rgb(248,198,47)" rx="2" ry="2" />
-<text  x="124.36" y="367.5" ></text>
-</g>
-<g >
-<title>sysvec_apic_timer_interrupt (22,599,835 samples, 0.04%)</title><rect x="1056.1" y="357" width="0.4" height="15.0" fill="rgb(220,69,16)" rx="2" ry="2" />
-<text  x="1059.08" y="367.5" ></text>
-</g>
-<g >
-<title>std::span&lt;int const, 18446744073709551615ul&gt;::span&lt;int const*&gt; (20,122,938 samples, 0.03%)</title><rect x="1159.1" y="373" width="0.5" height="15.0" fill="rgb(205,1,0)" rx="2" ry="2" />
-<text  x="1162.15" y="383.5" ></text>
-</g>
-<g >
-<title>std::span&lt;int const, 18446744073709551615ul&gt;::size (190,345,582 samples, 0.33%)</title><rect x="814.6" y="309" width="3.9" height="15.0" fill="rgb(210,27,6)" rx="2" ry="2" />
-<text  x="817.60" y="319.5" ></text>
-</g>
-<g >
-<title>std::__detail::_Select1st::__1st_type&lt;std::pair&lt;Stan const, int&gt; const&amp;&gt;::type&amp;&amp; std::__detail::_Select1st::operator (22,031,209 samples, 0.04%)</title><rect x="933.9" y="357" width="0.4" height="15.0" fill="rgb(207,12,2)" rx="2" ry="2" />
-<text  x="936.90" y="367.5" ></text>
-</g>
-<g >
-<title>std::array&lt;int, 11ul&gt;::operator[] (58,288,017 samples, 0.10%)</title><rect x="1186.4" y="453" width="1.2" height="15.0" fill="rgb(217,58,13)" rx="2" ry="2" />
-<text  x="1189.39" y="463.5" ></text>
-</g>
-<g >
-<title>unmap_vmas (6,261,246 samples, 0.01%)</title><rect x="114.6" y="117" width="0.1" height="15.0" fill="rgb(243,176,42)" rx="2" ry="2" />
-<text  x="117.60" y="127.5" ></text>
-</g>
-<g >
-<title>std::__detail::_Select1st::__1st_type&lt;std::pair&lt;Stan const, int&gt; const&amp;&gt;::type&amp;&amp; std::__detail::_Select1st::operator (166,577,722 samples, 0.29%)</title><rect x="538.6" y="341" width="3.4" height="15.0" fill="rgb(207,12,2)" rx="2" ry="2" />
-<text  x="541.64" y="351.5" ></text>
-</g>
-<g >
-<title>std::_Hashtable&lt;Stan, std::pair&lt;Stan const, int&gt;, std::allocator&lt;std::pair&lt;Stan const, int&gt; &gt;, std::__detail::_Select1st, std::equal_to&lt;Stan&gt;, StanHash, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits&lt;true, false, true&gt; &gt;::_M_bucket_index (668,415,095 samples, 1.15%)</title><rect x="167.7" y="405" width="13.6" height="15.0" fill="rgb(224,91,21)" rx="2" ry="2" />
-<text  x="170.72" y="415.5" ></text>
-</g>
-<g >
-<title>_int_malloc (6,550,441 samples, 0.01%)</title><rect x="122.5" y="325" width="0.1" height="15.0" fill="rgb(215,47,11)" rx="2" ry="2" />
-<text  x="125.46" y="335.5" ></text>
-</g>
-<g >
-<title>alloc_pages_mpol (21,403,786 samples, 0.04%)</title><rect x="113.9" y="149" width="0.5" height="15.0" fill="rgb(254,227,54)" rx="2" ry="2" />
-<text  x="116.94" y="159.5" ></text>
-</g>
-<g >
-<title>std::_Hashtable&lt;Stan, std::pair&lt;Stan const, int&gt;, std::allocator&lt;std::pair&lt;Stan const, int&gt; &gt;, std::__detail::_Select1st, std::equal_to&lt;Stan&gt;, StanHash, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits&lt;true, false, true&gt; &gt;::~_Hashtable (399,289,360 samples, 0.69%)</title><rect x="10.7" y="437" width="8.1" height="15.0" fill="rgb(253,225,53)" rx="2" ry="2" />
-<text  x="13.67" y="447.5" ></text>
-</g>
-<g >
-<title>void std::deque&lt;Stan, std::allocator&lt;Stan&gt; &gt;::_M_push_back_aux&lt;Stan const&amp;&gt; (69,094,389 samples, 0.12%)</title><rect x="89.9" y="389" width="1.4" height="15.0" fill="rgb(248,198,47)" rx="2" ry="2" />
-<text  x="92.91" y="399.5" ></text>
-</g>
-<g >
-<title>std::_Hashtable&lt;Stan, std::pair&lt;Stan const, int&gt;, std::allocator&lt;std::pair&lt;Stan const, int&gt; &gt;, std::__detail::_Select1st, std::equal_to&lt;Stan&gt;, StanHash, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits&lt;true, false, true&gt; &gt;::_M_bucket_index (22,101,688 samples, 0.04%)</title><rect x="109.3" y="357" width="0.4" height="15.0" fill="rgb(224,91,21)" rx="2" ry="2" />
-<text  x="112.28" y="367.5" ></text>
-</g>
-<g >
-<title>Stan::data (103,824,505 samples, 0.18%)</title><rect x="47.7" y="437" width="2.1" height="15.0" fill="rgb(242,174,41)" rx="2" ry="2" />
-<text  x="50.74" y="447.5" ></text>
-</g>
-<g >
-<title>std::__detail::_Mod_range_hashing::operator (419,298,561 samples, 0.72%)</title><rect x="172.0" y="373" width="8.5" height="15.0" fill="rgb(230,116,27)" rx="2" ry="2" />
-<text  x="175.03" y="383.5" ></text>
-</g>
-<g >
-<title>__handle_mm_fault (148,385,650 samples, 0.25%)</title><rect x="124.0" y="229" width="3.0" height="15.0" fill="rgb(207,9,2)" rx="2" ry="2" />
-<text  x="127.04" y="239.5" ></text>
-</g>
-<g >
-<title>std::__new_allocator&lt;Stan&gt;::allocate (47,402,321 samples, 0.08%)</title><rect x="90.1" y="357" width="1.0" height="15.0" fill="rgb(228,106,25)" rx="2" ry="2" />
-<text  x="93.13" y="367.5" ></text>
-</g>
-<g >
-<title>std::pair&lt;std::__detail::_Node_iterator&lt;std::pair&lt;Stan const, int&gt;, false, true&gt;, bool&gt;::pair&lt;std::__detail::_Node_iterator&lt;std::pair&lt;Stan const, int&gt;, false, true&gt;&amp;, bool&gt; (15,614,810 samples, 0.03%)</title><rect x="132.8" y="389" width="0.3" height="15.0" fill="rgb(246,193,46)" rx="2" ry="2" />
-<text  x="135.81" y="399.5" ></text>
-</g>
-<g >
-<title>std::equal_to&lt;Stan&gt;::operator (11,204,414 samples, 0.02%)</title><rect x="934.3" y="357" width="0.3" height="15.0" fill="rgb(214,43,10)" rx="2" ry="2" />
-<text  x="937.35" y="367.5" ></text>
-</g>
-<g >
-<title>tick_nohz_handler (32,723,505 samples, 0.06%)</title><rect x="933.1" y="261" width="0.7" height="15.0" fill="rgb(248,200,48)" rx="2" ry="2" />
-<text  x="936.10" y="271.5" ></text>
-</g>
-<g >
-<title>tick_nohz_handler (11,391,746 samples, 0.02%)</title><rect x="192.5" y="309" width="0.2" height="15.0" fill="rgb(248,200,48)" rx="2" ry="2" />
-<text  x="195.49" y="319.5" ></text>
-</g>
-<g >
-<title>std::__detail::_Select1st::__1st_type&lt;std::pair&lt;Stan const, int&gt;&amp;&gt;::type&amp;&amp; std::__detail::_Select1st::operator (8,654,516 samples, 0.01%)</title><rect x="132.6" y="389" width="0.2" height="15.0" fill="rgb(223,86,20)" rx="2" ry="2" />
-<text  x="135.63" y="399.5" ></text>
-</g>
-<g >
-<title>std::__detail::_Node_iterator&lt;std::pair&lt;Stan const, int&gt;, false, true&gt;::operator (381,966,105 samples, 0.66%)</title><rect x="91.8" y="437" width="7.8" height="15.0" fill="rgb(246,193,46)" rx="2" ry="2" />
-<text  x="94.81" y="447.5" ></text>
-</g>
-<g >
-<title>std::__detail::_Hashtable_base&lt;Stan, std::pair&lt;Stan const, int&gt;, std::__detail::_Select1st, std::equal_to&lt;Stan&gt;, StanHash, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Hashtable_traits&lt;true, false, true&gt; &gt;::_M_key_equals (14,679,224,804 samples, 25.22%)</title><rect x="524.0" y="357" width="297.5" height="15.0" fill="rgb(246,190,45)" rx="2" ry="2" />
-<text  x="527.00" y="367.5" >std::__detail::_Hashtable_base&lt;Stan, std..</text>
-</g>
-<g >
-<title>std::__detail::_Mod_range_hashing::operator (36,506,239 samples, 0.06%)</title><rect x="180.5" y="389" width="0.8" height="15.0" fill="rgb(230,116,27)" rx="2" ry="2" />
-<text  x="183.52" y="399.5" ></text>
-</g>
-<g >
-<title>vma_alloc_folio_noprof (21,403,786 samples, 0.04%)</title><rect x="113.9" y="181" width="0.5" height="15.0" fill="rgb(218,61,14)" rx="2" ry="2" />
-<text  x="116.94" y="191.5" ></text>
-</g>
-<g >
-<title>std::deque&lt;Stan, std::allocator&lt;Stan&gt; &gt;::pop_front (23,376,296 samples, 0.04%)</title><rect x="81.4" y="421" width="0.5" height="15.0" fill="rgb(225,92,22)" rx="2" ry="2" />
-<text  x="84.39" y="431.5" ></text>
-</g>
-<g >
-<title>folio_alloc_mpol_noprof (11,456,895 samples, 0.02%)</title><rect x="90.7" y="149" width="0.2" height="15.0" fill="rgb(219,64,15)" rx="2" ry="2" />
-<text  x="93.67" y="159.5" ></text>
-</g>
-<g >
-<title>sched_balance_trigger (6,651,389 samples, 0.01%)</title><rect x="72.3" y="325" width="0.1" height="15.0" fill="rgb(213,38,9)" rx="2" ry="2" />
-<text  x="75.28" y="335.5" ></text>
-</g>
-<g >
-<title>zap_pmd_range.isra.0 (6,261,246 samples, 0.01%)</title><rect x="114.6" y="53" width="0.1" height="15.0" fill="rgb(244,180,43)" rx="2" ry="2" />
-<text  x="117.60" y="63.5" ></text>
-</g>
-<g >
-<title>sched_tick (6,393,206 samples, 0.01%)</title><rect x="615.3" y="149" width="0.1" height="15.0" fill="rgb(238,155,37)" rx="2" ry="2" />
-<text  x="618.30" y="159.5" ></text>
-</g>
-<g >
-<title>int const* std::__niter_base&lt;int const*, std::span&lt;int const, 18446744073709551615ul&gt; &gt; (18,038,884 samples, 0.03%)</title><rect x="52.0" y="373" width="0.3" height="15.0" fill="rgb(217,57,13)" rx="2" ry="2" />
-<text  x="54.97" y="383.5" ></text>
-</g>
-<g >
-<title>handle_pte_fault (37,186,603 samples, 0.06%)</title><rect x="113.7" y="229" width="0.7" height="15.0" fill="rgb(217,57,13)" rx="2" ry="2" />
-<text  x="116.69" y="239.5" ></text>
-</g>
-<g >
-<title>_int_malloc (9,356,099 samples, 0.02%)</title><rect x="10.2" y="501" width="0.1" height="15.0" fill="rgb(215,47,11)" rx="2" ry="2" />
-<text  x="13.16" y="511.5" ></text>
-</g>
-<g >
-<title>std::__detail::_Hash_code_base&lt;Stan, std::pair&lt;Stan const, int&gt;, std::__detail::_Select1st, StanHash, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, true&gt;::_M_bucket_index (17,666,454 samples, 0.03%)</title><rect x="109.3" y="341" width="0.4" height="15.0" fill="rgb(205,1,0)" rx="2" ry="2" />
-<text  x="112.33" y="351.5" ></text>
-</g>
-<g >
-<title>std::__detail::_Node_iterator_base&lt;std::pair&lt;Stan const, int&gt;, true&gt;::_Node_iterator_base (47,106,790 samples, 0.08%)</title><rect x="151.3" y="405" width="0.9" height="15.0" fill="rgb(245,184,44)" rx="2" ry="2" />
-<text  x="154.26" y="415.5" ></text>
-</g>
-<g >
-<title>int const* std::to_address&lt;int const&gt; (15,801,800 samples, 0.03%)</title><rect x="129.2" y="325" width="0.3" height="15.0" fill="rgb(227,105,25)" rx="2" ry="2" />
-<text  x="132.17" y="335.5" ></text>
-</g>
-<g >
-<title>int const* std::__to_address&lt;int const&gt; (574,311,066 samples, 0.99%)</title><rect x="615.4" y="261" width="11.7" height="15.0" fill="rgb(250,209,50)" rx="2" ry="2" />
-<text  x="618.43" y="271.5" ></text>
-</g>
-<g >
-<title>update_process_times (18,080,538 samples, 0.03%)</title><rect x="72.2" y="357" width="0.4" height="15.0" fill="rgb(250,209,50)" rx="2" ry="2" />
-<text  x="75.23" y="367.5" ></text>
-</g>
-<g >
-<title>hrtimer_interrupt (9,691,733 samples, 0.02%)</title><rect x="151.0" y="325" width="0.2" height="15.0" fill="rgb(228,109,26)" rx="2" ry="2" />
-<text  x="153.99" y="335.5" ></text>
-</g>
-<g >
-<title>asm_sysvec_apic_timer_interrupt (6,604,076 samples, 0.01%)</title><rect x="683.0" y="277" width="0.2" height="15.0" fill="rgb(232,127,30)" rx="2" ry="2" />
-<text  x="686.03" y="287.5" ></text>
-</g>
-<g >
-<title>zap_pte_range (6,261,246 samples, 0.01%)</title><rect x="114.6" y="37" width="0.1" height="15.0" fill="rgb(231,120,28)" rx="2" ry="2" />
-<text  x="117.60" y="47.5" ></text>
-</g>
-<g >
-<title>sched_balance_trigger (12,038,476 samples, 0.02%)</title><rect x="933.3" y="213" width="0.3" height="15.0" fill="rgb(213,38,9)" rx="2" ry="2" />
-<text  x="936.32" y="223.5" ></text>
-</g>
-<g >
-<title>sysvec_apic_timer_interrupt (9,146,383 samples, 0.02%)</title><rect x="1144.5" y="325" width="0.2" height="15.0" fill="rgb(220,69,16)" rx="2" ry="2" />
-<text  x="1147.52" y="335.5" ></text>
-</g>
-<g >
-<title>std::hash&lt;int&gt;::operator (39,848,034 samples, 0.07%)</title><rect x="1174.2" y="389" width="0.8" height="15.0" fill="rgb(228,107,25)" rx="2" ry="2" />
-<text  x="1177.24" y="399.5" ></text>
-</g>
-<g >
-<title>run_timer_softirq (15,232,391 samples, 0.03%)</title><rect x="481.1" y="293" width="0.3" height="15.0" fill="rgb(249,206,49)" rx="2" ry="2" />
-<text  x="484.09" y="303.5" ></text>
-</g>
-<g >
-<title>std::hash&lt;int&gt;::operator (29,750,378 samples, 0.05%)</title><rect x="130.9" y="357" width="0.6" height="15.0" fill="rgb(228,107,25)" rx="2" ry="2" />
-<text  x="133.87" y="367.5" ></text>
-</g>
-<g >
-<title>std::__detail::_Mod_range_hashing::operator (16,728,339 samples, 0.03%)</title><rect x="107.4" y="357" width="0.3" height="15.0" fill="rgb(230,116,27)" rx="2" ry="2" />
-<text  x="110.36" y="367.5" ></text>
-</g>
-<g >
-<title>__gnu_cxx::__aligned_buffer&lt;std::pair&lt;Stan const, int&gt; &gt;::_M_ptr (262,312,772 samples, 0.45%)</title><rect x="94.2" y="405" width="5.3" height="15.0" fill="rgb(251,212,50)" rx="2" ry="2" />
-<text  x="97.19" y="415.5" ></text>
-</g>
-<g >
-<title>std::__detail::__extent_storage&lt;18446744073709551615ul&gt;::__extent_storage (112,609,146 samples, 0.19%)</title><rect x="579.8" y="293" width="2.3" height="15.0" fill="rgb(253,222,53)" rx="2" ry="2" />
-<text  x="582.83" y="303.5" ></text>
-</g>
-<g >
-<title>kolejka012::~kolejka012 (8,979,233 samples, 0.02%)</title><rect x="10.5" y="453" width="0.2" height="15.0" fill="rgb(229,111,26)" rx="2" ry="2" />
-<text  x="13.48" y="463.5" ></text>
-</g>
-<g >
-<title>x64_sys_call (9,456,914 samples, 0.02%)</title><rect x="114.5" y="229" width="0.2" height="15.0" fill="rgb(247,194,46)" rx="2" ry="2" />
-<text  x="117.54" y="239.5" ></text>
-</g>
-<g >
-<title>asm_sysvec_apic_timer_interrupt (6,393,206 samples, 0.01%)</title><rect x="615.3" y="261" width="0.1" height="15.0" fill="rgb(232,127,30)" rx="2" ry="2" />
-<text  x="618.30" y="271.5" ></text>
-</g>
-<g >
-<title>std::_Hashtable&lt;Stan, std::pair&lt;Stan const, int&gt;, std::allocator&lt;std::pair&lt;Stan const, int&gt; &gt;, std::__detail::_Select1st, std::equal_to&lt;Stan&gt;, StanHash, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits&lt;true, false, true&gt; &gt;::find (24,897,775 samples, 0.04%)</title><rect x="91.3" y="437" width="0.5" height="15.0" fill="rgb(253,222,53)" rx="2" ry="2" />
-<text  x="94.31" y="447.5" ></text>
-</g>
-<g >
-<title>hrtimer_interrupt (21,586,148 samples, 0.04%)</title><rect x="1056.1" y="325" width="0.4" height="15.0" fill="rgb(228,109,26)" rx="2" ry="2" />
-<text  x="1059.08" y="335.5" ></text>
-</g>
-<g >
-<title>std::queue&lt;Stan, std::deque&lt;Stan, std::allocator&lt;Stan&gt; &gt; &gt;::front (20,549,449 samples, 0.04%)</title><rect x="81.0" y="437" width="0.4" height="15.0" fill="rgb(210,24,5)" rx="2" ry="2" />
-<text  x="83.97" y="447.5" ></text>
-</g>
-<g >
-<title>__gnu_cxx::__normal_iterator&lt;int const*, std::span&lt;int const, 18446744073709551615ul&gt; &gt;::__normal_iterator (12,723,340 samples, 0.02%)</title><rect x="53.5" y="421" width="0.2" height="15.0" fill="rgb(240,162,38)" rx="2" ry="2" />
-<text  x="56.46" y="431.5" ></text>
-</g>
-<g >
-<title>std::__detail::_Hashtable_base&lt;Stan, std::pair&lt;Stan const, int&gt;, std::__detail::_Select1st, std::equal_to&lt;Stan&gt;, StanHash, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Hashtable_traits&lt;true, false, true&gt; &gt;::_M_eq (54,007,545 samples, 0.09%)</title><rect x="537.0" y="341" width="1.1" height="15.0" fill="rgb(208,15,3)" rx="2" ry="2" />
-<text  x="539.99" y="351.5" ></text>
-</g>
-<g >
-<title>nohz_balancer_kick (6,779,238 samples, 0.01%)</title><rect x="1144.6" y="197" width="0.1" height="15.0" fill="rgb(225,93,22)" rx="2" ry="2" />
-<text  x="1147.57" y="207.5" ></text>
-</g>
-<g >
-<title>__hrtimer_run_queues (11,391,746 samples, 0.02%)</title><rect x="192.5" y="325" width="0.2" height="15.0" fill="rgb(237,150,35)" rx="2" ry="2" />
-<text  x="195.49" y="335.5" ></text>
-</g>
-<g >
-<title>std::__detail::_Hash_node&lt;std::pair&lt;Stan const, int&gt;, true&gt;::_M_next (96,063,242 samples, 0.17%)</title><rect x="115.5" y="341" width="1.9" height="15.0" fill="rgb(245,187,44)" rx="2" ry="2" />
-<text  x="118.47" y="351.5" ></text>
-</g>
-<g >
-<title>std::span&lt;int const, 18446744073709551615ul&gt;::span&lt;int const*&gt; (2,552,146,726 samples, 4.38%)</title><rect x="589.3" y="293" width="51.8" height="15.0" fill="rgb(205,1,0)" rx="2" ry="2" />
-<text  x="592.32" y="303.5" >std::..</text>
-</g>
-<g >
-<title>std::_Hashtable&lt;Stan, std::pair&lt;Stan const, int&gt;, std::allocator&lt;std::pair&lt;Stan const, int&gt; &gt;, std::__detail::_Select1st, std::equal_to&lt;Stan&gt;, StanHash, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits&lt;true, false, true&gt; &gt;::_M_find_node (62,001,043 samples, 0.11%)</title><rect x="107.7" y="389" width="1.3" height="15.0" fill="rgb(238,155,37)" rx="2" ry="2" />
-<text  x="110.74" y="399.5" ></text>
-</g>
-<g >
-<title>vms_complete_munmap_vmas (9,456,914 samples, 0.02%)</title><rect x="114.5" y="149" width="0.2" height="15.0" fill="rgb(216,52,12)" rx="2" ry="2" />
-<text  x="117.54" y="159.5" ></text>
-</g>
-<g >
-<title>int const* std::__to_address&lt;int const&gt; (176,300,590 samples, 0.30%)</title><rect x="1034.1" y="325" width="3.5" height="15.0" fill="rgb(250,209,50)" rx="2" ry="2" />
-<text  x="1037.05" y="335.5" ></text>
-</g>
-<g >
-<title>std::hash&lt;int&gt;::operator (1,682,268,218 samples, 2.89%)</title><rect x="1094.8" y="373" width="34.1" height="15.0" fill="rgb(228,107,25)" rx="2" ry="2" />
-<text  x="1097.79" y="383.5" >st..</text>
-</g>
-<g >
-<title>handle_pte_fault (29,112,495 samples, 0.05%)</title><rect x="90.5" y="213" width="0.5" height="15.0" fill="rgb(217,57,13)" rx="2" ry="2" />
-<text  x="93.45" y="223.5" ></text>
-</g>
-<g >
-<title>update_process_times (42,991,597 samples, 0.07%)</title><rect x="480.0" y="277" width="0.9" height="15.0" fill="rgb(250,209,50)" rx="2" ry="2" />
-<text  x="483.00" y="287.5" ></text>
-</g>
-<g >
-<title>tmigr_requires_handle_remote (8,832,865 samples, 0.02%)</title><rect x="480.7" y="261" width="0.2" height="15.0" fill="rgb(237,148,35)" rx="2" ry="2" />
-<text  x="483.69" y="271.5" ></text>
-</g>
-<g >
-<title>sched_balance_trigger (6,993,088 samples, 0.01%)</title><rect x="192.5" y="261" width="0.1" height="15.0" fill="rgb(213,38,9)" rx="2" ry="2" />
-<text  x="195.49" y="271.5" ></text>
-</g>
-<g >
-<title>__sysvec_apic_timer_interrupt (37,283,901 samples, 0.06%)</title><rect x="933.1" y="309" width="0.8" height="15.0" fill="rgb(242,173,41)" rx="2" ry="2" />
-<text  x="936.10" y="319.5" ></text>
-</g>
-<g >
-<title>std::__detail::__extent_storage&lt;18446744073709551615ul&gt;::__extent_storage (31,301,510 samples, 0.05%)</title><rect x="1023.7" y="357" width="0.7" height="15.0" fill="rgb(253,222,53)" rx="2" ry="2" />
-<text  x="1026.74" y="367.5" ></text>
-</g>
-<g >
-<title>folio_add_lru (15,674,600 samples, 0.03%)</title><rect x="126.4" y="165" width="0.3" height="15.0" fill="rgb(208,17,4)" rx="2" ry="2" />
-<text  x="129.37" y="175.5" ></text>
-</g>
-<g >
-<title>hrtimer_interrupt (58,730,298 samples, 0.10%)</title><rect x="479.8" y="325" width="1.2" height="15.0" fill="rgb(228,109,26)" rx="2" ry="2" />
-<text  x="482.77" y="335.5" ></text>
-</g>
-<g >
-<title>std::__detail::operator== (259,774,292 samples, 0.45%)</title><rect x="99.6" y="437" width="5.2" height="15.0" fill="rgb(251,215,51)" rx="2" ry="2" />
-<text  x="102.55" y="447.5" ></text>
-</g>
-<g >
-<title>prz.e (58,213,862,080 samples, 100.00%)</title><rect x="10.0" y="549" width="1180.0" height="15.0" fill="rgb(215,50,11)" rx="2" ry="2" />
-<text  x="13.00" y="559.5" >prz.e</text>
-</g>
-<g >
-<title>Stan::data (4,357,946,022 samples, 7.49%)</title><rect x="552.7" y="309" width="88.4" height="15.0" fill="rgb(242,174,41)" rx="2" ry="2" />
-<text  x="555.72" y="319.5" >Stan::data</text>
-</g>
-<g >
-<title>std::__detail::_Hashtable_alloc&lt;std::allocator&lt;std::__detail::_Hash_node&lt;std::pair&lt;Stan const, int&gt;, true&gt; &gt; &gt;::_M_deallocate_node_ptr (61,845,485 samples, 0.11%)</title><rect x="17.3" y="373" width="1.3" height="15.0" fill="rgb(243,179,42)" rx="2" ry="2" />
-<text  x="20.31" y="383.5" ></text>
-</g>
-<g >
-<title>do_vmi_align_munmap (9,456,914 samples, 0.02%)</title><rect x="114.5" y="165" width="0.2" height="15.0" fill="rgb(211,29,7)" rx="2" ry="2" />
-<text  x="117.54" y="175.5" ></text>
-</g>
-<g >
-<title>sysvec_apic_timer_interrupt (13,376,900 samples, 0.02%)</title><rect x="151.0" y="357" width="0.3" height="15.0" fill="rgb(220,69,16)" rx="2" ry="2" />
-<text  x="153.99" y="367.5" ></text>
-</g>
-<g >
-<title>Stan::data (26,202,976 samples, 0.05%)</title><rect x="129.0" y="357" width="0.5" height="15.0" fill="rgb(242,174,41)" rx="2" ry="2" />
-<text  x="131.96" y="367.5" ></text>
-</g>
-<g >
-<title>tick_nohz_handler (14,673,222 samples, 0.03%)</title><rect x="1144.7" y="277" width="0.3" height="15.0" fill="rgb(248,200,48)" rx="2" ry="2" />
-<text  x="1147.71" y="287.5" ></text>
-</g>
-<g >
-<title>__sysvec_apic_timer_interrupt (6,917,733 samples, 0.01%)</title><rect x="589.2" y="245" width="0.1" height="15.0" fill="rgb(242,173,41)" rx="2" ry="2" />
-<text  x="592.18" y="255.5" ></text>
-</g>
-<g >
-<title>decltype  (15,198,487 samples, 0.03%)</title><rect x="89.6" y="389" width="0.3" height="15.0" fill="rgb(214,42,10)" rx="2" ry="2" />
-<text  x="92.60" y="399.5" ></text>
-</g>
-<g >
-<title>sched_use_asym_prio (9,391,537 samples, 0.02%)</title><rect x="480.2" y="213" width="0.2" height="15.0" fill="rgb(208,14,3)" rx="2" ry="2" />
-<text  x="483.18" y="223.5" ></text>
-</g>
-<g >
-<title>__libc_start_main_impl (58,189,982,684 samples, 99.96%)</title><rect x="10.5" y="517" width="1179.5" height="15.0" fill="rgb(218,63,15)" rx="2" ry="2" />
-<text  x="13.48" y="527.5" >__libc_start_main_impl</text>
-</g>
-<g >
-<title>bool std::__equal4&lt;__gnu_cxx::__normal_iterator&lt;int const*, std::span&lt;int const, 18446744073709551615ul&gt; &gt;, __gnu_cxx::__normal_iterator&lt;int const*, std::span&lt;int const, 18446744073709551615ul&gt; &gt; &gt; (115,933,515 samples, 0.20%)</title><rect x="50.0" y="421" width="2.4" height="15.0" fill="rgb(253,224,53)" rx="2" ry="2" />
-<text  x="53.03" y="431.5" ></text>
-</g>
-<g >
-<title>tick_nohz_handler (6,604,076 samples, 0.01%)</title><rect x="683.0" y="197" width="0.2" height="15.0" fill="rgb(248,200,48)" rx="2" ry="2" />
-<text  x="686.03" y="207.5" ></text>
-</g>
-<g >
-<title>std::pair&lt;Stan const, int&gt;::pair&lt;Stan const&amp;, int&amp;&gt; (13,481,356 samples, 0.02%)</title><rect x="120.5" y="341" width="0.2" height="15.0" fill="rgb(243,178,42)" rx="2" ry="2" />
-<text  x="123.47" y="351.5" ></text>
-</g>
-<g >
-<title>std::__detail::_Node_iterator&lt;std::pair&lt;Stan const, int&gt;, false, true&gt;::_Node_iterator (39,314,541 samples, 0.07%)</title><rect x="117.5" y="373" width="0.8" height="15.0" fill="rgb(213,37,8)" rx="2" ry="2" />
-<text  x="120.55" y="383.5" ></text>
-</g>
-<g >
-<title>bool std::__equal_aux1&lt;int const*, int const*&gt; (18,258,304 samples, 0.03%)</title><rect x="685.1" y="261" width="0.4" height="15.0" fill="rgb(246,190,45)" rx="2" ry="2" />
-<text  x="688.12" y="271.5" ></text>
-</g>
-<g >
-<title>__sysvec_apic_timer_interrupt (6,724,306 samples, 0.01%)</title><rect x="1093.9" y="309" width="0.1" height="15.0" fill="rgb(242,173,41)" rx="2" ry="2" />
-<text  x="1096.88" y="319.5" ></text>
-</g>
-<g >
-<title>std::__detail::_Node_iterator_base&lt;std::pair&lt;Stan const, int&gt;, true&gt;::_Node_iterator_base (12,035,405 samples, 0.02%)</title><rect x="118.3" y="373" width="0.3" height="15.0" fill="rgb(245,184,44)" rx="2" ry="2" />
-<text  x="121.34" y="383.5" ></text>
-</g>
-<g >
-<title>std::__detail::_Hash_code_base&lt;Stan, std::pair&lt;Stan const, int&gt;, std::__detail::_Select1st, StanHash, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, true&gt;::_M_bucket_index (1,573,327,353 samples, 2.70%)</title><rect x="482.2" y="357" width="31.9" height="15.0" fill="rgb(205,1,0)" rx="2" ry="2" />
-<text  x="485.16" y="367.5" >st..</text>
-</g>
-<g >
-<title>__hrtimer_run_queues (6,724,306 samples, 0.01%)</title><rect x="1093.9" y="277" width="0.1" height="15.0" fill="rgb(237,150,35)" rx="2" ry="2" />
-<text  x="1096.88" y="287.5" ></text>
-</g>
-<g >
-<title>rmqueue.isra.0 (11,485,520 samples, 0.02%)</title><rect x="126.0" y="85" width="0.3" height="15.0" fill="rgb(237,151,36)" rx="2" ry="2" />
-<text  x="129.05" y="95.5" ></text>
-</g>
-<g >
-<title>update_process_times (11,391,746 samples, 0.02%)</title><rect x="192.5" y="293" width="0.2" height="15.0" fill="rgb(250,209,50)" rx="2" ry="2" />
-<text  x="195.49" y="303.5" ></text>
-</g>
-<g >
-<title>unmap_page_range (6,261,246 samples, 0.01%)</title><rect x="114.6" y="85" width="0.1" height="15.0" fill="rgb(206,5,1)" rx="2" ry="2" />
-<text  x="117.60" y="95.5" ></text>
-</g>
-<g >
-<title>std::_Hashtable&lt;Stan, std::pair&lt;Stan const, int&gt;, std::allocator&lt;std::pair&lt;Stan const, int&gt; &gt;, std::__detail::_Select1st, std::equal_to&lt;Stan&gt;, StanHash, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits&lt;true, false, true&gt; &gt;::_M_find_before_node (36,675,546,441 samples, 63.00%)</title><rect x="192.7" y="389" width="743.4" height="15.0" fill="rgb(224,91,21)" rx="2" ry="2" />
-<text  x="195.72" y="399.5" >std::_Hashtable&lt;Stan, std::pair&lt;Stan const, int&gt;, std::allocator&lt;std::pair&lt;Stan const, int&gt; &gt;, std::__d..</text>
-</g>
-<g >
-<title>__gnu_cxx::__normal_iterator&lt;int const*, std::span&lt;int const, 18446744073709551615ul&gt; &gt;::__normal_iterator (14,929,103 samples, 0.03%)</title><rect x="53.1" y="421" width="0.3" height="15.0" fill="rgb(240,162,38)" rx="2" ry="2" />
-<text  x="56.11" y="431.5" ></text>
-</g>
-<g >
-<title>__gnu_cxx::__normal_iterator&lt;int const*, std::span&lt;int const, 18446744073709551615ul&gt; &gt;::base (33,085,365 samples, 0.06%)</title><rect x="687.6" y="245" width="0.6" height="15.0" fill="rgb(214,44,10)" rx="2" ry="2" />
-<text  x="690.58" y="255.5" ></text>
-</g>
-<g >
-<title>std::__detail::_Node_iterator&lt;std::pair&lt;Stan const, int&gt;, false, true&gt;::_Node_iterator (566,921,913 samples, 0.97%)</title><rect x="139.8" y="405" width="11.5" height="15.0" fill="rgb(213,37,8)" rx="2" ry="2" />
-<text  x="142.77" y="415.5" ></text>
-</g>
-<g >
-<title>std::deque&lt;Stan, std::allocator&lt;Stan&gt; &gt;::front (20,549,449 samples, 0.04%)</title><rect x="81.0" y="421" width="0.4" height="15.0" fill="rgb(252,220,52)" rx="2" ry="2" />
-<text  x="83.97" y="431.5" ></text>
-</g>
-<g >
-<title>__gnu_cxx::__aligned_buffer&lt;std::pair&lt;Stan const, int&gt; &gt;::_M_ptr (11,115,138 samples, 0.02%)</title><rect x="107.1" y="389" width="0.2" height="15.0" fill="rgb(251,212,50)" rx="2" ry="2" />
-<text  x="110.08" y="399.5" ></text>
-</g>
-<g >
-<title>alloc_anon_folio (69,558,301 samples, 0.12%)</title><rect x="125.0" y="181" width="1.4" height="15.0" fill="rgb(223,86,20)" rx="2" ry="2" />
-<text  x="127.96" y="191.5" ></text>
-</g>
-<g >
-<title>std::__detail::_Hash_code_base&lt;Stan, std::pair&lt;Stan const, int&gt;, std::__detail::_Select1st, StanHash, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, true&gt;::_M_bucket_index (16,728,339 samples, 0.03%)</title><rect x="107.4" y="373" width="0.3" height="15.0" fill="rgb(205,1,0)" rx="2" ry="2" />
-<text  x="110.36" y="383.5" ></text>
-</g>
-<g >
-<title>Stan::data (964,001,757 samples, 1.66%)</title><rect x="1020.1" y="373" width="19.5" height="15.0" fill="rgb(242,174,41)" rx="2" ry="2" />
-<text  x="1023.07" y="383.5" ></text>
-</g>
-<g >
-<title>__handle_mm_fault (37,186,603 samples, 0.06%)</title><rect x="113.7" y="245" width="0.7" height="15.0" fill="rgb(207,9,2)" rx="2" ry="2" />
-<text  x="116.69" y="255.5" ></text>
-</g>
-<g >
-<title>std::_Deque_iterator&lt;Stan, Stan&amp;, Stan*&gt;::_Deque_iterator (9,018,300 samples, 0.02%)</title><rect x="81.2" y="389" width="0.2" height="15.0" fill="rgb(215,46,11)" rx="2" ry="2" />
-<text  x="84.21" y="399.5" ></text>
-</g>
-<g >
-<title>std::__detail::__extent_storage&lt;18446744073709551615ul&gt;::__extent_storage (689,952,381 samples, 1.19%)</title><rect x="627.1" y="277" width="14.0" height="15.0" fill="rgb(253,222,53)" rx="2" ry="2" />
-<text  x="630.07" y="287.5" ></text>
-</g>
-<g >
-<title>__hrtimer_run_queues (18,679,999 samples, 0.03%)</title><rect x="1056.1" y="309" width="0.4" height="15.0" fill="rgb(237,150,35)" rx="2" ry="2" />
-<text  x="1059.14" y="319.5" ></text>
-</g>
-<g >
-<title>std::span&lt;int const, 18446744073709551615ul&gt;::size (185,455,779 samples, 0.32%)</title><rect x="1154.9" y="357" width="3.8" height="15.0" fill="rgb(210,27,6)" rx="2" ry="2" />
-<text  x="1157.93" y="367.5" ></text>
-</g>
-<g >
-<title>hrtimer_interrupt (22,409,725 samples, 0.04%)</title><rect x="72.1" y="405" width="0.5" height="15.0" fill="rgb(228,109,26)" rx="2" ry="2" />
-<text  x="75.14" y="415.5" ></text>
+<title>sched_tick (154,738,002 samples, 0.32%)</title><rect x="729.1" y="245" width="3.7" height="15.0" fill="rgb(238,155,37)" rx="2" ry="2" />
+<text  x="732.07" y="255.5" ></text>
 </g>
 </g>
 </svg>

@@ -72,33 +72,30 @@ bool czyWarunkiKonieczneSpelnione() {
 	return czyJestJedenPelnyLubPusty() && czyNwdJestOk();
 }
 
+std::map<Stan, int> mapa; // wrzucic do funkcji + dodac static
+
 class kolejka012 {
-	std::queue<Stan> q[3];
 	
 public:
+	std::vector<Stan> q[3];
+
 	void przesunKolejki() {
+		q[0].clear();
 		std::swap(q[0], q[1]);
-		std::vector<Stan> v(std::move(q[2]));
-		for(Stan s : v) {
-			
-		}
+		std::swap(q[1], q[2]);
+		q[2].clear();
 	}
 	bool isEmpty() const {
 		return q[0].empty();
 	}
 	void push(const Stan& s, int krok) {
-		q[krok].push(s);
-	}
-	Stan pop() {
-		Stan wynik = q[0].front();
-		q[0].pop();
-		return wynik;
+		q[krok].push_back(s);
 	}
 };
 
 // bool czyStanWygrywajacy
 
-std::map<Stan, int> mapa; // wrzucic do funkcji + dodac static
+
 kolejka012 kol;
 void pushJesliNowy(const Stan& s, int nrRuchu, int silaRuchu) {
 	nrRuchu += silaRuchu;
@@ -180,7 +177,7 @@ public:
         return num_items - dp[limit - 1];
     }
 };
-void operacjaPrzelania(Stan pocz, int i, int moc) {
+void operacjaPrzelania(const Stan& pocz, int i, int moc, int nrRuchu) {
 	for(int j = 0; j < n; j++) {
 		if(j == i) continue;
 		Stan s = pocz;
@@ -203,8 +200,8 @@ int solve() {
 		int wynik = INT_MAX;
 		bool czyProceduraKonca = false;
 		
-		while(!kol.isEmpty()) {
-			Stan pocz = kol.pop();
+		for(Stan pocz : kol.q[0]) {
+			/*
 			if(czyStanWygrywajacy(pocz)) {
 				std::vector<int> zieloni, czerwoni;
 				for(int i = 0; i < n; i++) {
@@ -221,22 +218,31 @@ int solve() {
 				czyProceduraKonca = true;
 				wynik = std::min(wynik, nrRuchu + as.solve());
 			}
+			*/
+			if(pocz == koniec)
+				return nrRuchu;
 
 			for(int i = 0; i < n; i++) {
 				if(pocz[i] < pojemnosc[i]) {
 					Stan s = pocz;
 					s[i] = pojemnosc[i];
-					operacjaPrzelania(s, i, 1);
+					pushJesliNowy(s, nrRuchu, 1);
 				}
 				if(pocz[i] > 0) {
-					{
-						Stan s = pocz;
-						s[i] = 0;
-						pushJesliNowy(s, nrRuchu, 1);
-					}
-					operacjaPrzelania(s, i, 2);
+					Stan s = pocz;
+					s[i] = 0;
+					pushJesliNowy(s, nrRuchu, 1);
+					operacjaPrzelania(pocz, i, 1, nrRuchu);
 				}
 			}
+		}
+		for(Stan pocz : kol.q[0]) {
+			for(int i = 0; i < n; i++)
+				if(pocz[i] < pojemnosc[i]) {
+					Stan s = pocz;
+					s[i] = pojemnosc[i];
+					operacjaPrzelania(s, i, 2, nrRuchu);
+				}
 		}
 		if(czyProceduraKonca) {
 			return wynik;

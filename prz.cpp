@@ -6,28 +6,23 @@
 #include <cstdint>
 #include <map>
 #include <queue>
-
+#include <climits>
+#include <bit>
+#include <vector>
 
 constexpr int maxN = 11;
-uint8_t n;
+int n;
 
 struct Stan {
     // 1. Rezerwujemy pamięć na max (na stosie, nie na stercie)
     std::array<int, maxN> buffer; 
-    uint8_t size; // Faktyczna liczba elementów (n)
-
-    // Konstruktor pomocniczy (opcjonalny, dla wygody)
-    Stan(std::initializer_list<int> list) {
-        size = static_cast<uint8_t>(list.size());
-        std::copy(list.begin(), list.end(), buffer.begin());
-    }
     
     // Konstruktor domyślny
-    Stan() : size(n) {}
+    Stan() {}
 
     // 2. Pomocniczy widok na aktywne dane
     std::span<const int> data() const {
-        return {buffer.data(), size};
+        return {buffer.data(), static_cast<unsigned int>(n)};
     }
 
     // 3. Operator <=> (C++20/23) - klucz do działania w mapie
@@ -80,16 +75,15 @@ bool czyWarunkiKonieczneSpelnione() {
 class kolejka012 {
 	std::queue<Stan> q[3];
 	
-	void tryUpdating() {
-		std::swap(q[0], q[1]);
-	}
-
 public:
-	bool isEmpty(int& krok) {
-		if(q[0].empty()) {
-			krok++;
-			tryUpdating();
+	void przesunKolejki() {
+		std::swap(q[0], q[1]);
+		std::vector<Stan> v(std::move(q[2]));
+		for(Stan s : v) {
+			
 		}
+	}
+	bool isEmpty() const {
 		return q[0].empty();
 	}
 	void push(const Stan& s, int krok) {
@@ -107,6 +101,7 @@ public:
 std::map<Stan, int> mapa; // wrzucic do funkcji + dodac static
 kolejka012 kol;
 void pushJesliNowy(const Stan& s, int nrRuchu, int silaRuchu) {
+	nrRuchu += silaRuchu;
 	auto search = mapa.find(s);
 	if(search == mapa.end()) {
 		kol.push(s, silaRuchu);
@@ -118,6 +113,84 @@ void pushJesliNowy(const Stan& s, int nrRuchu, int silaRuchu) {
 	}
 
 }
+bool czyStanWygrywajacy(const Stan& s) {
+	for(int i = 0; i < n; i++) {
+		if(!czyPustoPelne[i] && s[i] != koniec[i])
+			return false;
+	}
+	return true;
+}
+class AtomicSolver {
+private:
+    std::vector<int> _items; // Dodatnie dla Zielonych, ujemne dla Czerwonych
+
+public:
+    // Konstruktor przyjmuje:
+    // green_offers: ile bomb mają poszczególni zieloni
+    // red_demands: ile miejsca brakuje poszczególnym czerwonym
+    AtomicSolver(const std::vector<int>& green_offers, const std::vector<int>& red_demands) {
+        _items.reserve(green_offers.size() + red_demands.size());
+
+        for (int val : green_offers) if (val > 0) _items.push_back(val);
+        for (int val : red_demands)  if (val > 0) _items.push_back(-val);
+
+        if (_items.size() > 15) {
+            throw std::length_error("Algorytm obsluguje maksymalnie 15 aktywnych elementow.");
+        }
+    }
+
+    [[nodiscard]] int solve() const {
+        const int num_items = static_cast<int>(_items.size());
+        if (num_items == 0) return 0;
+
+        const int limit = 1 << num_items;
+        std::vector<long long> sums(limit, 0);
+        std::vector<int> dp(limit, 0);
+
+        // 1. Prekalkulacja sum podzbiorów
+        for (int mask = 1; mask < limit; ++mask) {
+            int bit = std::countr_zero(static_cast<unsigned>(mask));
+            sums[mask] = sums[mask ^ (1 << bit)] + _items[bit];
+        }
+
+        // 2. Programowanie dynamiczne (maksymalizacja liczby grup o sumie 0)
+        for (int mask = 1; mask < limit; ++mask) {
+            // Domyślnie dziedziczymy wynik z mniejszego podzbioru (usuwając jeden bit)
+            for (int i = 0; i < num_items; ++i) {
+                if (mask & (1 << i)) {
+                    dp[mask] = std::max(dp[mask], dp[mask ^ (1 << i)]);
+                }
+            }
+
+            // Jeśli suma maski wynosi 0, sprawdzamy podziały
+            if (sums[mask] == 0) {
+                int current_max = 1; // Maska sama w sobie jest poprawną grupą
+                
+                // Iteracja po podmaskach (O(3^N))
+                for (int s = (mask - 1) & mask; s > 0; s = (s - 1) & mask) {
+                    if (sums[s] == 0) {
+                        current_max = std::max(current_max, dp[s] + dp[mask ^ s]);
+                    }
+                }
+                dp[mask] = std::max(dp[mask], current_max);
+            }
+        }
+
+        // Min. ruchów = liczba elementów - maksymalna liczba grup
+        return num_items - dp[limit - 1];
+    }
+};
+void operacjaPrzelania(Stan pocz, int i, int moc) {
+	for(int j = 0; j < n; j++) {
+		if(j == i) continue;
+		Stan s = pocz;
+		int przelew = std::min(s[i], pojemnosc[j] - s[j]);
+		s[j] += przelew;
+		s[i] -= przelew;
+	
+		pushJesliNowy(s, nrRuchu, moc);
+	}
+}
 int solve() {
 	int nrRuchu = 0;
 	{
@@ -125,34 +198,51 @@ int solve() {
 		s.buffer.fill(0);
 		pushJesliNowy(s, nrRuchu, 0);
 	}
-	while(!kol.isEmpty(nrRuchu)) {
-		Stan pocz = kol.pop();
-		if(pocz == koniec)
-			return nrRuchu;
-
-		for(int i = 0; i < n; i++) {
-			if(pocz[i] < pojemnosc[i]) {
-				Stan s = pocz;
-				s[i] = pojemnosc[i];
-				pushJesliNowy(s, nrRuchu, 1);
-			}
-			if(pocz[i] > 0) {
-				{
-					Stan s = pocz;
-					s[i] = 0;
-					pushJesliNowy(s, nrRuchu, 1);
-				}
-				for(int j = 0; j < n; j++) {
-					if(j == i) continue;
-					Stan s = pocz;
-					int przelew = std::min(s[i], pojemnosc[j] - s[j]);
-					s[j] += przelew;
-					s[i] -= przelew;
+	
+	while(!kol.isEmpty()) {
+		int wynik = INT_MAX;
+		bool czyProceduraKonca = false;
+		
+		while(!kol.isEmpty()) {
+			Stan pocz = kol.pop();
+			if(czyStanWygrywajacy(pocz)) {
+				std::vector<int> zieloni, czerwoni;
+				for(int i = 0; i < n; i++) {
+					if(pocz[i] == koniec[i])
+						continue;
 					
-					pushJesliNowy(s, nrRuchu, 1);
+					if(koniec[i] == 0)
+						zieloni.emplace_back(pocz[i]);
+
+					else if(koniec[i] == pojemnosc[i])
+						czerwoni.emplace_back(pojemnosc[i] - pocz[i]);
+				}
+				AtomicSolver as(zieloni, czerwoni);
+				czyProceduraKonca = true;
+				wynik = std::min(wynik, nrRuchu + as.solve());
+			}
+
+			for(int i = 0; i < n; i++) {
+				if(pocz[i] < pojemnosc[i]) {
+					Stan s = pocz;
+					s[i] = pojemnosc[i];
+					operacjaPrzelania(s, i, 1);
+				}
+				if(pocz[i] > 0) {
+					{
+						Stan s = pocz;
+						s[i] = 0;
+						pushJesliNowy(s, nrRuchu, 1);
+					}
+					operacjaPrzelania(s, i, 2);
 				}
 			}
 		}
+		if(czyProceduraKonca) {
+			return wynik;
+		}
+		kol.przesunKolejki();
+		nrRuchu++;
 	}
 
 	return -1;
@@ -170,9 +260,6 @@ int main() {
 		else 
 			czyPustoPelne[i] = (koniec[i] == 0 || pojemnosc[i] == koniec[i]);
 	}
-	pojemnosc.size = n; 
-	koniec.size = n;
-	czyPustoPelne.size = n;
 
 	if(n == 0) {
 		std::cout << 0 << "\n";

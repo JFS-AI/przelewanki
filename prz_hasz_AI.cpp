@@ -8,28 +8,31 @@
 #include <queue>
 #include <functional>
 
+constexpr int TABLE_SIZE = 1 << 21;
 constexpr int maxN = 11;
 unsigned int n;
 
 struct Stan {
     // 1. Rezerwujemy pamięć na max (na stosie, nie na stercie)
     std::array<int, maxN> buffer; 
-    
+
     // Konstruktor domyślny
     Stan() {}
+
+    // Hashowanie wbudowane dla szybkości
+    // Używamy FNV-1a hash lub zmodyfikowanego boosta
+    uint64_t hash() const {
+        uint64_t seed = 0xcbf29ce484222325; // FNV offset basis
+        for(int i = 0; i < n; i++) {
+            seed ^= buffer[i];
+            seed *= 0x100000001b3; // FNV prime
+        }
+        return seed;
+    }
 
     // 2. Pomocniczy widok na aktywne dane
     std::span<const int> data() const {
         return {buffer.data(), n};
-    }
-
-    // 3. Operator <=> (C++20/23) - klucz do działania w mapie
-    // Porównujemy tylko 'size' elementów, ignorujemy śmieci na końcu tablicy
-    auto operator<=>(const Stan& other) const {
-        return std::lexicographical_compare_three_way(
-            data().begin(), data().end(),
-            other.data().begin(), other.data().end()
-        );
     }
 
     // Wymagane, aby operator <=> działał poprawnie jako klucz
@@ -47,16 +50,44 @@ struct Stan {
         return buffer[index];
     }
 };
-struct StanHash {
-    std::size_t operator()(const Stan& s) const {
-        std::size_t seed = 0;
-        // Iterujemy tylko po aktywnych elementach (dzięki span)
-        for (int val : s.data()) {
-            // Klasyczny algorytm "hash combine" (używany np. w Boost)
-            // Mieszamy bity, aby (1,0) miało inny hash niż (0,1)
-            seed ^= std::hash<int>{}(val) + 0x9e3779b9 + (seed << 6) + (seed >> 2);
+struct FastSet {
+    struct Entry {
+        Stan key;
+        int dist;
+        bool used;
+    };
+    
+    // Alokujemy raz dużą tablicę. 
+    // unique_ptr pozwala trzymać to na stercie (stos by wybuchł), ale bez narzutu mapy.
+    // Używamy vectora, żeby RAII posprzątało, ale access jest raw.
+    std::vector<Entry> table;
+
+    FastSet() {
+        table.resize(TABLE_SIZE, {{}, -1, false});
+    }
+
+    // Zwraca wskaźnik do dystansu, jeśli znaleziono lub wstawiono nowy.
+    // Jeśli wstawiono nowy, zwraca -1 w wartości pod wskaźnikiem (przed nadpisaniem).
+    // Return: pair<int* dystans, bool czyNowy>
+    std::pair<int*, bool> getDistPtr(const Stan& s) {
+        uint64_t h = s.hash();
+        size_t idx = h & (TABLE_SIZE - 1); // Szybkie modulo (bo size to potęga 2)
+
+        while (true) {
+            if (!table[idx].used) {
+                // Znaleziono puste miejsce -> wstawiamy
+                table[idx].key = s;
+                table[idx].used = true;
+                table[idx].dist = -1; // Oznaczenie "nowy"
+                return {&table[idx].dist, true};
+            }
+            if (table[idx].key == s) {
+                // Znaleziono ten sam stan
+                return {&table[idx].dist, false};
+            }
+            // Kolizja - idziemy dalej (Linear Probing)
+            idx = (idx + 1) & (TABLE_SIZE - 1);
         }
-        return seed;
     }
 };
 
@@ -109,18 +140,14 @@ public:
 
 // bool czyStanWygrywajacy
 
-std::unordered_map<Stan, int, StanHash> mapa; // wrzucic do funkcji + dodac static
+FastSet mapa;
 kolejka012 kol;
-void pushJesliNowy(const Stan& s, int nrRuchu, int silaRuchu) {
-	auto search = mapa.find(s);
-	if(search == mapa.end()) {
-		kol.push(s, silaRuchu);
-		mapa.emplace(s, nrRuchu);
-	}
-	else if(search->second > nrRuchu) {
-		kol.push(s, silaRuchu);
-		search->second = nrRuchu;
-	}
+inline void pushJesliNowy(const Stan& s, int dist, int silaRuchu) {
+	auto result = mapa.getDistPtr(s);
+	if (result.second) { // Jeśli to nowy stan
+        *(result.first) = dist; // Zapisz dystans
+        kol.push(s, silaRuchu);
+    }
 
 }
 int solve() {

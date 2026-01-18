@@ -8,9 +8,6 @@
 
 constexpr maxN = 20;
 
-int n, pojemnosc[maxN], koniec[maxN];
-bool czyPustoPelne[maxN];
-
 struct Stan {
     // 1. Rezerwujemy pamięć na max (na stosie, nie na stercie)
     std::array<int, maxN> buffer; 
@@ -46,7 +43,8 @@ struct Stan {
     }
 };
 
-
+Stan pojemnosc, koniec;
+// bool czyPustoPelne[maxN];
 
 bool czyJestJedenPelnyLubPusty() {
 	for(int i = 0; i < n; i++) {
@@ -71,13 +69,15 @@ class kolejka012 {
 	std::queue<Stan> q[3];
 	
 	void tryUpdating() {
-
+		std::swap(q[0], q[1]);
 	}
 
 public:
-	bool isEmpty() {
-		if(q0.empty())
+	bool isEmpty(int& krok) {
+		if(q0.empty()) {
+			krok++;
 			tryUpdating();
+		}
 		return q0.empty();
 	}
 	void push(Stan s, int krok) {
@@ -90,10 +90,22 @@ public:
 	}
 }
 
-bool czyStanWygrywajacy
+// bool czyStanWygrywajacy
 
 std::map<Stan, int> mapa; // wrzucic do funkcji + dodac static
 kolejka012 kol;
+void pushJesliNowy(Stan s, int nrRuchu, int silaRuchu) {
+	auto search = mapa.find(s);
+	if(search == mapa.end()) {
+		kol.push(s, silaRuchu);
+		mapa[s] = nrRuchu;
+	}
+	else if(search->second > nrRuchu) {
+		kol.push(s, silaRuchu);
+		search->second = nrRuchu;
+	}
+
+}
 int solve() {
 	{
 		Stan s();
@@ -101,16 +113,45 @@ int solve() {
 			x = 0;
 		kol.push(s, 0);
 	}
-	int i = 0;
-	while(!kol.isEmpty()) {
+	int nrRuchu = 0;
+	while(!kol.isEmpty(nrRuchu)) {
 		Stan pocz = kol.pop();
-		
+		if(pocz == koniec)
+			return nrRuchu;
+
+		for(int i = 0; i < n; i++) {
+			if(pocz.buffer[i] < pojemnosc) {
+				Stan s = pocz;
+				s.buffer[i] = pojemnosc[i];
+				pushJesliNowy(s, nrRuchu, 1);
+			}
+			if(pocz.buffer[i] > 0) {
+				{
+					Stan s = pocz;
+					s.buffer[i] = 0;
+					pushJesliNowy(s, nrRuchu, 1);
+				}
+				for(int j = 0; j < n; j++) {
+					if(j == i) continue;
+					Stan s = pocz;
+					s.buffer[j] += s.buffer[i];
+					int overflow = s.buffer[j] - pojemnosc[j];
+					if(overflow < 0) overflow = 0;
+					s.buffer[i] = overflow;
+					pushJesliNowy(s, nrRuchu, 1);
+				}
+			}
+		}
 	}
+
+	return -1;
 }
 
 int main() {
 	std::cin >> n;
 
+	pojemnosc.size = n; 
+	koniec.size = n;
 	for(int i = 0; i < n; i++) {
 		std::cin >> pojemnosc[i] >> koniec[i];
 		if(pojemnosc[i] == 0) 

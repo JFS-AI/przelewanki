@@ -14,20 +14,15 @@ uint8_t n;
 struct Stan {
     // 1. Rezerwujemy pamięć na max (na stosie, nie na stercie)
     std::array<int, maxN> buffer; 
-    uint8_t size; // Faktyczna liczba elementów (n)
 
     // Konstruktor pomocniczy (opcjonalny, dla wygody)
     Stan(std::initializer_list<int> list) {
-        size = static_cast<uint8_t>(list.size());
         std::copy(list.begin(), list.end(), buffer.begin());
     }
-    
-    // Konstruktor domyślny
-    Stan() : size(n) {}
 
     // 2. Pomocniczy widok na aktywne dane
     std::span<const int> data() const {
-        return {buffer.data(), size};
+        return {buffer.data(), n};
     }
 
     // 3. Operator <=> (C++20/23) - klucz do działania w mapie

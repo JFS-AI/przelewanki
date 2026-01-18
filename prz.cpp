@@ -8,7 +8,7 @@
 #include <queue>
 
 
-constexpr int maxN = 20;
+constexpr int maxN = 10;
 int n;
 
 struct Stan {
@@ -92,7 +92,7 @@ public:
 		}
 		return q[0].empty();
 	}
-	void push(Stan s, int krok) {
+	void push(const Stan& s, int krok) {
 		q[krok].push(s);
 	}
 	Stan pop() {
@@ -106,11 +106,11 @@ public:
 
 std::map<Stan, int> mapa; // wrzucic do funkcji + dodac static
 kolejka012 kol;
-void pushJesliNowy(Stan s, int nrRuchu, int silaRuchu) {
+void pushJesliNowy(const Stan& s, int nrRuchu, int silaRuchu) {
 	auto search = mapa.find(s);
 	if(search == mapa.end()) {
 		kol.push(s, silaRuchu);
-		mapa[s] = nrRuchu;
+		mapa.emplace(s, nrRuchu);
 	}
 	else if(search->second > nrRuchu) {
 		kol.push(s, silaRuchu);
@@ -119,13 +119,12 @@ void pushJesliNowy(Stan s, int nrRuchu, int silaRuchu) {
 
 }
 int solve() {
+	int nrRuchu = 0;
 	{
 		Stan s;
-		for(int& x : s.buffer)
-			x = 0;
-		kol.push(s, 0);
+		s.buffer.fill(0);
+		pushJesliNowy(s, nrRuchu, 0);
 	}
-	int nrRuchu = 0;
 	while(!kol.isEmpty(nrRuchu)) {
 		Stan pocz = kol.pop();
 		if(pocz == koniec)
@@ -148,8 +147,13 @@ int solve() {
 					Stan s = pocz;
 					s[j] += s[i];
 					int overflow = s[j] - pojemnosc[j];
-					if(overflow < 0) overflow = 0;
-					s[i] = overflow;
+					if(overflow > 0) {
+						s[i] = overflow;
+						s[j] = pojemnosc[j];
+					}
+					else
+						s[i] = 0;
+					
 					pushJesliNowy(s, nrRuchu, 1);
 				}
 			}
@@ -162,8 +166,6 @@ int solve() {
 int main() {
 	std::cin >> n;
 
-	pojemnosc.size = n; 
-	koniec.size = n;
 	for(int i = 0; i < n; i++) {
 		std::cin >> pojemnosc[i] >> koniec[i];
 		if(pojemnosc[i] == 0) 
@@ -171,6 +173,9 @@ int main() {
 		else 
 			czyPustoPelne[i] = (koniec[i] == 0 || pojemnosc[i] == koniec[i]);
 	}
+	pojemnosc.size = n; 
+	koniec.size = n;
+	czyPustoPelne.size = n;
 
 	if(n == 0) {
 		std::cout << 0 << "\n";

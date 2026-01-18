@@ -8,7 +8,7 @@
 #include <queue>
 
 
-constexpr int maxN = 10;
+constexpr int maxN = 11;
 uint8_t n;
 
 struct Stan {

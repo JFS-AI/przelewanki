@@ -61,7 +61,7 @@ struct StanHash {
 };
 
 
-Stan pojemnosc, koniec, czyPustoPelne;
+Stan pojemnosc, koniec;
 
 bool czyJestJedenPelnyLubPusty() {
 	for(int i = 0; i < n; i++) {
@@ -82,70 +82,40 @@ bool czyWarunkiKonieczneSpelnione() {
 	return czyJestJedenPelnyLubPusty() && czyNwdJestOk();
 }
 
-class kolejka012 {
-	std::queue<Stan> q[3];
-	
-	void tryUpdating() {
-		std::swap(q[0], q[1]);
-	}
-
-public:
-	bool isEmpty(int& krok) {
-		if(q[0].empty()) {
-			krok++;
-			tryUpdating();
-		}
-		return q[0].empty();
-	}
-	void push(const Stan& s, int krok) {
-		q[krok].push(s);
-	}
-	Stan pop() {
-		Stan wynik = q[0].front();
-		q[0].pop();
-		return wynik;
-	}
-};
-
-// bool czyStanWygrywajacy
-
 std::unordered_map<Stan, int, StanHash> mapa; // wrzucic do funkcji + dodac static
-kolejka012 kol;
-void pushJesliNowy(const Stan& s, int nrRuchu, int silaRuchu) {
+std::queue<std::pair<Stan, int>> kol;
+void pushJesliNowy(const Stan& s, int nrRuchu) {
 	auto search = mapa.find(s);
 	if(search == mapa.end()) {
-		kol.push(s, silaRuchu);
+		kol.emplace(s, nrRuchu);
 		mapa.emplace(s, nrRuchu);
-	}
-	else if(search->second > nrRuchu) {
-		kol.push(s, silaRuchu);
-		search->second = nrRuchu;
-	}
-
+    }
 }
 int solve() {
-	int nrRuchu = 0;
 	{
 		Stan s;
 		s.buffer.fill(0);
-		pushJesliNowy(s, nrRuchu, 0);
+		pushJesliNowy(s, 0);
 	}
-	while(!kol.isEmpty(nrRuchu)) {
-		Stan pocz = kol.pop();
+	while(!kol.empty()) {
+		Stan pocz = kol.front().first;
+        int nrRuchu = kol.front().second;
+        kol.pop();
 		if(pocz == koniec)
 			return nrRuchu;
 
+        nrRuchu++;
 		for(int i = 0; i < n; i++) {
 			if(pocz[i] < pojemnosc[i]) {
 				Stan s = pocz;
 				s[i] = pojemnosc[i];
-				pushJesliNowy(s, nrRuchu, 1);
+				pushJesliNowy(s, nrRuchu);
 			}
 			if(pocz[i] > 0) {
 				{
 					Stan s = pocz;
 					s[i] = 0;
-					pushJesliNowy(s, nrRuchu, 1);
+					pushJesliNowy(s, nrRuchu);
 				}
 				for(int j = 0; j < n; j++) {
 					if(j == i || pocz[j] == pojemnosc[j]) continue;
@@ -155,7 +125,7 @@ int solve() {
 					s[j] += przelew;
 					s[i] -= przelew;
 					
-					pushJesliNowy(s, nrRuchu, 1);
+					pushJesliNowy(s, nrRuchu);
 				}
 			}
 		}
@@ -171,10 +141,7 @@ int main() {
 
 	for(int i = 0; i < n; i++) {
 		std::cin >> pojemnosc[i] >> koniec[i];
-		if(pojemnosc[i] == 0) 
-			{ i--; n--; } // kasujemy szklanki bez pojemności
-		else 
-			czyPustoPelne[i] = (koniec[i] == 0 || pojemnosc[i] == koniec[i]);
+		if(pojemnosc[i] == 0) { i--; n--; } // kasujemy szklanki bez pojemności
 	}
 
 	if(n == 0) {

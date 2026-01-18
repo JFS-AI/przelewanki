@@ -5,7 +5,7 @@
 #include <span>
 #include <cstdint>
 #include <unordered_map>
-#include <queue>
+#include <deque>
 #include <functional>
 
 constexpr int maxN = 11;
@@ -84,11 +84,11 @@ bool czyWarunkiKonieczneSpelnione() {
 }
 
 std::unordered_map<Stan, int, StanHash> mapa; // wrzucic do funkcji + dodac static
-std::queue<std::pair<Stan, int>> kol;
+std::deque<std::pair<Stan, int>> kol;
 void pushJesliNowy(const Stan& s, int nrRuchu) {
 	auto [it, inserted] = mapa.try_emplace(s, nrRuchu);
     if(inserted) {
-        kol.emplace(s, nrRuchu);
+        kol.emplace_back(s, nrRuchu);
     }
 }
 int solve() {
@@ -99,9 +99,9 @@ int solve() {
 		pushJesliNowy(s, 0);
 	}
 	while(!kol.empty()) {
-		Stan s = kol.front().first;
-        int nrRuchu = kol.front().second;
-        kol.pop();
+		Stan s = kol[0].first;
+        int nrRuchu = kol[0].second;
+        
 		if(s == koniec)
 			return nrRuchu;
 
@@ -132,6 +132,8 @@ int solve() {
 				}
 			}
 		}
+        
+        kol.pop_front();
 	}
 
 	return -1;

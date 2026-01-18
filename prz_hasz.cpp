@@ -19,6 +19,9 @@ struct Stan {
     Stan(std::initializer_list<int> list) {
         std::copy(list.begin(), list.end(), buffer.begin());
     }
+    
+    // Konstruktor domyślny
+    Stan() {}
 
     // 2. Pomocniczy widok na aktywne dane
     std::span<const int> data() const {
@@ -177,9 +180,6 @@ int main() {
 		else 
 			czyPustoPelne[i] = (koniec[i] == 0 || pojemnosc[i] == koniec[i]);
 	}
-	pojemnosc.size = n; 
-	koniec.size = n;
-	czyPustoPelne.size = n;
 
 	if(n == 0) {
 		std::cout << 0 << "\n";

@@ -155,11 +155,6 @@ int main() {
 	int koniecPelny = 0, koniecPusty = 0;
 	std::vector<int> pojemnosc, koniec;
 
-	if(n == 0) {
-		std::cout << 0 << "\n";
-		return 0;
-	}
-
 	for(int i = 0; i < n; i++) {
 		int x, y; // pojemnosc, stan docelowy;S
 		std::cin >> x >> y;
@@ -169,6 +164,11 @@ int main() {
 		
 		pojemnosc.emplace_back(x);
 		koniec.emplace_back(y);
+	}
+
+	if(n == 0) {
+		std::cout << 0 << "\n";
+		return 0;
 	}
 
 	if(!czyWarunkiKonieczneSpelnione(pojemnosc, koniec)) {

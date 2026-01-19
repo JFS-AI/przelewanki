@@ -7,6 +7,7 @@
 #include <unordered_map>
 #include <deque>
 #include <functional>
+#include <vector>
 
 constexpr int maxN = 11;
 constexpr std::size_t rozmiarPamieci = 2'000'000;
@@ -85,92 +86,138 @@ bool czyWarunkiKonieczneSpelnione(const std::vector<int>& x, const std::vector<i
 	return czyJestJedenPelnyLubPusty(x, y) && czyNwdJestOk(x, y);
 }
 
-std::unordered_map<Stan, int, StanHash> mapa; // wrzucic do funkcji + dodac static
-std::vector<std::pair<Stan, int>> kol;
-void pushJesliNowy(const Stan& s, int nrRuchu) {
-	auto [it, inserted] = mapa.try_emplace(s, nrRuchu);
-    if(inserted) {
-        kol.emplace_back(s, nrRuchu);
-    }
-}
-
-class bfs {
-    std::unordered_map<Stan, int, StanHash> mapa;
-    std::unordered_map<Stan, int, StanHash>& mapaOther;
+template <typename Impl>
+class BfsBaza {
+protected:
+    const Stan pojemnosc;
     std::vector<std::pair<Stan, int>> kol;
     int head = 0, tail = 0;
-    int nrRuchu = 0;
+    int nrRuchu = -1;
 
-    bfs() {
-        mapa.reserve(rozmiarPamieci);
-        kol.resize(rozmiarPamieci);
+public:
+    using HashMap = std::unordered_map<Stan, int, StanHash>;
+    HashMap& mapa;
+    const HashMap& mapaOther;
+    
+
+    explicit BfsBaza(const Stan& s, const Stan& p, HashMap& moja, const HashMap& obca) 
+                : pojemnosc(p), mapa(moja), mapaOther(obca) {
+        
+        kol.reserve(rozmiarPamieci);
+
+        pushJesliNowy(s);
+        nrRuchu++;
+    }
+
+    bool czyKolejkaPusta() const {
+        return head > tail;
     }
 
     void pushJesliNowy(const Stan& s) {
-        auto [it, inserted] = mapa.try_emplace(s, nrRuchu);
+        auto [it, inserted] = mapa.try_emplace(s, nrRuchu + 1);
         if(inserted) {
-            kol.emplace_back(s, nrRuchu);
+            kol.emplace_back(s, nrRuchu + 1);
+            tail++;
         }
     }
-    int czyNaDrugiejMapie(const Stan& s) { // std::variant czy cos
+    std::optional<int> czyNaDrugiejMapie(const Stan& s) const {
         auto search = mapaOther.find(s);
         if(search != mapaOther.end())
-            return nrRuchu + search->second; // +1 ?
+            return nrRuchu + 1 + search->second;
 
-        return -1;
+        return std::nullopt;
     }
 
-    
+    std::optional<int> wywolajCykl() {
+        while(kol[head].second == nrRuchu) {
+            Stan s = kol[head].first;
+
+            for(int i = 0; i < n; i++) {
+                int temp = s[i];
+                if(s[i] < pojemnosc[i]) {
+                    s[i] = pojemnosc[i];
+                    
+                    if(auto wynik = czyNaDrugiejMapie(s)) return wynik;
+                    pushJesliNowy(s);
+
+                    s[i] = temp;
+                }
+                if(s[i] > 0) {
+                    {
+                        s[i] = 0;
+                        if(auto wynik = czyNaDrugiejMapie(s)) return wynik;;
+                        pushJesliNowy(s);
+                        s[i] = temp;
+                    }
+                    for(int j = 0; j < n; j++) {
+                        if(j == i) continue;
+                        
+                        auto wynik = static_cast<Impl*>(this)->funkcjaPrzelewu(i, j, s);
+                        if(wynik)
+                            return wynik;
+                    }
+                }
+            }
+            head++;
+        }
+
+        nrRuchu++;
+        return std::nullopt;
+    }
+};
+
+class BfsDol : public BfsBaza<BfsDol> {
+public:
+    using BfsBaza<BfsDol>::BfsBaza;
+    std::optional<int> funkcjaPrzelewu(int i, int j, Stan& s) {
+        if(s[j] == pojemnosc[j]) return std::nullopt;
+
+        int przelew = std::min(s[i], pojemnosc[j] - s[j]);
+        s[j] += przelew;
+        s[i] -= przelew;
+                        
+        if(auto wynik = czyNaDrugiejMapie(s)) return wynik;
+        pushJesliNowy(s);
+        s[j] -= przelew;
+        s[i] += przelew;
+
+        return std::nullopt;
+    }
+};
+class BfsGora : public BfsBaza<BfsGora> {
+public:
+    using BfsBaza<BfsGora>::BfsBaza;
+    std::optional<int> funkcjaPrzelewu(int i, int j, Stan& s) {
+        if(s[j] == pojemnosc[j]) return std::nullopt;
+        
+        for(int przelew = 1; przelew <= std::min(s[i], pojemnosc[j] - s[j]); przelew++) {
+            s[j] += przelew;
+            s[i] -= przelew;
+                            
+            if(auto wynik = czyNaDrugiejMapie(s)) return wynik;
+            pushJesliNowy(s);
+            s[j] -= przelew;
+            s[i] += przelew;
+        }
+        return std::nullopt;
+    }
 };
 
 int solve(const std::vector<int>& x, const std::vector<int>& y) {
-	Stan pojemnosc(x), koniec(y);
-    mapa.reserve(rozmiarPamieci);
-    kol.reserve(rozmiarPamieci);
-    int head = 0;
-	{
-		Stan s;
-		s.buffer.fill(0);
-		pushJesliNowy(s, 0);
-	}
-	while(!kol.empty()) {
-		Stan s = kol[head].first;
-        int nrRuchu = kol[head].second;
-        
-		if(s == koniec)
-			return nrRuchu;
+	Stan pojemnosc(x), koniec(y), wyzerowany;
+	wyzerowany.buffer.fill(0);
 
-        nrRuchu++;
-		for(int i = 0; i < n; i++) {
-            int temp = s[i];
-			if(s[i] < pojemnosc[i]) {
-				s[i] = pojemnosc[i];
-				pushJesliNowy(s, nrRuchu);
-                s[i] = temp;
-			}
-			if(s[i] > 0) {
-				{
-					s[i] = 0;
-					pushJesliNowy(s, nrRuchu);
-                    s[i] = temp;
-				}
-				for(int j = 0; j < n; j++) {
-					if(j == i || s[j] == pojemnosc[j]) continue;
+    std::unordered_map<Stan, int, StanHash> mapaDolu, mapaGory;
+    mapaDolu.reserve(rozmiarPamieci);
+    mapaGory.reserve(rozmiarPamieci);
 
-					int przelew = std::min(s[i], pojemnosc[j] - s[j]);
-					s[j] += przelew;
-					s[i] -= przelew;
-					
-					pushJesliNowy(s, nrRuchu);
-                    s[j] -= przelew;
-                    s[i] = temp;
-				}
-			}
-		}
-        
-        //kol.pop_front();
-        head++;
-	}
+    BfsDol dol(wyzerowany, pojemnosc, mapaDolu, mapaGory);
+    BfsGora gora(koniec, pojemnosc, mapaGory, mapaDolu);
+
+	while(!dol.czyKolejkaPusta() && !gora.czyKolejkaPusta()) {
+        if(auto wynik = dol.wywolajCykl())  return *wynik;
+        if(auto wynik = gora.wywolajCykl()) return *wynik;
+    }
 
 	return -1;
 }
@@ -186,7 +233,7 @@ int main() {
 	std::vector<int> pojemnosc, koniec;
 
 	for(int i = 0; i < n; i++) {
-		int x, y; // pojemnosc, stan docelowy;S
+		int x, y; // pojemnosc, stan docelowy;
 		std::cin >> x >> y;
 		if(x == 0) { i--; n--; continue; } // kasujemy szklanki bez pojemności
 		if(y == x) koniecPelny++;

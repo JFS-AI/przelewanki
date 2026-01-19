@@ -156,7 +156,7 @@ int main() {
 	std::vector<int> pojemnosc, koniec;
 
 	for(int i = 0; i < n; i++) {
-		int x, y; // pojemnosc, stan docelowy;S
+		int x, y; // pojemnosc, stan docelowy;
 		std::cin >> x >> y;
 		if(x == 0) { i--; n--; continue; } // kasujemy szklanki bez pojemności
 		if(y == x) koniecPelny++;

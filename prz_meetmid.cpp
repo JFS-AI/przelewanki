@@ -93,6 +93,36 @@ void pushJesliNowy(const Stan& s, int nrRuchu) {
         kol.emplace_back(s, nrRuchu);
     }
 }
+
+class bfs {
+    std::unordered_map<Stan, int, StanHash> mapa;
+    std::unordered_map<Stan, int, StanHash>& mapaOther;
+    std::vector<std::pair<Stan, int>> kol;
+    int head = 0, tail = 0;
+    int nrRuchu = 0;
+
+    bfs() {
+        mapa.reserve(rozmiarPamieci);
+        kol.resize(rozmiarPamieci);
+    }
+
+    void pushJesliNowy(const Stan& s) {
+        auto [it, inserted] = mapa.try_emplace(s, nrRuchu);
+        if(inserted) {
+            kol.emplace_back(s, nrRuchu);
+        }
+    }
+    int czyNaDrugiejMapie(const Stan& s) { // std::variant czy cos
+        auto search = mapaOther.find(s);
+        if(search != mapaOther.end())
+            return nrRuchu + search->second; // +1 ?
+
+        return -1;
+    }
+
+    
+};
+
 int solve(const std::vector<int>& x, const std::vector<int>& y) {
 	Stan pojemnosc(x), koniec(y);
     mapa.reserve(rozmiarPamieci);

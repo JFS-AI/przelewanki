@@ -19,6 +19,10 @@ struct Stan {
     // Konstruktor domyślny
     Stan() {}
 
+	explicit Stan(const std::vector<int>& vec) {
+        std::ranges::copy(vec, buffer.begin());
+    }
+
     // 2. Pomocniczy widok na aktywne dane
     std::span<const int> data() const {
         return {buffer.data(), n};
@@ -62,16 +66,14 @@ struct StanHash {
 };
 
 
-Stan pojemnosc, koniec;
-
-bool czyJestJedenPelnyLubPusty() {
+bool czyJestJedenPelnyLubPusty(const std::vector<int>& pojemnosc, const std::vector<int>& koniec) {
 	for(int i = 0; i < n; i++) {
 		if(koniec[i] == 0 || pojemnosc[i] == koniec[i])
 			return true;
 	}
 	return false;
 }
-bool czyNwdJestOk() {
+bool czyNwdJestOk(const std::vector<int>& pojemnosc, const std::vector<int>& koniec) {
 	int nwdX = 0, nwdY = 0;
 	for(int i = 0; i < n; i++) {
 		nwdX = std::gcd(nwdX, pojemnosc[i]);
@@ -79,8 +81,8 @@ bool czyNwdJestOk() {
 	}
 	return nwdY % nwdX == 0;
 }
-bool czyWarunkiKonieczneSpelnione() {
-	return czyJestJedenPelnyLubPusty() && czyNwdJestOk();
+bool czyWarunkiKonieczneSpelnione(const std::vector<int>& x, const std::vector<int>& y) {
+	return czyJestJedenPelnyLubPusty(x, y) && czyNwdJestOk(x, y);
 }
 
 std::unordered_map<Stan, int, StanHash> mapa; // wrzucic do funkcji + dodac static
@@ -91,7 +93,8 @@ void pushJesliNowy(const Stan& s, int nrRuchu) {
         kol.emplace_back(s, nrRuchu);
     }
 }
-int solve() {
+int solve(const std::vector<int>& x, const std::vector<int>& y) {
+	Stan koniec(y), pojemnosc(x);
     mapa.reserve(rozmiarPamieci);
     kol.reserve(rozmiarPamieci);
     int head = 0;
@@ -142,14 +145,25 @@ int solve() {
 	return -1;
 }
 
+
+
 int main() {
 	std::ios_base::sync_with_stdio(false);
     std::cin.tie(nullptr);
 	std::cin >> n;
 
+	int koniecPelny = 0, koniecPusty = 0;
+	std::vector<int> pojemnosc, koniec;
+
 	for(int i = 0; i < n; i++) {
-		std::cin >> pojemnosc[i] >> koniec[i];
-		if(pojemnosc[i] == 0) { i--; n--; } // kasujemy szklanki bez pojemności
+		int x, y; // pojemnosc, stan docelowy;S
+		std::cin >> x >> y;
+		if(x == 0) { i--; n--; continue; } // kasujemy szklanki bez pojemności
+		if(y == x) koniecPelny++;
+		if(y == 0) koniecPusty++;
+		
+		pojemnosc.emplace_back(x);
+		koniec.emplace_back(y);
 	}
 
 	if(n == 0) {
@@ -157,11 +171,21 @@ int main() {
 		return 0;
 	}
 
-	if(!czyWarunkiKonieczneSpelnione()) {
+	if(!czyWarunkiKonieczneSpelnione(pojemnosc, koniec)) {
 		std::cout << -1 << "\n";
 		return 0;
 	}
 
-	std::cout << solve() << "\n";
-	return 0;
+	if(koniecPelny + koniecPusty == n) {
+		std::cout << koniecPelny << "\n";
+		return 0;
+	}
+
+	if(n <= maxN) {
+		std::cout << solve(pojemnosc, koniec) << "\n";
+		return 0;
+	}
+
+	std::cerr << "reached end of main\n";
+	return 1;
 }

@@ -183,7 +183,6 @@ public:
         return std::nullopt;
     }
     std::optional<int> funkcjaPrzelewu(int from, int to, Stan& s) {
-        
 
         int przelew = std::min(s[from], pojemnosc[to] - s[to]);
         s[to] += przelew;

@@ -9,37 +9,30 @@
 #include <functional>
 #include <vector>
 
-constexpr int maxN = 10;
 std::size_t rozmiarPamieci = 1'000'000;
 unsigned int n;
 
 struct Stan {
-    std::array<int, maxN> buffer; 
+    std::vector<int> buffer; 
     
     Stan() = default;
 
-	explicit Stan(const std::vector<int>& vec) {
-        std::ranges::copy(vec, buffer.begin());
-    }
+    explicit Stan(size_t size) : buffer(size, 0) {}
+
+    explicit Stan(std::span<const int> data) : buffer(data.begin(), data.end()) {}
 
     std::span<const int> data() const {
-        return {buffer.data(), n};
+        return buffer; // Automatyczna konwersja vector -> span
     }
 
-    // Wymagane, aby operator <=> działał poprawnie jako klucz
     bool operator==(const Stan& other) const {
-        return std::equal(data().begin(), data().end(), 
-                          other.data().begin(), other.data().end());
+        return buffer == other.buffer;
     }
 
-	int& operator[](size_t index) {
-        return buffer[index];
-    }
+    int& operator[](size_t index) { return buffer[index]; }
+    const int& operator[](size_t index) const { return buffer[index]; }
 
-    // Wersja tylko do odczytu (const)
-    const int& operator[](size_t index) const {
-        return buffer[index];
-    }
+    size_t size() const { return buffer.size(); }
 };
 struct StanHash {
     std::size_t operator()(const Stan& s) const {
@@ -229,8 +222,7 @@ public:
 };
 
 int solve(const std::vector<int>& x, const std::vector<int>& y) {
-	Stan pojemnosc(x), koniec(y), wyzerowany;
-	wyzerowany.buffer.fill(0);
+	Stan pojemnosc(x), koniec(y), wyzerowany(n);
 
     std::unordered_map<Stan, int, StanHash> mapaDolu, mapaGory;
     mapaDolu.reserve(rozmiarPamieci);
@@ -303,11 +295,6 @@ int main() {
     }
     rozmiarPamieci = liczbaMozliwychStanow;
 
-	if(1) {
-		std::cout << solve(pojemnosc, koniec) << "\n";
-		return 0;
-	}
-
-	std::cerr << "reached end of main\n";
-	return 1;
+	std::cout << solve(pojemnosc, koniec) << "\n";
+	return 0;
 }

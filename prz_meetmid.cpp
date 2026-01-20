@@ -10,7 +10,7 @@
 #include <vector>
 
 constexpr int maxN = 10;
-constexpr std::size_t rozmiarPamieci = 1'000'000;
+std::size_t rozmiarPamieci = 1'000'000;
 unsigned int n;
 
 struct Stan {
@@ -94,6 +94,20 @@ protected:
     int head = 0, tail = 0;
     int nrRuchu = -1;
 
+    void pushJesliNowy(const Stan& s) {
+        auto [it, inserted] = mapa.try_emplace(s, nrRuchu + 1);
+        if(inserted) {
+            kol.emplace_back(s, nrRuchu + 1);
+            tail++;
+        }
+    }
+    std::optional<int> czyNaDrugiejMapie(const Stan& s) const {
+        auto search = mapaOther.find(s);
+        if(search != mapaOther.end())
+            return nrRuchu + 1 + search->second;
+
+        return std::nullopt;
+    }
 public:
     using HashMap = std::unordered_map<Stan, int, StanHash>;
     HashMap& mapa;
@@ -111,21 +125,6 @@ public:
 
     bool czyKolejkaPusta() const {
         return head > tail;
-    }
-
-    void pushJesliNowy(const Stan& s) {
-        auto [it, inserted] = mapa.try_emplace(s, nrRuchu + 1);
-        if(inserted) {
-            kol.emplace_back(s, nrRuchu + 1);
-            tail++;
-        }
-    }
-    std::optional<int> czyNaDrugiejMapie(const Stan& s) const {
-        auto search = mapaOther.find(s);
-        if(search != mapaOther.end())
-            return nrRuchu + 1 + search->second;
-
-        return std::nullopt;
     }
 
     std::optional<int> wywolajCykl() {
@@ -253,8 +252,10 @@ int solve(const std::vector<int>& x, const std::vector<int>& y) {
     BfsGora gora(koniec, pojemnosc, mapaGory, mapaDolu);
 
 	while(!dol.czyKolejkaPusta() && !gora.czyKolejkaPusta()) {
+        
         if(auto wynik = dol.wywolajCykl())  return *wynik;
-        if(auto wynik = gora.wywolajCykl()) return *wynik;
+        if(mapaGory.size() <= rozmiarPamieci)
+            if(auto wynik = gora.wywolajCykl()) return *wynik;
     }
 
 	return -1;
@@ -295,6 +296,24 @@ int main() {
 		std::cout << koniecPelny << "\n";
 		return 0;
 	}
+
+    // to ma szansę skasować dużo stanów
+    int nwdX = 0;
+    for(int i = 0; i < n; i++) {
+        nwdX = std::gcd(nwdX, pojemnosc[i]);
+    }
+    for(int i = 0; i < n; i++) {
+        pojemnosc[i] /= nwdX;
+        koniec[i] /= nwdX;
+    }
+
+    long long liczbaMozliwychStanow = 1;
+    for(int i = 0; i < n; i++) {
+        liczbaMozliwychStanow *= pojemnosc[i];
+        if(liczbaMozliwychStanow > 10'000'000)
+            break;
+    }
+    rozmiarPamieci = liczbaMozliwychStanow;
 
 	if(n <= maxN) {
 		std::cout << solve(pojemnosc, koniec) << "\n";

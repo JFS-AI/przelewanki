@@ -10,7 +10,7 @@
 #include <functional>
 #include <vector>
 
-std::size_t rozmiarPamieci = 1'000'000;
+std::size_t rozmiarPamieci = -1;
 int n;
 
 struct Stan {
@@ -23,7 +23,7 @@ struct Stan {
     explicit Stan(std::span<const int> data) : buffer(data.begin(), data.end()) {}
 
     std::span<const int> data() const {
-        return buffer; // Automatyczna konwersja vector -> span
+        return buffer; // automatyczna konwersja vector -> span
     }
 
     bool operator==(const Stan& other) const {
@@ -99,7 +99,7 @@ public:
         
         kol.reserve(rozmiarPamieci);
 
-        pushJesliNowy(s);
+        pushJesliNowy(s); // potrzebujemy zacząć bfsa w jakimś punkcie
         nrRuchu++;
     }
 

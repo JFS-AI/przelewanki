@@ -2,6 +2,7 @@
 #include <numeric>
 #include <algorithm>
 #include <array>
+#include <optional>
 #include <span>
 #include <cstdint>
 #include <unordered_map>
@@ -10,7 +11,7 @@
 #include <vector>
 
 std::size_t rozmiarPamieci = 1'000'000;
-unsigned int n;
+int n;
 
 struct Stan {
     std::vector<int> buffer; 
@@ -37,10 +38,8 @@ struct Stan {
 struct StanHash {
     std::size_t operator()(const Stan& s) const {
         std::size_t seed = 0;
-        // Iterujemy tylko po aktywnych elementach (dzięki span)
         for (int val : s.data()) {
-            // Klasyczny algorytm "hash combine" (używany np. w Boost)
-            // Mieszamy bity, aby (1,0) miało inny hash niż (0,1)
+            // kombajn do haszy
             seed ^= std::hash<int>{}(val) + 0x9e3779b9 + (seed << 6) + (seed >> 2);
         }
         return seed;

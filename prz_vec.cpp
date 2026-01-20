@@ -4,14 +4,14 @@
 #include <array>
 #include <optional>
 #include <span>
-#include <cstdint>
 #include <unordered_map>
 #include <deque>
 #include <functional>
 #include <vector>
 
-std::size_t rozmiarPamieci = -1;
+
 int n;
+
 
 struct Stan {
     std::vector<int> buffer; 
@@ -22,23 +22,17 @@ struct Stan {
 
     explicit Stan(std::span<const int> data) : buffer(data.begin(), data.end()) {}
 
-    std::span<const int> data() const {
-        return buffer; // automatyczna konwersja vector -> span
-    }
-
     bool operator==(const Stan& other) const {
         return buffer == other.buffer;
     }
 
     int& operator[](size_t index) { return buffer[index]; }
     const int& operator[](size_t index) const { return buffer[index]; }
-
-    size_t size() const { return buffer.size(); }
 };
 struct StanHash {
     std::size_t operator()(const Stan& s) const {
         std::size_t seed = 0;
-        for (int val : s.data()) {
+        for (int val : s.buffer) {
             // kombajn do haszy
             seed ^= std::hash<int>{}(val) + 0x9e3779b9 + (seed << 6) + (seed >> 2);
         }
@@ -46,25 +40,6 @@ struct StanHash {
     }
 };
 
-
-bool czyJestJedenPelnyLubPusty(const std::vector<int>& pojemnosc, const std::vector<int>& koniec) {
-	for(int i = 0; i < n; i++) {
-		if(koniec[i] == 0 || pojemnosc[i] == koniec[i])
-			return true;
-	}
-	return false;
-}
-bool czyNwdJestOk(const std::vector<int>& pojemnosc, const std::vector<int>& koniec) {
-	int nwdX = 0, nwdY = 0;
-	for(int i = 0; i < n; i++) {
-		nwdX = std::gcd(nwdX, pojemnosc[i]);
-		nwdY = std::gcd(nwdY, koniec[i]);
-	}
-	return nwdY % nwdX == 0;
-}
-bool czyWarunkiKonieczneSpelnione(const std::vector<int>& x, const std::vector<int>& y) {
-	return czyJestJedenPelnyLubPusty(x, y) && czyNwdJestOk(x, y);
-}
 
 template <typename Impl>
 class BfsBaza {
@@ -94,10 +69,10 @@ public:
     const HashMap& mapaOther;
     
 
-    explicit BfsBaza(const Stan& s, const Stan& p, HashMap& moja, const HashMap& obca) 
+    explicit BfsBaza(const Stan& s, const Stan& p, HashMap& moja, const HashMap& obca, std::size_t rP) 
                 : pojemnosc(p), mapa(moja), mapaOther(obca) {
         
-        kol.reserve(rozmiarPamieci);
+        kol.reserve(rP);
 
         pushJesliNowy(s); // potrzebujemy zacząć bfsa w jakimś punkcie
         nrRuchu++;
@@ -220,18 +195,28 @@ public:
     }
 };
 
+std::size_t policzLiczbeMozliwychStanow(const Stan& s) {
+    std::size_t liczbaMozliwychStanow = 1;
+    for(int val : s.buffer) {
+        liczbaMozliwychStanow *= val + 1;
+        if(liczbaMozliwychStanow > 10'000'000)
+            break;
+    }
+    return liczbaMozliwychStanow;
+}
+
 int solve(const std::vector<int>& x, const std::vector<int>& y) {
 	Stan pojemnosc(x), koniec(y), wyzerowany(n);
 
+    std::size_t rozmiarPamieci = policzLiczbeMozliwychStanow(pojemnosc);
     std::unordered_map<Stan, int, StanHash> mapaDolu, mapaGory;
     mapaDolu.reserve(rozmiarPamieci);
     mapaGory.reserve(rozmiarPamieci);
 
-    BfsDol dol(wyzerowany, pojemnosc, mapaDolu, mapaGory);
-    BfsGora gora(koniec, pojemnosc, mapaGory, mapaDolu);
+    BfsDol dol(wyzerowany, pojemnosc, mapaDolu, mapaGory, rozmiarPamieci);
+    BfsGora gora(koniec, pojemnosc, mapaGory, mapaDolu, rozmiarPamieci);
 
 	while(!dol.czyKolejkaPusta() && !gora.czyKolejkaPusta()) {
-        
         if(auto wynik = dol.wywolajCykl())  return *wynik;
         if(mapaGory.size() <= rozmiarPamieci)
             if(auto wynik = gora.wywolajCykl()) return *wynik;
@@ -241,21 +226,53 @@ int solve(const std::vector<int>& x, const std::vector<int>& y) {
 }
 
 
+bool czyJestJedenPelnyLubPusty(const std::vector<int>& pojemnosc, const std::vector<int>& koniec) {
+	for(int i = 0; i < n; i++) {
+		if(koniec[i] == 0 || pojemnosc[i] == koniec[i])
+			return true;
+	}
+	return false;
+}
+int policzNwd(const std::vector<int>& v) {
+    int nwd = 0;
+    for(int val : v) {
+		nwd = std::gcd(nwd, val);
+	}
+    return nwd;
+}
+bool czyNwdJestOk(const std::vector<int>& pojemnosc, const std::vector<int>& koniec) {
+	int nwdX = policzNwd(pojemnosc); 
+    int nwdY = policzNwd(koniec);
+	return nwdY % nwdX == 0;
+}
+bool czyWarunkiKonieczneSpelnione(const std::vector<int>& x, const std::vector<int>& y) {
+	return czyJestJedenPelnyLubPusty(x, y) && czyNwdJestOk(x, y);
+}
+std::optional<int> czyPustoPelny(const std::vector<int>& pojemnosc, const std::vector<int>& koniec) {
+    int koniecPelny = 0, koniecPusty = 0;
+    for(int i = 0; i < n; i++) {
+        if(koniec[i] == pojemnosc[i]) koniecPelny++;
+		else if(koniec[i] == 0) koniecPusty++;
+    }
+    if(koniecPelny + koniecPusty == n) {
+		return koniecPelny;
+	}
+    return std::nullopt;
+}
+
+
 
 int main() {
 	std::ios_base::sync_with_stdio(false);
     std::cin.tie(nullptr);
-	std::cin >> n;
+	std::cin >> n; // zmienna globalna
 
-	int koniecPelny = 0, koniecPusty = 0;
 	std::vector<int> pojemnosc, koniec;
 
 	for(int i = 0; i < n; i++) {
 		int x, y; // pojemnosc, stan docelowy;
 		std::cin >> x >> y;
 		if(x == 0) { i--; n--; continue; } // kasujemy szklanki bez pojemności
-		if(y == x) koniecPelny++;
-		if(y == 0) koniecPusty++;
 		
 		pojemnosc.emplace_back(x);
 		koniec.emplace_back(y);
@@ -271,28 +288,17 @@ int main() {
 		return 0;
 	}
 
-	if(koniecPelny + koniecPusty == n) {
-		std::cout << koniecPelny << "\n";
-		return 0;
-	}
+	if(auto wynik = czyPustoPelny(pojemnosc, koniec)) {
+        std::cout << *wynik << "\n";
+        return 0;
+    }
 
     // to ma szansę skasować dużo stanów
-    int nwdX = 0;
-    for(int i = 0; i < n; i++) {
-        nwdX = std::gcd(nwdX, pojemnosc[i]);
-    }
+    int nwdX = policzNwd(pojemnosc);
     for(int i = 0; i < n; i++) {
         pojemnosc[i] /= nwdX;
         koniec[i] /= nwdX;
     }
-
-    long long liczbaMozliwychStanow = 1;
-    for(int i = 0; i < n; i++) {
-        liczbaMozliwychStanow *= pojemnosc[i] + 1;
-        if(liczbaMozliwychStanow > 10'000'000)
-            break;
-    }
-    rozmiarPamieci = liczbaMozliwychStanow;
 
 	std::cout << solve(pojemnosc, koniec) << "\n";
 	return 0;

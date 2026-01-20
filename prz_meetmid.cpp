@@ -9,8 +9,8 @@
 #include <functional>
 #include <vector>
 
-constexpr int maxN = 11;
-constexpr std::size_t rozmiarPamieci = 2'000'000;
+constexpr int maxN = 10;
+constexpr std::size_t rozmiarPamieci = 1'000'000;
 unsigned int n;
 
 struct Stan {

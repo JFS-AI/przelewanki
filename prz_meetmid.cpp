@@ -133,29 +133,18 @@ public:
             Stan s = kol[head].first;
 
             for(int i = 0; i < n; i++) {
-                int temp = s[i];
-                if(s[i] < pojemnosc[i]) {
-                    s[i] = pojemnosc[i];
-                    
-                    if(auto wynik = czyNaDrugiejMapie(s)) return wynik;
-                    pushJesliNowy(s);
+                
+                if(auto wynik = static_cast<Impl*>(this)->funkcjaNapelnienia(i, s))
+                    return wynik;
 
-                    s[i] = temp;
-                }
-                if(s[i] > 0) {
-                    {
-                        s[i] = 0;
-                        if(auto wynik = czyNaDrugiejMapie(s)) return wynik;;
-                        pushJesliNowy(s);
-                        s[i] = temp;
-                    }
-                    for(int j = 0; j < n; j++) {
-                        if(j == i) continue;
+                if(auto wynik = static_cast<Impl*>(this)->funckjaOproznienia(i, s))
+                    return wynik;
+                
+                for(int j = 0; j < n; j++) {
+                    if(j == i) continue;
                         
-                        auto wynik = static_cast<Impl*>(this)->funkcjaPrzelewu(i, j, s);
-                        if(wynik)
-                            return wynik;
-                    }
+                    if(auto wynik = static_cast<Impl*>(this)->funkcjaPrzelewu(i, j, s))
+                        return wynik;
                 }
             }
             head++;
@@ -169,17 +158,41 @@ public:
 class BfsDol : public BfsBaza<BfsDol> {
 public:
     using BfsBaza<BfsDol>::BfsBaza;
-    std::optional<int> funkcjaPrzelewu(int i, int j, Stan& s) {
-        if(s[j] == pojemnosc[j]) return std::nullopt;
+    std::optional<int> funkcjaNapelnienia(int i, Stan& s) {
+        if(s[i] == pojemnosc[i]) 
+            return std::nullopt;
 
-        int przelew = std::min(s[i], pojemnosc[j] - s[j]);
-        s[j] += przelew;
-        s[i] -= przelew;
+        int temp = s[i];
+        s[i] = pojemnosc[i];
+        if(auto wynik = czyNaDrugiejMapie(s)) return wynik;
+        pushJesliNowy(s);
+        s[i] = temp;
+
+        return std::nullopt;
+    }
+    std::optional<int> funckjaOproznienia(int i, Stan& s) {
+        if(s[i] == 0)
+            return std::nullopt;
+        
+        int temp = s[i];
+        s[i] = 0;
+        if(auto wynik = czyNaDrugiejMapie(s)) return wynik;
+        pushJesliNowy(s);
+        s[i] = temp;
+
+        return std::nullopt;
+    }
+    std::optional<int> funkcjaPrzelewu(int from, int to, Stan& s) {
+        
+
+        int przelew = std::min(s[from], pojemnosc[to] - s[to]);
+        s[to] += przelew;
+        s[from] -= przelew;
                         
         if(auto wynik = czyNaDrugiejMapie(s)) return wynik;
         pushJesliNowy(s);
-        s[j] -= przelew;
-        s[i] += przelew;
+        s[to] -= przelew;
+        s[from] += przelew;
 
         return std::nullopt;
     }
@@ -187,17 +200,43 @@ public:
 class BfsGora : public BfsBaza<BfsGora> {
 public:
     using BfsBaza<BfsGora>::BfsBaza;
-    std::optional<int> funkcjaPrzelewu(int i, int j, Stan& s) {
-        if(s[j] == pojemnosc[j]) return std::nullopt;
+    std::optional<int> funkcjaNapelnienia(int i, Stan& s) {
+        if(s[i] < pojemnosc[i]) 
+            return std::nullopt;
+
+        for(int poziomWody = 0; poziomWody < pojemnosc[i]; poziomWody++) {
+            s[i] = poziomWody;
+            if(auto wynik = czyNaDrugiejMapie(s)) return wynik;
+            pushJesliNowy(s);
+        }
+        s[i] = pojemnosc[i];
+
+        return std::nullopt;
+    }
+    std::optional<int> funckjaOproznienia(int i, Stan& s) {
+        if(s[i] > 0)
+            return std::nullopt;
+            
+        for(int poziomWody = 1; poziomWody <= pojemnosc[i]; poziomWody++) {
+            s[i] = poziomWody;
+            if(auto wynik = czyNaDrugiejMapie(s)) return wynik;
+            pushJesliNowy(s);
+        }
+        s[i] = 0;
+
+        return std::nullopt;
+    }
+    std::optional<int> funkcjaPrzelewu(int from, int to, Stan& s) {
+        if(s[from] > 0 && s[to] < pojemnosc[to]) return std::nullopt;
         
-        for(int przelew = 1; przelew <= std::min(s[i], pojemnosc[j] - s[j]); przelew++) {
-            s[j] += przelew;
-            s[i] -= przelew;
+        for(int przelew = 1; przelew <= std::min(s[to], pojemnosc[from] - s[from]); przelew++) {
+            s[to] -= przelew;
+            s[from] += przelew;
                             
             if(auto wynik = czyNaDrugiejMapie(s)) return wynik;
             pushJesliNowy(s);
-            s[j] -= przelew;
-            s[i] += przelew;
+            s[to] += przelew;
+            s[from] -= przelew;
         }
         return std::nullopt;
     }

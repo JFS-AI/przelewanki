@@ -12,7 +12,6 @@
 constexpr int maxStany = 2'000'000;
 int n;
 
-
 struct Stan {
     std::vector<int> buffer; 
     
@@ -33,7 +32,7 @@ struct StanHash {
     std::size_t operator()(const Stan& s) const {
         std::size_t seed = 0;
         for (int val : s.buffer) {
-            // kombajn do haszy
+            // kombajn do haszy z llma
             seed ^= std::hash<int>{}(val) + 0x9e3779b9 + (seed << 6) + (seed >> 2);
         }
         return seed;

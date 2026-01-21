@@ -3,7 +3,6 @@
 #include <algorithm>
 #include <array>
 #include <optional>
-#include <span>
 #include <unordered_map>
 #include <deque>
 #include <functional>
@@ -21,7 +20,7 @@ struct Stan {
 
     explicit Stan(size_t size) : buffer(size, 0) {}
 
-    explicit Stan(std::span<const int> data) : buffer(data.begin(), data.end()) {}
+    explicit Stan(const std::vector<int>& data) : buffer(data.begin(), data.end()) {}
 
     bool operator==(const Stan& other) const {
         return buffer == other.buffer;

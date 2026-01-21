@@ -189,7 +189,7 @@ std::size_t policzLiczbeMozliwychStanow(const Stan& s) {
     return liczbaMozliwychStanow;
 }
 std::size_t policzIleNowychMozeTerazPowstac(const Stan& s) {
-    std::size_t liczbaMozliwychStanow = 1;
+    std::size_t liczbaMozliwychStanow = 0;
     for(int val : s) {
         liczbaMozliwychStanow += val;
         if(liczbaMozliwychStanow > maxStany)

@@ -46,15 +46,13 @@ template <typename Impl>
 class BfsBaza {
 protected:
     const Stan pojemnosc;
-    std::vector<std::pair<Stan, int>> kol;
-    int head = 0, tail = 0;
+    std::deque<std::pair<Stan, int>> kol;
     int nrRuchu = -1;
 
     void pushJesliNowy(const Stan& s) {
         auto [it, inserted] = mapa.try_emplace(s, nrRuchu + 1);
         if(inserted) {
             kol.emplace_back(s, nrRuchu + 1);
-            tail++;
         }
     }
     std::optional<int> czyNaDrugiejMapie(const Stan& s) const {
@@ -70,22 +68,20 @@ public:
     const HashMap& mapaOther;
     
 
-    explicit BfsBaza(const Stan& s, const Stan& p, HashMap& moja, const HashMap& obca, std::size_t rP) 
+    explicit BfsBaza(const Stan& s, const Stan& p, HashMap& moja, const HashMap& obca) 
                 : pojemnosc(p), mapa(moja), mapaOther(obca) {
-        
-        kol.reserve(rP);
 
         pushJesliNowy(s); // potrzebujemy zacząć bfsa w jakimś punkcie
         nrRuchu++;
     }
 
     bool czyKolejkaPusta() const {
-        return head > tail;
+        return kol.empty();
     }
 
     std::optional<int> wywolajCykl() {
-        while(kol[head].second == nrRuchu) {
-            Stan s = kol[head].first;
+        while(!kol.empty() && kol[0].second == nrRuchu) {
+            Stan s = kol[0].first;
 
             for(int i = 0; i < n; i++) {
                 
@@ -102,7 +98,7 @@ public:
                         return wynik;
                 }
             }
-            head++;
+            kol.pop_front();
         }
 
         nrRuchu++;
@@ -214,8 +210,8 @@ int solve(const std::vector<int>& x, const std::vector<int>& y) {
     mapaDolu.reserve(liczbaMozliwychStanow);
     mapaGory.reserve(liczbaMozliwychStanow);
 
-    BfsDol dol(wyzerowany, pojemnosc, mapaDolu, mapaGory, liczbaMozliwychStanow);
-    BfsGora gora(koniec, pojemnosc, mapaGory, mapaDolu, liczbaMozliwychStanow);
+    BfsDol dol(wyzerowany, pojemnosc, mapaDolu, mapaGory);
+    BfsGora gora(koniec, pojemnosc, mapaGory, mapaDolu);
 
 	while(!dol.czyKolejkaPusta() && !gora.czyKolejkaPusta()) {
         if(auto wynik = dol.wywolajCykl())  return *wynik;
